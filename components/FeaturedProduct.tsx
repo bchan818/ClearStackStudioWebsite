@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function FeaturedProduct() {
   return (
     <section className="bg-[#081827] py-20 sm:py-24">
@@ -26,6 +28,12 @@ export function FeaturedProduct() {
               )
             )}
           </div>
+          <Link
+            className="focus-ring mt-8 inline-flex w-fit items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+            href="/work/cardscope"
+          >
+            View CardScope
+          </Link>
         </div>
 
         <div className="border border-white/10 bg-slateInk p-5 shadow-glow">

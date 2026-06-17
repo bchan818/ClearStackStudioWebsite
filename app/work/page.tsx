@@ -90,12 +90,20 @@ export default function WorkPage() {
             products launch, this page will grow into a focused portfolio with
             concise project notes, outcomes, and launch details.
           </p>
-          <Link
-            className="focus-ring mt-6 inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
-            href="/contact"
-          >
-            Start a project
-          </Link>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              href="/work/cardscope"
+            >
+              View CardScope
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-white/15 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+              href="/contact"
+            >
+              Start a project
+            </Link>
+          </div>
         </div>
       </section>
     </main>

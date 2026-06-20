@@ -30,7 +30,7 @@ export function FeaturedProduct() {
           </div>
           <Link
             className="focus-ring mt-8 inline-flex w-fit items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
-            href="/work/cardscope"
+            href="https://cardscope-mvp-mogw.vercel.app/"
           >
             View CardScope
           </Link>

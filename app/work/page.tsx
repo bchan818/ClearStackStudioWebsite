@@ -27,7 +27,7 @@ const proofPoints = [
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Explore ClearStack Studio work, capabilities, and CardScope, a card price scanner and collection tracker in development."
+    "Explore ClearStack Studio work, capabilities, and CardScope, a live card search and collection tracker MVP."
 };
 
 export default function WorkPage() {
@@ -86,8 +86,8 @@ export default function WorkPage() {
             More project snapshots are coming soon.
           </h2>
           <p className="mt-4 max-w-2xl text-slate-300">
-            The first public feature is CardScope. As client work and studio
-            products launch, this page will grow into a focused portfolio with
+            The first public feature is CardScope, now available as a live MVP.
+            As client work and studio products launch, this page will grow into a focused portfolio with
             concise project notes, outcomes, and launch details.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">

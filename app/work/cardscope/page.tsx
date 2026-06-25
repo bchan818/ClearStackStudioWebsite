@@ -58,8 +58,8 @@ const pricingPlans = [
 ];
 
 const statusItems = [
-  "Product concept and first-version scope are defined.",
-  "Core product will start with manual search before scanner complexity.",
+  "Live MVP is available at cardscope-mvp.vercel.app.",
+  "Core product starts with manual search before scanner complexity.",
   "No live marketplace scraping, API keys, payment processing, or connected forms are included on this teaser page.",
   "CardScope is the first featured product by ClearStack Studio."
 ];
@@ -67,7 +67,7 @@ const statusItems = [
 export const metadata: Metadata = {
   title: "CardScope",
   description:
-    "CardScope is a card price scanner and collection tracker concept by ClearStack Studio for collectors, sellers, and hobbyists."
+    "CardScope is a live card search and collection tracker MVP by ClearStack Studio for collectors, sellers, and hobbyists."
 };
 
 export default function CardScopePage() {
@@ -75,17 +75,22 @@ export default function CardScopePage() {
     <main className="bg-slateInk">
       <section className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:py-24 lg:grid-cols-[1fr_0.9fr] lg:px-8">
         <div className="flex flex-col justify-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">
-            Featured Product
-          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">
+              Featured Product
+            </p>
+            <span className="border border-emerald-300/40 bg-emerald-300/[0.12] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-100">
+              Live MVP
+            </span>
+          </div>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
             CardScope helps collectors price, track, and understand their cards.
           </h1>
           <p className="mt-6 text-lg leading-8 text-slate-300">
-            CardScope is the first featured product by ClearStack Studio. The
-            first version focuses on manual card search, estimated prices,
-            collection tracking, pricing pages, and subscription-ready Pro
-            features.
+            CardScope is the first featured product by ClearStack Studio and is
+            now available as a live standalone MVP. The first version focuses on
+            manual card search, estimated prices, collection tracking, pricing
+            pages, and subscription-ready Pro features.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             {["Collectors", "Sellers", "Hobbyists"].map((audience) => (
@@ -129,8 +134,8 @@ export default function CardScopePage() {
               </div>
             </div>
             <p className="mt-5 text-sm leading-6 text-slate-400">
-              Scanner tools and mobile apps come later, after the core product
-              is reliable.
+              The live MVP is available now. Scanner tools and mobile apps come
+              later, after the core product is reliable.
             </p>
           </div>
         </div>
@@ -245,7 +250,7 @@ export default function CardScopePage() {
             Development Status
           </p>
           <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            CardScope is in early product development.
+            CardScope is live as a standalone MVP.
           </h2>
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {statusItems.map((item) => (

@@ -5,19 +5,24 @@ export function FeaturedProduct() {
     <section className="bg-[#081827] py-20 sm:py-24">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
         <div className="flex flex-col justify-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">
-            Featured Product
-          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">
+              Featured Product
+            </p>
+            <span className="border border-emerald-300/40 bg-emerald-300/[0.12] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-100">
+              Live MVP
+            </span>
+          </div>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
             CardScope by ClearStack Studio
           </h2>
           <p className="mt-5 text-lg leading-8 text-slate-300">
-            A card price scanner and collection tracker in development for
-            collectors who want faster pricing, cleaner organization, and a
-            clearer view of their collection.
+            A live MVP for card search, collection tracking, and Pro-style
+            product validation, built for collectors who want faster pricing,
+            cleaner organization, and a clearer view of their collection.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            {["Price scanner", "Collection tracker", "In development"].map(
+            {["Live MVP", "Collection tracker", "Pro preview"].map(
               (tag) => (
                 <span
                   className="border border-emerald-300/30 bg-emerald-300/[0.08] px-3 py-2 text-sm text-emerald-100"

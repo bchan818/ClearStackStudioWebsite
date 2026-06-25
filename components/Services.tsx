@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const services = [
   {
     title: "Websites",
@@ -48,6 +50,12 @@ export function Services() {
             </article>
           ))}
         </div>
+        <Link
+          className="focus-ring mt-10 inline-flex items-center justify-center border border-cyan-300/40 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyanGlow hover:text-slate-950"
+          href="/services"
+        >
+          Explore services
+        </Link>
       </div>
     </section>
   );

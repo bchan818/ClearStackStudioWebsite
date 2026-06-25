@@ -157,9 +157,9 @@ export default function ClearBloomPoliciesPage() {
           </div>
           <Link
             className="focus-ring mt-8 inline-flex items-center justify-center bg-rose-200 px-5 py-3 text-sm font-semibold text-[#130d14] transition hover:bg-amber-100 lg:mt-0"
-            href="/work/clearbloom-beauty/case-study"
+            href="/work/clearbloom-beauty/brand"
           >
-            View case study
+            View brand kit
           </Link>
         </div>
       </section>

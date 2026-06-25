@@ -89,6 +89,12 @@ export default function ClearBloomCaseStudyPage() {
               >
                 Start a commerce build
               </Link>
+              <Link
+                className="focus-ring inline-flex items-center justify-center border border-amber-100/30 px-6 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"
+                href="/work/clearbloom-beauty/brand"
+              >
+                View brand kit
+              </Link>
             </div>
           </div>
 

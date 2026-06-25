@@ -79,6 +79,12 @@ export default function ClearBloomBeautyPage() {
               >
                 View policies + FAQ
               </Link>
+              <Link
+                className="focus-ring inline-flex items-center justify-center border border-rose-200/40 px-5 py-3 text-sm font-semibold text-rose-100 transition hover:bg-rose-200 hover:text-[#130d14]"
+                href="/work/clearbloom-beauty/brand"
+              >
+                View brand kit
+              </Link>
             </div>
           </div>
 
@@ -272,6 +278,28 @@ export default function ClearBloomBeautyPage() {
             href="/work/clearbloom-beauty/policies"
           >
             Read policies + FAQ
+          </Link>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
+        <div className="border border-rose-200/20 bg-rose-200/[0.06] p-6 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-10">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-rose-200">
+              Brand Kit
+            </p>
+            <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Logo, palette, voice, photography, and social launch copy are ready.
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-6 text-stone-300">
+              The brand kit gives ClearBloom a consistent visual and messaging system for future product photography, social posts, and Shopify setup.
+            </p>
+          </div>
+          <Link
+            className="focus-ring mt-8 inline-flex items-center justify-center bg-rose-200 px-5 py-3 text-sm font-semibold text-[#130d14] transition hover:bg-amber-100 lg:mt-0"
+            href="/work/clearbloom-beauty/brand"
+          >
+            View ClearBloom brand kit
           </Link>
         </div>
       </section>

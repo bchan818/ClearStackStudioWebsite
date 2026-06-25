@@ -47,6 +47,12 @@ export default function ClearBloomCheckoutPage() {
             >
               Email order inquiry
             </a>
+            <Link
+              className="focus-ring ml-0 mt-3 inline-flex items-center justify-center border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:border-rose-200 hover:text-rose-100 sm:ml-3"
+              href="/work/clearbloom-beauty/policies"
+            >
+              Review policies + FAQ
+            </Link>
           </div>
 
           <div className="border border-white/10 bg-white/[0.06] p-6 shadow-[0_0_90px_rgba(244,114,182,0.18)]">

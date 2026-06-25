@@ -72,6 +72,12 @@ export default function ClearBloomBeautyPage() {
               >
                 Read case study
               </Link>
+              <Link
+                className="focus-ring inline-flex items-center justify-center border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:border-rose-200 hover:text-rose-100"
+                href="/work/clearbloom-beauty/policies"
+              >
+                View policies + FAQ
+              </Link>
             </div>
           </div>
 
@@ -254,6 +260,28 @@ export default function ClearBloomBeautyPage() {
             href="/work/clearbloom-beauty/case-study"
           >
             Read the ClearBloom case study
+          </Link>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
+        <div className="border border-white/10 bg-white/[0.04] p-6 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-10">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-rose-200">
+              Policies + FAQ
+            </p>
+            <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Clear answers before real checkout goes live.
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-6 text-stone-300">
+              Customers can review what is active now, what is still being finalized, and why the storefront currently uses an inquiry flow.
+            </p>
+          </div>
+          <Link
+            className="focus-ring mt-8 inline-flex items-center justify-center border border-rose-200/40 px-5 py-3 text-sm font-semibold text-rose-100 transition hover:bg-rose-200 hover:text-[#130d14] lg:mt-0"
+            href="/work/clearbloom-beauty/policies"
+          >
+            Read policies + FAQ
           </Link>
         </div>
       </section>

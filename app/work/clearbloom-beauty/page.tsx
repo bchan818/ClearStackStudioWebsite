@@ -1,66 +1,38 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-
-const collections = [
-  {
-    name: "Velvet Bloom Eau de Parfum",
-    category: "Perfume",
-    price: "$78",
-    notes: "Rose petals, soft amber, white musk",
-    color: "from-rose-300/30 via-pink-200/10 to-amber-200/20"
-  },
-  {
-    name: "Citrus Veil Body Mist",
-    category: "Fragrance",
-    price: "$34",
-    notes: "Mandarin, neroli, clean sandalwood",
-    color: "from-orange-200/30 via-yellow-100/10 to-emerald-100/20"
-  },
-  {
-    name: "Skin Silk Serum",
-    category: "Cosmetic",
-    price: "$46",
-    notes: "Hydrating glow serum for daily prep",
-    color: "from-cyan-200/20 via-white/10 to-fuchsia-200/20"
-  },
-  {
-    name: "Soft Focus Lip Tint",
-    category: "Cosmetic",
-    price: "$24",
-    notes: "Buildable color with a satin finish",
-    color: "from-fuchsia-300/30 via-rose-200/10 to-purple-200/20"
-  }
-];
+import { clearBloomBundles, clearBloomProducts } from "@/lib/clearbloomProducts";
 
 const sellingPoints = [
   "Curated perfume and cosmetic collections with a luxury editorial feel.",
-  "Simple shopping path for featured products, bundles, and seasonal drops.",
-  "Built as a ClearStack Studio commerce concept that can grow into Shopify, Stripe, inventory, and customer accounts later.",
+  "Clickable product detail pages for featured products, bundles, and seasonal drops.",
+  "Checkout-ready structure that can connect to Shopify, Stripe, inventory, and customer accounts later.",
   "Brand-safe product storytelling with clear pricing, benefits, and contact-driven ordering for the first launch."
 ];
 
-const launchSteps = [
+const storeFeatures = [
   {
-    title: "Phase 1: Brand storefront",
-    text: "Publish a polished landing/shop page with hero copy, featured products, categories, and a contact CTA."
+    title: "Product catalog",
+    text: "Featured perfumes, fragrance mists, skincare, makeup, prices, sizes, notes, and product detail pages."
   },
   {
-    title: "Phase 2: Commerce setup",
-    text: "Connect Shopify, Stripe, or another approved checkout once product inventory, shipping, and policies are ready."
+    title: "Order inquiry checkout",
+    text: "A lightweight checkout path that lets early buyers request products before payment processing is connected."
   },
   {
-    title: "Phase 3: Growth tools",
-    text: "Add email capture, reviews, bundles, promotions, and social content once the core storefront is validated."
+    title: "Beauty bundles",
+    text: "Gift-ready product sets that create higher-value offers without needing complex backend logic yet."
   }
 ];
 
 export const metadata: Metadata = {
   title: "ClearBloom Beauty",
   description:
-    "ClearBloom Beauty is a perfume and cosmetics storefront concept tied to ClearStack Studio."
+    "ClearBloom Beauty is a perfume and cosmetics storefront by ClearStack Studio with products, bundles, and order inquiry paths."
 };
 
 export default function ClearBloomBeautyPage() {
+  const signatureProduct = clearBloomProducts[0];
+
   return (
     <main className="bg-[#130d14] text-stone-50">
       <section className="relative overflow-hidden border-b border-white/10">
@@ -69,30 +41,30 @@ export default function ClearBloomBeautyPage() {
           <div className="flex flex-col justify-center">
             <div className="flex flex-wrap items-center gap-3">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-rose-200">
-                ClearStack Studio Commerce Concept
+                ClearStack Studio Storefront MVP
               </p>
               <span className="border border-amber-200/40 bg-amber-100/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-amber-100">
                 Perfume + Cosmetics
               </span>
             </div>
             <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-6xl">
-              ClearBloom Beauty turns fragrance and cosmetic discovery into a polished online boutique.
+              ClearBloom Beauty is a polished online boutique for fragrance, skin, and soft beauty essentials.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-200">
-              A premium storefront for curated perfumes, beauty essentials, and seasonal product drops — built to stay connected to the ClearStack Studio portfolio while becoming its own sellable brand experience.
+              Shop the first ClearBloom Beauty collection, explore product pages, compare bundles, and start an order inquiry while the brand prepares for full checkout integration.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 className="focus-ring inline-flex items-center justify-center bg-rose-200 px-5 py-3 text-sm font-semibold text-[#130d14] transition hover:bg-amber-100"
                 href="#shop"
               >
-                Shop the concept
+                Shop ClearBloom
               </Link>
               <Link
                 className="focus-ring inline-flex items-center justify-center border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:border-rose-200 hover:text-rose-100"
-                href="/contact"
+                href="/work/clearbloom-beauty/checkout"
               >
-                Build this store
+                Start order inquiry
               </Link>
             </div>
           </div>
@@ -108,7 +80,7 @@ export default function ClearBloomBeautyPage() {
                     Velvet Bloom
                   </h2>
                 </div>
-                <p className="text-sm font-semibold text-amber-100">$78</p>
+                <p className="text-sm font-semibold text-amber-100">{signatureProduct.price}</p>
               </div>
               <div
                 aria-label="Abstract perfume bottle and cosmetic palette mockup"
@@ -125,8 +97,14 @@ export default function ClearBloomBeautyPage() {
                 </div>
               </div>
               <p className="mt-6 text-sm leading-6 text-stone-300">
-                Featured product areas can support hero drops, bundles, reviews, product notes, and checkout links when commerce is connected.
+                {signatureProduct.detail}
               </p>
+              <Link
+                className="focus-ring mt-5 inline-flex items-center justify-center bg-rose-200 px-4 py-3 text-sm font-semibold text-[#130d14] transition hover:bg-amber-100"
+                href={`/work/clearbloom-beauty/products/${signatureProduct.slug}`}
+              >
+                View signature product
+              </Link>
             </div>
           </div>
         </div>
@@ -134,13 +112,13 @@ export default function ClearBloomBeautyPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8" id="shop">
         <p className="text-sm font-semibold uppercase tracking-[0.24em] text-rose-200">
-          Featured Products
+          Shop Products
         </p>
         <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           A boutique catalog built for fragrance storytelling and cosmetic conversion.
         </h2>
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {collections.map((product) => (
+          {clearBloomProducts.map((product) => (
             <article
               className="border border-white/10 bg-white/[0.04] p-4"
               key={product.name}
@@ -160,14 +138,70 @@ export default function ClearBloomBeautyPage() {
                 </p>
               </div>
               <p className="mt-3 text-sm leading-6 text-stone-300">
+                {product.shortDescription}
+              </p>
+              <p className="mt-2 text-xs leading-5 text-stone-400">
                 {product.notes}
               </p>
               <Link
                 className="focus-ring mt-5 inline-flex w-full items-center justify-center border border-rose-200/40 px-4 py-3 text-sm font-semibold text-rose-100 transition hover:bg-rose-200 hover:text-[#130d14]"
-                href="/contact"
+                href={`/work/clearbloom-beauty/products/${product.slug}`}
               >
-                Request product details
+                View product
               </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-[#1b1018] px-6 py-16 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-100">
+            Bundles
+          </p>
+          <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            Gift-ready sets make the storefront feel ready to sell.
+          </h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            {clearBloomBundles.map((bundle) => (
+              <article
+                className="border border-rose-200/20 bg-rose-200/[0.06] p-6"
+                key={bundle.name}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="text-2xl font-semibold text-white">{bundle.name}</h3>
+                  <p className="text-sm font-semibold text-amber-100">{bundle.price}</p>
+                </div>
+                <p className="mt-4 text-sm leading-6 text-stone-300">
+                  {bundle.description}
+                </p>
+                <Link
+                  className="focus-ring mt-6 inline-flex items-center justify-center border border-rose-200/40 px-4 py-3 text-sm font-semibold text-rose-100 transition hover:bg-rose-200 hover:text-[#130d14]"
+                  href="/work/clearbloom-beauty/checkout"
+                >
+                  Request bundle
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
+        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-rose-200">
+          Storefront MVP
+        </p>
+        <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+          ClearBloom Beauty now has the structure of a real store without taking payments yet.
+        </h2>
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {storeFeatures.map((feature) => (
+            <article
+              className="border border-white/10 bg-white/[0.04] p-6"
+              key={feature.title}
+            >
+              <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
+              <p className="mt-4 text-sm leading-6 text-stone-300">{feature.text}</p>
             </article>
           ))}
         </div>
@@ -200,35 +234,18 @@ export default function ClearBloomBeautyPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
-        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-rose-200">
-          Launch Roadmap
-        </p>
-        <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          Start with a beautiful storefront, then connect real commerce when operations are ready.
-        </h2>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {launchSteps.map((step) => (
-            <article
-              className="border border-white/10 bg-white/[0.04] p-6"
-              key={step.title}
-            >
-              <h3 className="text-xl font-semibold text-white">{step.title}</h3>
-              <p className="mt-4 text-sm leading-6 text-stone-300">{step.text}</p>
-            </article>
-          ))}
-        </div>
-        <div className="mt-10 border border-rose-200/30 bg-rose-200/[0.08] p-6 sm:p-8">
+        <div className="border border-rose-200/30 bg-rose-200/[0.08] p-6 sm:p-8">
           <h2 className="text-2xl font-semibold text-white">
-            Ready to turn this into a live beauty store?
+            Ready to place an early order?
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-stone-300">
-            Next step: choose the final brand name, product list, product photos, pricing, shipping policy, return policy, and checkout provider.
+            This MVP uses an order inquiry flow until product photos, inventory, shipping, returns, taxes, and payment processing are finalized.
           </p>
           <Link
             className="focus-ring mt-6 inline-flex items-center justify-center bg-rose-200 px-5 py-3 text-sm font-semibold text-[#130d14] transition hover:bg-amber-100"
-            href="/contact"
+            href="/work/clearbloom-beauty/checkout"
           >
-            Start the commerce build
+            Start order inquiry
           </Link>
         </div>
       </section>

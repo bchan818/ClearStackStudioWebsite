@@ -88,7 +88,7 @@ export default function WorkPage() {
           <p className="mt-4 max-w-2xl text-slate-300">
             CardScope is available as a live MVP, and ClearBloom Beauty now shows
             how ClearStack Studio can shape a perfume and cosmetics idea into a
-            polished commerce storefront concept.
+            polished storefront MVP with products, bundles, and order inquiries.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link

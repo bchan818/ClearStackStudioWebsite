@@ -9,10 +9,10 @@ export function FeaturedProduct() {
             Featured Work
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            ClearStack Studio products and commerce concepts
+            ClearStack Studio products and storefront MVPs
           </h2>
           <p className="mt-5 text-lg leading-8 text-slate-300">
-            Live MVPs and polished storefront concepts that show how ClearStack
+            Live MVPs and polished storefront builds that show how ClearStack
             Studio turns ideas into launch-ready digital experiences.
           </p>
         </div>
@@ -91,7 +91,7 @@ export function FeaturedProduct() {
               <div>
                 <div className="flex flex-wrap items-center gap-3">
                   <p className="text-sm font-semibold uppercase tracking-[0.24em] text-rose-200">
-                    Commerce Concept
+                    Storefront MVP
                   </p>
                   <span className="border border-amber-200/40 bg-amber-100/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-amber-100">
                     Perfume + Cosmetics
@@ -101,10 +101,9 @@ export function FeaturedProduct() {
                   ClearBloom Beauty storefront
                 </h3>
                 <p className="mt-5 text-base leading-7 text-stone-300">
-                  A premium perfume and cosmetics storefront concept tied to
-                  ClearStack Studio, designed for curated product drops,
-                  fragrance storytelling, cosmetic bundles, and future checkout
-                  integration.
+                  A premium perfume and cosmetics storefront tied to ClearStack
+                  Studio, designed with product detail pages, beauty bundles,
+                  order inquiries, and future checkout integration.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
                   {["Online boutique", "Product drops", "Checkout-ready"].map(

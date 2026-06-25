@@ -270,12 +270,20 @@ export default function CardScopePage() {
               Want to talk through CardScope or a product like it?
             </h2>
           </div>
-          <Link
-            className="focus-ring mt-8 inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift lg:mt-0"
-            href="/contact"
-          >
-            Contact ClearStack Studio
-          </Link>
+          <div className="mt-8 flex flex-wrap gap-3 lg:mt-0">
+            <Link
+              className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              href="https://cardscope-mvp.vercel.app"
+            >
+              View CardScope MVP
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+              href="/contact"
+            >
+              Contact ClearStack Studio
+            </Link>
+          </div>
         </div>
       </section>
     </main>

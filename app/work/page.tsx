@@ -93,7 +93,7 @@ export default function WorkPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
-              href="https://cardscope-mvp-mogw.vercel.app/"
+              href="https://cardscope-mvp.vercel.app"
             >
               View CardScope
             </Link>

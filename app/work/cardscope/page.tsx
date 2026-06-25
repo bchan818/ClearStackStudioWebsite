@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { MvpServiceCta } from "@/components/MvpServiceCta";
 
 const problems = [
@@ -101,6 +102,20 @@ export default function CardScopePage() {
                 {audience}
               </span>
             ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              href="https://cardscope-mvp.vercel.app"
+            >
+              View CardScope MVP
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-white/15 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+              href="/work/cardscope/case-study"
+            >
+              Read case study
+            </Link>
           </div>
         </div>
 
@@ -262,6 +277,25 @@ export default function CardScopePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
+        <div className="border border-emerald-300/20 bg-emerald-300/[0.05] p-8 sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-10">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emeraldLift">
+              Case Study
+            </p>
+            <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              See how CardScope became a live MVP proof point.
+            </h2>
+          </div>
+          <Link
+            className="focus-ring mt-8 inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift lg:mt-0"
+            href="/work/cardscope/case-study"
+          >
+            Read the CardScope case study
+          </Link>
         </div>
       </section>
 

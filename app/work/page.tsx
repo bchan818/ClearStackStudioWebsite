@@ -104,6 +104,12 @@ export default function WorkPage() {
               View ClearBloom Beauty
             </Link>
             <Link
+              className="focus-ring inline-flex items-center justify-center border border-amber-100/30 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"
+              href="/work/clearbloom-beauty/case-study"
+            >
+              Read ClearBloom case study
+            </Link>
+            <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
               href="/contact"
             >

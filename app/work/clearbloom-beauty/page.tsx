@@ -66,6 +66,12 @@ export default function ClearBloomBeautyPage() {
               >
                 Start order inquiry
               </Link>
+              <Link
+                className="focus-ring inline-flex items-center justify-center border border-amber-100/30 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"
+                href="/work/clearbloom-beauty/case-study"
+              >
+                Read case study
+              </Link>
             </div>
           </div>
 
@@ -230,6 +236,25 @@ export default function ClearBloomBeautyPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
+        <div className="border border-amber-100/20 bg-amber-100/[0.06] p-6 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-10">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-100">
+              Case Study
+            </p>
+            <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              See how ClearBloom became a storefront MVP.
+            </h2>
+          </div>
+          <Link
+            className="focus-ring mt-8 inline-flex items-center justify-center bg-rose-200 px-5 py-3 text-sm font-semibold text-[#130d14] transition hover:bg-amber-100 lg:mt-0"
+            href="/work/clearbloom-beauty/case-study"
+          >
+            Read the ClearBloom case study
+          </Link>
         </div>
       </section>
 

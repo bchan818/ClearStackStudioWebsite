@@ -3,6 +3,7 @@ import Link from "next/link";
 
 const contactReasons = [
   "A new website or refresh",
+  "An e-commerce storefront",
   "An MVP for a product idea",
   "A mobile app prototype",
   "An AI workflow or internal tool"

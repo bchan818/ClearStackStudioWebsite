@@ -61,9 +61,9 @@ export function Hero() {
                 <p className="mt-2 text-sm text-slate-400">Core services</p>
               </div>
               <div className="border border-white/10 bg-[#081827] p-4">
-                <p className="text-3xl font-semibold text-cyanGlow">1</p>
+                <p className="text-3xl font-semibold text-cyanGlow">2</p>
                 <p className="mt-2 text-sm text-slate-400">
-                  Featured product
+                  Featured projects
                 </p>
               </div>
             </div>

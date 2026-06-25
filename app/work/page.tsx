@@ -83,12 +83,12 @@ export default function WorkPage() {
       <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
         <div className="border border-cyan-300/20 bg-cyan-300/[0.05] p-8 sm:p-10">
           <h2 className="text-2xl font-semibold text-white">
-            More project snapshots are coming soon.
+            New product and storefront concepts are being added.
           </h2>
           <p className="mt-4 max-w-2xl text-slate-300">
-            The first public feature is CardScope, now available as a live MVP.
-            As client work and studio products launch, this page will grow into a focused portfolio with
-            concise project notes, outcomes, and launch details.
+            CardScope is available as a live MVP, and ClearBloom Beauty now shows
+            how ClearStack Studio can shape a perfume and cosmetics idea into a
+            polished commerce storefront concept.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
@@ -96,6 +96,12 @@ export default function WorkPage() {
               href="https://cardscope-mvp.vercel.app"
             >
               View CardScope
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-rose-200/40 px-5 py-3 text-sm font-semibold text-rose-100 transition hover:border-rose-200 hover:text-white"
+              href="/work/clearbloom-beauty"
+            >
+              View ClearBloom Beauty
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"

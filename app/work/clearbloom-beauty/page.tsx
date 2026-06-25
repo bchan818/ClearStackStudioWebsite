@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ClearBloomProductVisual } from "@/components/ClearBloomProductVisual";
 import { clearBloomBundles, clearBloomProducts } from "@/lib/clearbloomProducts";
 
 const sellingPoints = [
@@ -94,19 +95,8 @@ export default function ClearBloomBeautyPage() {
                 </div>
                 <p className="text-sm font-semibold text-amber-100">{signatureProduct.price}</p>
               </div>
-              <div
-                aria-label="Abstract perfume bottle and cosmetic palette mockup"
-                className="mt-8 grid min-h-[270px] place-items-center bg-gradient-to-br from-rose-300/20 via-fuchsia-200/10 to-amber-100/20 p-6"
-                role="img"
-              >
-                <div className="relative h-56 w-44">
-                  <div className="absolute left-1/2 top-2 h-8 w-16 -translate-x-1/2 border border-rose-100/60 bg-white/10" />
-                  <div className="absolute left-1/2 top-9 h-40 w-28 -translate-x-1/2 rounded-t-[42px] border border-rose-100/70 bg-white/15 shadow-[inset_0_0_60px_rgba(255,255,255,0.12)]" />
-                  <div className="absolute bottom-4 left-1/2 h-20 w-40 -translate-x-1/2 rounded-full border border-amber-100/40 bg-[#3b2032]/80" />
-                  <div className="absolute bottom-8 left-7 h-8 w-8 rounded-full bg-rose-200/80" />
-                  <div className="absolute bottom-8 left-16 h-8 w-8 rounded-full bg-amber-100/80" />
-                  <div className="absolute bottom-8 right-7 h-8 w-8 rounded-full bg-fuchsia-200/80" />
-                </div>
+              <div className="mt-8">
+                <ClearBloomProductVisual product={signatureProduct} variant="hero" />
               </div>
               <p className="mt-6 text-sm leading-6 text-stone-300">
                 {signatureProduct.detail}
@@ -135,7 +125,7 @@ export default function ClearBloomBeautyPage() {
               className="border border-white/10 bg-white/[0.04] p-4"
               key={product.name}
             >
-              <div className={`h-44 bg-gradient-to-br ${product.color}`} />
+              <ClearBloomProductVisual product={product} />
               <div className="mt-5 flex items-start justify-between gap-4">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-rose-200">

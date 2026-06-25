@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ClearBloomProductVisual } from "@/components/ClearBloomProductVisual";
 import { clearBloomProducts, getClearBloomProduct } from "@/lib/clearbloomProducts";
 
 type ProductPageProps = {
@@ -79,20 +80,7 @@ export default async function ClearBloomProductPage({ params }: ProductPageProps
           </div>
 
           <div className="border border-white/10 bg-white/[0.06] p-5 shadow-[0_0_90px_rgba(244,114,182,0.18)]">
-            <div className={`grid min-h-[440px] place-items-center bg-gradient-to-br ${product.color} p-8`}>
-              <div className="w-full max-w-sm border border-white/20 bg-[#1b1018]/80 p-6">
-                <div className="mx-auto h-48 w-32 rounded-t-[56px] border border-rose-100/70 bg-white/15 shadow-[inset_0_0_60px_rgba(255,255,255,0.12)]" />
-                <div className="mt-8 border-t border-white/15 pt-5">
-                  <p className="text-xs uppercase tracking-[0.22em] text-rose-100">
-                    ClearBloom Beauty
-                  </p>
-                  <p className="mt-3 text-2xl font-semibold text-white">
-                    {product.name}
-                  </p>
-                  <p className="mt-2 text-sm text-stone-300">{product.notes}</p>
-                </div>
-              </div>
-            </div>
+            <ClearBloomProductVisual product={product} variant="hero" />
           </div>
         </div>
       </section>

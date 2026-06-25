@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { MvpServiceCta } from "@/components/MvpServiceCta";
 
 const problems = [
   "Card values are scattered across tools, listings, notes, and memory.",
@@ -265,32 +265,7 @@ export default function CardScopePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
-        <div className="border border-cyan-300/20 bg-cyan-300/[0.06] p-8 sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-10">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">
-              From idea to app.
-            </p>
-            <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Want to talk through CardScope or a product like it?
-            </h2>
-          </div>
-          <div className="mt-8 flex flex-wrap gap-3 lg:mt-0">
-            <Link
-              className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
-              href="https://cardscope-mvp.vercel.app"
-            >
-              View CardScope MVP
-            </Link>
-            <Link
-              className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
-              href="/contact"
-            >
-              Contact ClearStack Studio
-            </Link>
-          </div>
-        </div>
-      </section>
+      <MvpServiceCta />
     </main>
   );
 }

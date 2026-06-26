@@ -101,12 +101,13 @@ export function FeaturedProduct() {
                   ClearBloom Beauty storefront
                 </h3>
                 <p className="mt-5 text-base leading-7 text-stone-300">
-                  A premium perfume and cosmetics storefront tied to ClearStack
-                  Studio, designed with product detail pages, beauty bundles,
-                  order inquiries, and future checkout integration.
+                  A fictional premium perfume and cosmetics storefront tied to
+                  ClearStack Studio, designed as an inquiry-based Storefront MVP
+                  Package proof project with product detail pages, beauty
+                  bundles, policies, and future checkout integration.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
-                  {["Online boutique", "Product drops", "Checkout-ready"].map(
+                  {["Inquiry storefront", "Product drops", "No live checkout"].map(
                     (tag) => (
                       <span
                         className="border border-rose-200/30 bg-rose-200/[0.08] px-3 py-2 text-sm text-rose-100"
@@ -146,7 +147,13 @@ export function FeaturedProduct() {
                   className="focus-ring mt-6 inline-flex w-fit items-center justify-center bg-rose-200 px-5 py-3 text-sm font-semibold text-[#130d14] transition hover:bg-amber-100"
                   href="/work/clearbloom-beauty"
                 >
-                  View ClearBloom Beauty
+                  View storefront proof
+                </Link>
+                <Link
+                  className="focus-ring mt-3 inline-flex w-fit items-center justify-center border border-amber-100/30 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"
+                  href="/work/clearbloom-beauty/case-study"
+                >
+                  See case study
                 </Link>
               </div>
             </div>

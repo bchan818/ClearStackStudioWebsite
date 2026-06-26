@@ -26,9 +26,9 @@ const packages = [
   {
     name: "Storefront MVP Package",
     shortDescription:
-      "Create a polished product catalog and inquiry-ready storefront before full commerce, inventory, and payment systems are connected.",
+      "Create a polished, inquiry-ready storefront demo before full commerce, inventory, and payment systems are connected.",
     bestFit:
-      "Retail, beauty, boutique, product, or creator brands that need to present products professionally before full ecommerce setup.",
+      "Beauty, wellness, fashion, lifestyle, food/product, boutique ecommerce, and creator merchandise brands that need to present products professionally before full ecommerce setup.",
     includes: [
       "Homepage and storefront positioning",
       "Product catalog and product detail pages",
@@ -39,7 +39,8 @@ const packages = [
       "Storefront page",
       "Product catalog cards",
       "Product detail pages",
-      "Inquiry checkout flow"
+      "Inquiry checkout flow",
+      "ClearBloom-style case study proof"
     ],
     price: "Starting at storefront-scope estimate",
     cta: "Start a storefront inquiry",

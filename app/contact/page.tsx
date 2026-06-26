@@ -53,7 +53,7 @@ const inquiryPaths = [
   },
   {
     title: "Storefront MVP Package",
-    text: "For brands that need a polished product catalog, product detail pages, brand visuals, inquiry checkout, policies, and storefront launch structure.",
+    text: "For beauty, wellness, fashion, lifestyle, food/product, boutique ecommerce, or creator merchandise brands that need a polished catalog, brand visuals, inquiry checkout, policies, and storefront launch structure before real commerce is connected.",
     href: "mailto:hello@clearstack.studio?subject=Storefront%20MVP%20Package%20inquiry%20for%20ClearStack%20Studio",
     cta: "Start a storefront inquiry"
   },
@@ -72,8 +72,8 @@ const proofLinks = [
     href: "/work/cardscope/case-study"
   },
   {
-    title: "ClearBloom Beauty case study",
-    text: "Storefront MVP for a perfume and cosmetics concept.",
+    title: "ClearBloom Beauty Storefront MVP case study",
+    text: "Fictional inquiry-based storefront MVP proof for premium beauty, wellness, fashion, lifestyle, food/product, boutique ecommerce, and creator merchandise brands.",
     href: "/work/clearbloom-beauty/case-study"
   }
 ];

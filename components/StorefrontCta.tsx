@@ -5,13 +5,17 @@ type StorefrontCtaProps = {
   title?: string;
   text?: string;
   variant?: "rose" | "amber";
+  proofHref?: string;
+  proofLabel?: string;
 };
 
 export function StorefrontCta({
   eyebrow = "Storefront MVP Package",
   title = "Build a storefront like this.",
   text = "ClearStack Studio can help shape a product brand into a polished storefront MVP before full checkout, inventory, shipping, and fulfillment systems are connected.",
-  variant = "rose"
+  variant = "rose",
+  proofHref,
+  proofLabel = "See ClearBloom case study"
 }: StorefrontCtaProps) {
   const isAmber = variant === "amber";
 
@@ -52,6 +56,14 @@ export function StorefrontCta({
           >
             Start a storefront inquiry
           </Link>
+          {proofHref ? (
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-amber-100/40 px-6 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-100 hover:text-[#130d14]"
+              href={proofHref}
+            >
+              {proofLabel}
+            </Link>
+          ) : null}
         </div>
       </div>
     </section>

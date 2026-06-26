@@ -6,7 +6,8 @@ const capabilities = [
   "Launch-ready websites",
   "Mobile app prototypes",
   "AI-powered internal tools",
-  "MVP strategy and builds"
+  "MVP strategy and builds",
+  "Inquiry-based storefront MVPs"
 ];
 
 const proofPoints = [
@@ -86,9 +87,16 @@ export default function WorkPage() {
             New product and storefront concepts are being added.
           </h2>
           <p className="mt-4 max-w-2xl text-slate-300">
-            CardScope is available as a live MVP, and ClearBloom Beauty now shows
-            how ClearStack Studio can shape a perfume and cosmetics idea into a
-            polished storefront MVP with products, bundles, and order inquiries.
+            CardScope is available as a live MVP, and ClearBloom Beauty shows how
+            ClearStack Studio can shape a fictional beauty brand into a premium,
+            inquiry-based storefront MVP with products, bundles, policies, and a
+            future ecommerce upgrade path.
+          </p>
+          <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-300">
+            The same Storefront MVP Package pattern can support beauty, wellness,
+            fashion, lifestyle, food/product, boutique ecommerce, and creator
+            merchandise brands before Shopify, Stripe, inventory, shipping, or tax
+            systems are connected.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
@@ -107,7 +115,7 @@ export default function WorkPage() {
               className="focus-ring inline-flex items-center justify-center border border-amber-100/30 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"
               href="/work/clearbloom-beauty/case-study"
             >
-              Read ClearBloom case study
+              See storefront MVP case study
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"

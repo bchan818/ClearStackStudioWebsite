@@ -386,6 +386,8 @@ export default function ClearBloomBeautyPage() {
         eyebrow="Storefront MVP Package"
         title="Build a storefront like this for a product brand."
         text="ClearStack Studio can use the ClearBloom pattern for beauty, wellness, fashion, lifestyle, food, and product brands that need a polished storefront MVP before full ecommerce operations are ready."
+        proofHref="/work/clearbloom-beauty/case-study"
+        proofLabel="See ClearBloom case study"
       />
 
       <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">

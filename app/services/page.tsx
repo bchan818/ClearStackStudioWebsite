@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ServicePackages } from "@/components/ServicePackages";
+import { StorefrontCta } from "@/components/StorefrontCta";
 
 const processSteps = [
   {
@@ -29,7 +30,7 @@ const proofLinks = [
   },
   {
     title: "ClearBloom Beauty case study",
-    text: "From perfume and cosmetics idea to storefront MVP.",
+    text: "A fictional, inquiry-based storefront MVP that shows the Storefront MVP Package pattern for beauty, wellness, fashion, lifestyle, food/product, boutique ecommerce, and creator merchandise brands.",
     href: "/work/clearbloom-beauty/case-study"
   }
 ];
@@ -70,6 +71,15 @@ export default function ServicesPage() {
       </section>
 
       <ServicePackages />
+
+      <StorefrontCta
+        eyebrow="Storefront MVP Package proof"
+        title="ClearBloom Beauty shows the package as a client-facing storefront demo."
+        text="The case study explains how a fictional beauty brand became a premium inquiry-based storefront MVP with catalog structure, product detail pages, policies, and a future Shopify or Stripe upgrade path."
+        variant="amber"
+        proofHref="/work/clearbloom-beauty/case-study"
+        proofLabel="See ClearBloom case study"
+      />
 
       <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
         <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">

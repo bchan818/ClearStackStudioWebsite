@@ -12,6 +12,12 @@ export function Footer() {
           </p>
         </div>
         <nav aria-label="Footer navigation" className="flex flex-wrap gap-5">
+          <Link
+            className="focus-ring transition hover:text-white"
+            href="/services"
+          >
+            Services
+          </Link>
           <Link className="focus-ring transition hover:text-white" href="/work">
             Work
           </Link>

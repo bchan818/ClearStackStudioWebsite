@@ -16,6 +16,34 @@ const projectDetails = [
   "Any examples, notes, or current tools"
 ];
 
+const intakeQuestions = [
+  {
+    title: "Package fit",
+    prompt:
+      "Which package are you interested in: MVP Launch Package, Storefront MVP Package, or Website/App Refresh Package?"
+  },
+  {
+    title: "Project goal",
+    prompt: "What are you trying to build, launch, or improve?"
+  },
+  {
+    title: "Audience",
+    prompt: "Who is the product, storefront, website, or app for?"
+  },
+  {
+    title: "Needed scope",
+    prompt: "What pages, features, products, workflows, or content sections do you need?"
+  },
+  {
+    title: "Starting materials",
+    prompt: "Do you already have branding, copy, product info, screenshots, examples, or a current site?"
+  },
+  {
+    title: "Timeline and success",
+    prompt: "What timeline are you aiming for, and what would make the project successful?"
+  }
+];
+
 const inquiryPaths = [
   {
     title: "MVP Launch Package",
@@ -148,6 +176,48 @@ export default function ContactPage() {
                 >
                   {path.cta}
                 </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
+        <div className="border border-emerald-300/20 bg-emerald-300/[0.05] p-8 sm:p-10">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emeraldLift">
+                Project Intake Checklist
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                Send these details so the first reply can be specific.
+              </h2>
+              <p className="mt-4 text-sm leading-6 text-slate-300 sm:text-base">
+                No form backend is connected yet. Use this checklist to write a clear first email and choose the right package path.
+              </p>
+            </div>
+            <Link
+              className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              href="mailto:hello@clearstack.studio?subject=Project%20intake%20for%20ClearStack%20Studio"
+            >
+              Email your project details
+            </Link>
+          </div>
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {intakeQuestions.map((question, index) => (
+              <article
+                className="border border-white/10 bg-slateInk/70 p-5"
+                key={question.title}
+              >
+                <p className="text-sm font-semibold text-cyanGlow">
+                  0{index + 1}
+                </p>
+                <h3 className="mt-3 text-lg font-semibold text-white">
+                  {question.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-slate-300">
+                  {question.prompt}
+                </p>
               </article>
             ))}
           </div>

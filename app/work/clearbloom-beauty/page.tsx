@@ -85,6 +85,12 @@ export default function ClearBloomBeautyPage() {
               >
                 View brand kit
               </Link>
+              <Link
+                className="focus-ring inline-flex items-center justify-center border border-amber-100/30 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"
+                href="/work/clearbloom-beauty/social"
+              >
+                View social launch kit
+              </Link>
             </div>
           </div>
 
@@ -300,6 +306,28 @@ export default function ClearBloomBeautyPage() {
             href="/work/clearbloom-beauty/brand"
           >
             View ClearBloom brand kit
+          </Link>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
+        <div className="border border-amber-100/20 bg-amber-100/[0.06] p-6 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-10">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-100">
+              Social Launch Kit
+            </p>
+            <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Bios, first posts, hashtags, and short-form prompts are ready.
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-6 text-stone-300">
+              The social launch kit prepares ClearBloom for Instagram, TikTok, Pinterest, and YouTube Shorts without implying that checkout is active yet.
+            </p>
+          </div>
+          <Link
+            className="focus-ring mt-8 inline-flex items-center justify-center border border-amber-100/40 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-100 hover:text-[#130d14] lg:mt-0"
+            href="/work/clearbloom-beauty/social"
+          >
+            View social launch kit
           </Link>
         </div>
       </section>

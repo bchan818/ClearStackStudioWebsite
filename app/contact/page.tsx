@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const contactReasons = [
-  "A new website or refresh",
-  "An e-commerce storefront",
-  "An MVP for a product idea",
+  "MVP Launch Package",
+  "Storefront MVP Package",
+  "Website/App Refresh Package",
   "A mobile app prototype",
   "An AI workflow or internal tool"
 ];
@@ -18,22 +18,22 @@ const projectDetails = [
 
 const inquiryPaths = [
   {
-    title: "MVP build",
-    text: "For product ideas like CardScope that need a focused first version, live demo, pitch page, and validation path.",
-    href: "mailto:hello@clearstack.studio?subject=MVP%20project%20inquiry%20for%20ClearStack%20Studio",
+    title: "MVP Launch Package",
+    text: "For founders, creators, or small businesses that need a first working product with core flow, key pages, deployment, and launch-ready MVP structure.",
+    href: "mailto:hello@clearstack.studio?subject=MVP%20Launch%20Package%20inquiry%20for%20ClearStack%20Studio",
     cta: "Start an MVP inquiry"
   },
   {
-    title: "Storefront build",
-    text: "For retail, beauty, boutique, or product concepts like ClearBloom Beauty that need a polished storefront MVP.",
-    href: "mailto:hello@clearstack.studio?subject=Storefront%20project%20inquiry%20for%20ClearStack%20Studio",
+    title: "Storefront MVP Package",
+    text: "For brands that need a polished product catalog, product detail pages, brand visuals, inquiry checkout, policies, and storefront launch structure.",
+    href: "mailto:hello@clearstack.studio?subject=Storefront%20MVP%20Package%20inquiry%20for%20ClearStack%20Studio",
     cta: "Start a storefront inquiry"
   },
   {
-    title: "Website or app refresh",
-    text: "For small businesses and creators who need a cleaner site, stronger conversion flow, or mobile-ready product experience.",
-    href: "mailto:hello@clearstack.studio?subject=Website%20or%20app%20project%20inquiry%20for%20ClearStack%20Studio",
-    cta: "Start a website inquiry"
+    title: "Website/App Refresh Package",
+    text: "For businesses that need content cleanup, improved layout, responsive design, navigation updates, service/work sections, and deployment polish.",
+    href: "mailto:hello@clearstack.studio?subject=Website%2FApp%20Refresh%20Package%20inquiry%20for%20ClearStack%20Studio",
+    cta: "Start a refresh inquiry"
   }
 ];
 

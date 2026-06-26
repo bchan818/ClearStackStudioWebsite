@@ -1,44 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-
-const servicePackages = [
-  {
-    title: "MVP build",
-    bestFor: "Founders and creators with a product idea that needs a focused first version.",
-    includes: [
-      "Landing page or product shell",
-      "Demo or prototype workflow",
-      "Validation pages and conversion CTAs",
-      "Deployment-ready implementation"
-    ],
-    proof: "CardScope shows this path as a live MVP with demo, pitch, roadmap, and early-access flow.",
-    href: "mailto:hello@clearstack.studio?subject=MVP%20build%20inquiry%20for%20ClearStack%20Studio"
-  },
-  {
-    title: "Storefront MVP",
-    bestFor: "Retail, beauty, boutique, and product brands that need a polished shopping surface before full commerce setup.",
-    includes: [
-      "Storefront page and brand positioning",
-      "Product catalog and detail pages",
-      "Inquiry checkout instead of fake payment",
-      "Policies, FAQ, and commerce roadmap"
-    ],
-    proof: "ClearBloom Beauty shows this path with products, bundles, inquiry checkout, policies, and case-study proof.",
-    href: "mailto:hello@clearstack.studio?subject=Storefront%20MVP%20inquiry%20for%20ClearStack%20Studio"
-  },
-  {
-    title: "Website or app refresh",
-    bestFor: "Small businesses and teams that need clearer messaging, stronger CTAs, and a more modern digital presence.",
-    includes: [
-      "Homepage and core page structure",
-      "Responsive visual polish",
-      "Service or product positioning",
-      "Contact and lead-capture paths"
-    ],
-    proof: "ClearStack Studio uses its own site structure to show portfolio proof, services, contact paths, and launch-ready pages.",
-    href: "mailto:hello@clearstack.studio?subject=Website%20or%20app%20refresh%20inquiry%20for%20ClearStack%20Studio"
-  }
-];
+import { ServicePackages } from "@/components/ServicePackages";
 
 const processSteps = [
   {
@@ -75,7 +37,7 @@ const proofLinks = [
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "ClearStack Studio services for MVP builds, storefront MVPs, websites, app refreshes, and practical launch-ready digital products."
+    "ClearStack Studio service packages for MVP launches, storefront MVPs, website refreshes, app refreshes, and practical launch-ready digital products."
 };
 
 export default function ServicesPage() {
@@ -86,11 +48,10 @@ export default function ServicesPage() {
           Services
         </p>
         <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-          ClearStack Studio builds focused MVPs, storefronts, websites, and app-ready digital products.
+          Business-ready packages for launching and improving digital products.
         </h1>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-          The best first version is clear, useful, and launchable. Start with a
-          practical scope, publish real proof, and improve from there.
+          ClearStack Studio helps founders, creators, small businesses, and product brands move from rough idea to a clean, responsive, launch-ready digital experience.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
@@ -108,41 +69,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-[#081827] px-6 py-16 sm:py-20 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emeraldLift">
-            Service packages
-          </p>
-          <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Choose the build path that matches your next milestone.
-          </h2>
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {servicePackages.map((service) => (
-              <article className="border border-white/10 bg-white/[0.04] p-6" key={service.title}>
-                <h3 className="text-2xl font-semibold text-white">{service.title}</h3>
-                <p className="mt-4 text-sm leading-6 text-slate-300">{service.bestFor}</p>
-                <ul className="mt-6 space-y-3 text-sm leading-6 text-slate-300">
-                  {service.includes.map((item) => (
-                    <li className="flex gap-3" key={item}>
-                      <span aria-hidden="true" className="text-cyanGlow">-</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-6 border-t border-white/10 pt-5 text-sm leading-6 text-emerald-100">
-                  {service.proof}
-                </p>
-                <Link
-                  className="focus-ring mt-6 inline-flex items-center justify-center border border-cyan-300/40 px-4 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyanGlow hover:text-slate-950"
-                  href={service.href}
-                >
-                  Ask about {service.title}
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServicePackages />
 
       <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
         <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">

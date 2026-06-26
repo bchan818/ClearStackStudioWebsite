@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { StorefrontCta } from "@/components/StorefrontCta";
 
 const summaryStats = [
   { label: "Project type", value: "Storefront MVP" },
@@ -49,6 +50,15 @@ const proofPoints = [
   "A retail idea can look polished and testable before full commerce infrastructure is connected.",
   "Product storytelling, bundles, and inquiry flows can validate interest before inventory and payment setup.",
   "ClearStack Studio can help small brands move from loose product ideas to a structured commerce launch plan."
+];
+
+const studioProof = [
+  "Retail concept to storefront MVP: a loose beauty idea became a structured, navigable storefront demo.",
+  "Brand presentation: the experience includes visual tone, product story, bundle positioning, and brand support pages.",
+  "Product catalog structure: products have categories, prices, notes, sizes, detail pages, and inquiry paths.",
+  "Inquiry-based checkout: customers can express intent without fake payments or misleading purchase claims.",
+  "Policy and FAQ readiness: the MVP explains what is active now and what must be finalized before live checkout.",
+  "Future commerce upgrade path: Shopify, Stripe, inventory, shipping, tax, and email automation can be added later."
 ];
 
 export const metadata: Metadata = {
@@ -186,28 +196,29 @@ export default function ClearBloomCaseStudyPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
-        <div className="border border-rose-200/30 bg-rose-200/[0.08] p-8 sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-10">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-rose-200">
-              Build a Commerce MVP
-            </p>
-            <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Want a storefront concept like ClearBloom Beauty?
-            </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-6 text-stone-300">
-              ClearStack Studio can help shape a retail idea into a polished
-              storefront MVP before checkout, inventory, and fulfillment are
-              fully connected.
-            </p>
-          </div>
-          <Link
-            className="focus-ring mt-8 inline-flex items-center justify-center bg-rose-200 px-6 py-3 text-sm font-semibold text-[#130d14] transition hover:bg-amber-100 lg:mt-0"
-            href="/contact"
-          >
-            Start a commerce build
-          </Link>
+        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-100">
+          What this proves for ClearStack Studio
+        </p>
+        <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+          The demo shows a repeatable path for product brands that need to look ready before full ecommerce is live.
+        </h2>
+        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {studioProof.map((point) => (
+            <article
+              className="border border-white/10 bg-white/[0.04] p-5 text-sm leading-6 text-stone-300"
+              key={point}
+            >
+              {point}
+            </article>
+          ))}
         </div>
       </section>
+
+      <StorefrontCta
+        eyebrow="Build a Storefront MVP"
+        title="Want a storefront concept like ClearBloom Beauty?"
+        text="ClearStack Studio can help shape a beauty, wellness, fashion, food, lifestyle, or product idea into a polished storefront MVP before checkout, inventory, and fulfillment are fully connected."
+      />
     </main>
   );
 }

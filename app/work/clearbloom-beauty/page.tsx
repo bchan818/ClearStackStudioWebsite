@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ClearBloomProductVisual } from "@/components/ClearBloomProductVisual";
+import { StorefrontCta } from "@/components/StorefrontCta";
 import { clearBloomBundles, clearBloomProducts } from "@/lib/clearbloomProducts";
 
 const sellingPoints = [
@@ -22,6 +23,33 @@ const storeFeatures = [
   {
     title: "Beauty bundles",
     text: "Gift-ready product sets that create higher-value offers without needing complex backend logic yet."
+  }
+];
+
+const storefrontWorkflow = [
+  {
+    title: "Product catalog",
+    text: "The storefront presents a focused collection with pricing, sizes, categories, notes, and product cards that can scale into a real shop."
+  },
+  {
+    title: "Product detail pages",
+    text: "Every featured item has a dedicated page for product story, visual merchandising, ingredients, use cases, and inquiry CTAs."
+  },
+  {
+    title: "Inquiry checkout",
+    text: "Customers can request products without the MVP pretending to process payments, reserve stock, calculate tax, or arrange shipping."
+  },
+  {
+    title: "Brand and policy pages",
+    text: "The demo includes brand direction, policies, FAQ, and launch-support pages so the store feels more complete and client-ready."
+  },
+  {
+    title: "Future commerce connection",
+    text: "A production version could connect Shopify, Stripe, inventory, shipping, tax, customer emails, and fulfillment workflows later."
+  },
+  {
+    title: "Useful before full ecommerce",
+    text: "This gives a product brand a premium sales surface to test demand, gather feedback, and align operations before a larger build."
   }
 ];
 
@@ -222,6 +250,28 @@ export default function ClearBloomBeautyPage() {
       </section>
 
       <section className="bg-[#1b1018] px-6 py-16 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-100">
+            How this storefront MVP works
+          </p>
+          <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            A premium demo that explains the customer journey before real commerce is connected.
+          </h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {storefrontWorkflow.map((item) => (
+              <article
+                className="border border-white/10 bg-white/[0.04] p-6"
+                key={item.title}
+              >
+                <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                <p className="mt-4 text-sm leading-6 text-stone-300">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#1b1018] px-6 py-16 sm:py-20 lg:px-8">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-100">
@@ -331,6 +381,12 @@ export default function ClearBloomBeautyPage() {
           </Link>
         </div>
       </section>
+
+      <StorefrontCta
+        eyebrow="Storefront MVP Package"
+        title="Build a storefront like this for a product brand."
+        text="ClearStack Studio can use the ClearBloom pattern for beauty, wellness, fashion, lifestyle, food, and product brands that need a polished storefront MVP before full ecommerce operations are ready."
+      />
 
       <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
         <div className="border border-rose-200/30 bg-rose-200/[0.08] p-6 sm:p-8">

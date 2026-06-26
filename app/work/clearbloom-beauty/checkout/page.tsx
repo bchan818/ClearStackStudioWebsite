@@ -48,6 +48,12 @@ export default function ClearBloomCheckoutPage() {
               Email order inquiry
             </a>
             <Link
+              className="focus-ring ml-0 mt-3 inline-flex items-center justify-center border border-amber-100/40 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white sm:ml-3"
+              href="/work/clearbloom-beauty/checkout/success"
+            >
+              Continue to inquiry confirmation
+            </Link>
+            <Link
               className="focus-ring ml-0 mt-3 inline-flex items-center justify-center border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:border-rose-200 hover:text-rose-100 sm:ml-3"
               href="/work/clearbloom-beauty/policies"
             >
@@ -57,6 +63,9 @@ export default function ClearBloomCheckoutPage() {
 
           <div className="border border-white/10 bg-white/[0.06] p-6 shadow-[0_0_90px_rgba(244,114,182,0.18)]">
             <h2 className="text-2xl font-semibold text-white">Inquiry checklist</h2>
+            <p className="mt-3 text-sm leading-6 text-stone-300">
+              This page is a demo inquiry flow. It does not collect card details, process payment, reserve inventory, calculate shipping, or submit tax information.
+            </p>
             <ul className="mt-6 space-y-4 text-sm leading-6 text-stone-300">
               <li className="border border-white/10 bg-white/[0.04] p-4">Choose the products or bundle you want.</li>
               <li className="border border-white/10 bg-white/[0.04] p-4">Include quantity and shipping city/state.</li>

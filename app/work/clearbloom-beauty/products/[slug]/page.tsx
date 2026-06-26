@@ -74,9 +74,12 @@ export default async function ClearBloomProductPage({ params }: ProductPageProps
                 className="focus-ring inline-flex items-center justify-center border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:border-rose-200 hover:text-rose-100"
                 href="/work/clearbloom-beauty/checkout"
               >
-                View order inquiry
+                Start product inquiry
               </Link>
             </div>
+            <p className="mt-4 max-w-xl text-sm leading-6 text-stone-300">
+              This is an inquiry CTA for the storefront MVP. It does not start a real purchase or collect payment details.
+            </p>
           </div>
 
           <div className="border border-white/10 bg-white/[0.06] p-5 shadow-[0_0_90px_rgba(244,114,182,0.18)]">
@@ -138,7 +141,7 @@ export default async function ClearBloomProductPage({ params }: ProductPageProps
             className="focus-ring mt-6 inline-flex items-center justify-center bg-rose-200 px-5 py-3 text-sm font-semibold text-[#130d14] transition hover:bg-amber-100"
             href={`/work/clearbloom-beauty/checkout?product=${product.slug}`}
           >
-            Request {product.name}
+            Start product inquiry
           </Link>
         </div>
       </section>

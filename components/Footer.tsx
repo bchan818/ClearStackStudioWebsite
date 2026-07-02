@@ -7,6 +7,11 @@ export function Footer() {
         <div>
           <p className="font-semibold text-slate-100">ClearStack Studio</p>
           <p className="mt-1">From idea to app.</p>
+          <p className="mt-3 max-w-sm text-xs leading-5 text-slate-500">
+            Storefront MVP proof available through the fictional ClearBloom Beauty
+            case study for beauty, wellness, fashion, lifestyle, food/product,
+            boutique ecommerce, and creator merchandise brands.
+          </p>
           <p className="mt-3 text-xs text-slate-500">
             2026 ClearStack Studio. All rights reserved.
           </p>
@@ -26,6 +31,12 @@ export function Footer() {
             href="/contact"
           >
             Contact
+          </Link>
+          <Link
+            className="focus-ring transition hover:text-white"
+            href="/work/clearbloom-beauty/case-study"
+          >
+            Storefront proof
           </Link>
         </nav>
       </div>

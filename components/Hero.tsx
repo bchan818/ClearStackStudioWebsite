@@ -16,8 +16,9 @@ export function Hero() {
             From idea to app.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Modern websites, mobile apps, AI-powered tools, and MVPs for small
-            businesses, creators, and growing teams.
+            Modern websites, inquiry-ready storefront MVPs, mobile apps,
+            AI-powered tools, and launch-focused builds for small businesses,
+            creators, and growing teams.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link
@@ -31,6 +32,12 @@ export function Hero() {
               href="/work"
             >
               See the work
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-amber-100/30 px-6 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"
+              href="/work/clearbloom-beauty/case-study"
+            >
+              See storefront proof
             </Link>
           </div>
         </div>

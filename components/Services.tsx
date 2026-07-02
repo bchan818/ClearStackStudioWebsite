@@ -20,6 +20,11 @@ const services = [
     title: "MVPs",
     description:
       "Focused first versions that turn a product idea into something real enough to test, learn from, and improve."
+  },
+  {
+    title: "Storefront MVPs",
+    description:
+      "Premium, inquiry-based storefront demos for beauty, wellness, fashion, lifestyle, food/product, boutique ecommerce, and creator merchandise brands before full checkout is connected."
   }
 ];
 
@@ -35,7 +40,7 @@ export function Services() {
             Digital product help for the first important version.
           </h2>
         </div>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {services.map((service) => (
             <article
               className="border border-white/10 bg-slateInk p-6 transition hover:border-cyan-300/40"
@@ -50,12 +55,20 @@ export function Services() {
             </article>
           ))}
         </div>
-        <Link
-          className="focus-ring mt-10 inline-flex items-center justify-center border border-cyan-300/40 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyanGlow hover:text-slate-950"
-          href="/services"
-        >
-          Explore services
-        </Link>
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Link
+            className="focus-ring inline-flex items-center justify-center border border-cyan-300/40 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyanGlow hover:text-slate-950"
+            href="/services"
+          >
+            Explore services
+          </Link>
+          <Link
+            className="focus-ring inline-flex items-center justify-center border border-amber-100/30 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"
+            href="/work/clearbloom-beauty/case-study"
+          >
+            See storefront MVP proof
+          </Link>
+        </div>
       </div>
     </section>
   );

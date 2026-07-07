@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { StorefrontCta } from "@/components/StorefrontCta";
 
 const contactReasons = [
   "MVP Launch Package",
@@ -149,6 +150,15 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <StorefrontCta
+        eyebrow="Storefront MVP Package proof"
+        title="Review ClearBloom Beauty before you send a storefront inquiry."
+        text="ClearBloom Beauty is a fictional, inquiry-based storefront MVP that shows how ClearStack Studio can package premium product pages, catalog structure, policy pages, and a future ecommerce upgrade path for beauty, wellness, fashion, lifestyle, food/product, boutique ecommerce, and creator merchandise brands."
+        variant="amber"
+        proofHref="/work/clearbloom-beauty/case-study"
+        proofLabel="See ClearBloom case study"
+      />
 
       <section className="bg-[#081827] px-6 py-16 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-6xl">

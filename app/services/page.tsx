@@ -22,6 +22,21 @@ const processSteps = [
   }
 ];
 
+const inquiryBenefits = [
+  {
+    title: "Validate demand first",
+    text: "Present products, bundles, pricing, and brand story professionally before investing in full ecommerce infrastructure."
+  },
+  {
+    title: "Keep the MVP honest",
+    text: "The storefront can collect qualified interest without pretending payments, inventory, shipping, or tax systems are live."
+  },
+  {
+    title: "Upgrade when ready",
+    text: "Once the offer is clearer, the same storefront can move toward Shopify, Stripe, inventory, shipping, tax, email, and automation work."
+  }
+];
+
 const proofLinks = [
   {
     title: "CardScope case study",
@@ -71,6 +86,49 @@ export default function ServicesPage() {
       </section>
 
       <ServicePackages />
+
+      <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
+        <div className="border border-amber-100/20 bg-amber-100/[0.06] p-8 sm:p-10">
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-100">
+            Storefront MVP strategy
+          </p>
+          <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            Why inquiry-based first?
+          </h2>
+          <p className="mt-5 max-w-3xl text-sm leading-6 text-slate-300 sm:text-base">
+            Before connecting full ecommerce infrastructure, an inquiry-based storefront lets a brand present products professionally, collect qualified interest, and learn what customers actually want — without pretending payments, inventory, shipping, or tax systems are live.
+          </p>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {inquiryBenefits.map((benefit) => (
+              <article
+                className="border border-white/10 bg-slateInk/70 p-5"
+                key={benefit.title}
+              >
+                <h3 className="text-lg font-semibold text-white">
+                  {benefit.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-slate-300">
+                  {benefit.text}
+                </p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              href="/contact"
+            >
+              Start a storefront inquiry
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-amber-100/40 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-100 hover:text-slate-950"
+              href="/work/clearbloom-beauty/case-study"
+            >
+              See ClearBloom example
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <StorefrontCta
         eyebrow="Storefront MVP Package proof"

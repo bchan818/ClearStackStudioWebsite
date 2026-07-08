@@ -44,7 +44,9 @@ const packages = [
     ],
     price: "Starting at storefront-scope estimate",
     cta: "Start a storefront inquiry",
-    href: "/contact"
+    href: "/contact",
+    detailsCta: "Learn about the package",
+    detailsHref: "/services#storefront-mvp"
   },
   {
     name: "Website/App Refresh Package",
@@ -162,6 +164,14 @@ export function ServicePackages({ variant = "full" }: ServicePackagesProps) {
                 >
                   {servicePackage.cta}
                 </Link>
+                {servicePackage.detailsHref ? (
+                  <Link
+                    className="focus-ring mt-3 inline-flex w-full items-center justify-center border border-white/15 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+                    href={servicePackage.detailsHref}
+                  >
+                    {servicePackage.detailsCta}
+                  </Link>
+                ) : null}
               </div>
             </article>
           ))}

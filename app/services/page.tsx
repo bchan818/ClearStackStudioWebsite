@@ -87,32 +87,66 @@ export default function ServicesPage() {
 
       <ServicePackages />
 
-      <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
-        <div className="border border-amber-100/20 bg-amber-100/[0.06] p-8 sm:p-10">
+      <section
+        className="scroll-mt-24 px-6 py-16 sm:py-20 lg:px-8"
+        id="storefront-mvp"
+      >
+        <div className="mx-auto max-w-6xl border border-amber-100/20 bg-amber-100/[0.06] p-8 sm:p-10">
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-100">
-            Storefront MVP strategy
+            Storefront MVP Package
           </p>
-          <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Why inquiry-based first?
-          </h2>
-          <p className="mt-5 max-w-3xl text-sm leading-6 text-slate-300 sm:text-base">
-            Before connecting full ecommerce infrastructure, an inquiry-based storefront lets a brand present products professionally, collect qualified interest, and learn what customers actually want — without pretending payments, inventory, shipping, or tax systems are live.
-          </p>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {inquiryBenefits.map((benefit) => (
-              <article
-                className="border border-white/10 bg-slateInk/70 p-5"
-                key={benefit.title}
-              >
-                <h3 className="text-lg font-semibold text-white">
-                  {benefit.title}
-                </h3>
+          <div className="mt-4 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+            <div>
+              <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                Launch an inquiry-ready storefront before full ecommerce.
+              </h2>
+              <p className="mt-5 text-sm leading-6 text-slate-300 sm:text-base">
+                The Storefront MVP Package gives beauty, wellness, fashion, lifestyle, food/product, boutique ecommerce, and creator merchandise brands a polished way to present products, validate demand, and collect qualified interest before Shopify, Stripe, inventory, shipping, tax, and automation systems are connected.
+              </p>
+              <p className="mt-4 text-sm leading-6 text-slate-300 sm:text-base">
+                It is designed to be honest: visitors can explore products and send an inquiry, but the site does not pretend to process payments, reserve inventory, calculate shipping, or submit taxes.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+              <div className="border border-white/10 bg-slateInk/70 p-5">
+                <h3 className="text-lg font-semibold text-white">Built for</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-300">
-                  {benefit.text}
+                  Premium product concepts, small catalogs, launch tests, seasonal drops, creator merch, boutique retail, and early ecommerce brands.
                 </p>
-              </article>
-            ))}
+              </div>
+              <div className="border border-white/10 bg-slateInk/70 p-5">
+                <h3 className="text-lg font-semibold text-white">Not live commerce yet</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-300">
+                  No real payment processing, Shopify, Stripe, inventory management, shipping, tax logic, customer accounts, or external APIs are included until that scope is approved.
+                </p>
+              </div>
+            </div>
           </div>
+
+          <div className="mt-10 border-t border-white/10 pt-8">
+            <h3 className="text-2xl font-semibold tracking-tight text-white">
+              Why inquiry-based first?
+            </h3>
+            <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-300 sm:text-base">
+              Before connecting full ecommerce infrastructure, an inquiry-based storefront lets a brand present products professionally, collect qualified interest, and learn what customers actually want — without pretending payments, inventory, shipping, or tax systems are live.
+            </p>
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
+              {inquiryBenefits.map((benefit) => (
+                <article
+                  className="border border-white/10 bg-slateInk/70 p-5"
+                  key={benefit.title}
+                >
+                  <h4 className="text-lg font-semibold text-white">
+                    {benefit.title}
+                  </h4>
+                  <p className="mt-3 text-sm leading-6 text-slate-300">
+                    {benefit.text}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"

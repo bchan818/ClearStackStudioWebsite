@@ -14,9 +14,9 @@ export function ContactCta() {
         </div>
         <Link
           className="focus-ring mt-8 inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift lg:mt-0"
-          href="/contact"
+          href="/start"
         >
-          Contact ClearStack Studio
+          Start a Project
         </Link>
       </div>
     </section>

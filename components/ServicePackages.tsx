@@ -181,9 +181,9 @@ export function ServicePackages({ variant = "full" }: ServicePackagesProps) {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
-              href="/contact"
+              href="/start"
             >
-              Start a project
+              Start a Project
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"

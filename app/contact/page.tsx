@@ -150,6 +150,12 @@ export default function ContactPage() {
           >
             Email hello@clearstack.studio
           </Link>
+          <Link
+            className="focus-ring mt-3 inline-flex w-full items-center justify-center border border-white/15 px-5 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+            href="/start"
+          >
+            Choose a project path first
+          </Link>
           <div className="mt-6 border border-emerald-300/20 bg-emerald-300/[0.06] p-4">
             <p className="text-sm font-medium leading-6 text-emerald-50">
               Best for early-stage ideas, practical rebuilds, focused MVPs, and

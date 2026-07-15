@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 const navItems = [
   { href: "/services", label: "Services" },
   { href: "/work", label: "Work" },
+  { href: "/start", label: "Start a Project", shortLabel: "Start" },
   { href: "/contact", label: "Contact" }
 ];
 
@@ -43,7 +44,14 @@ export function Header() {
               href={item.href}
               key={item.href}
             >
-              {item.label}
+              {item.shortLabel ? (
+                <>
+                  <span className="sm:hidden">{item.shortLabel}</span>
+                  <span className="hidden sm:inline">{item.label}</span>
+                </>
+              ) : (
+                item.label
+              )}
             </Link>
           ))}
         </div>

@@ -3,11 +3,10 @@ import Link from "next/link";
 import { FeaturedProduct } from "@/components/FeaturedProduct";
 
 const capabilities = [
-  "Launch-ready websites",
-  "Mobile app prototypes",
-  "AI-powered internal tools",
-  "MVP strategy and builds",
-  "Inquiry-based storefront MVPs"
+  "MVP software products",
+  "Inquiry-based storefront MVPs",
+  "AI-powered creative tool prototypes",
+  "Internal workflow dashboards"
 ];
 
 const proofPoints = [
@@ -28,7 +27,7 @@ const proofPoints = [
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Explore ClearStack Studio work, capabilities, and CardScope, a live card search and collection tracker MVP."
+    "Explore ClearStack Studio proof projects across MVP software, storefront MVPs, AI-powered tools, and internal workflow dashboards."
 };
 
 export default function WorkPage() {
@@ -45,7 +44,7 @@ export default function WorkPage() {
           <p className="mt-6 text-lg leading-8 text-slate-300">
             ClearStack Studio partners with small businesses, creators, and
             growing teams to shape ideas into polished websites, apps, tools,
-            and MVPs.
+            MVPs, storefronts, AI-assisted workflows, and internal dashboards.
           </p>
         </div>
 
@@ -84,19 +83,18 @@ export default function WorkPage() {
       <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
         <div className="border border-cyan-300/20 bg-cyan-300/[0.05] p-8 sm:p-10">
           <h2 className="text-2xl font-semibold text-white">
-            New product and storefront concepts are being added.
+            A balanced portfolio of practical proof projects.
           </h2>
           <p className="mt-4 max-w-2xl text-slate-300">
-            CardScope is available as a live MVP, and ClearBloom Beauty shows how
-            ClearStack Studio can shape a fictional beauty brand into a premium,
-            inquiry-based storefront MVP with products, bundles, policies, and a
-            future ecommerce upgrade path.
+            CardScope proves MVP software, ClearBloom Beauty proves storefront
+            MVPs, AI Fashion Model proves AI-assisted creative/product
+            visualization prototypes, and MSW Application Review proves internal
+            workflow dashboards.
           </p>
           <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-300">
-            The same Storefront MVP Package pattern can support beauty, wellness,
-            fashion, lifestyle, food/product, boutique ecommerce, and creator
-            merchandise brands before Shopify, Stripe, inventory, shipping, or tax
-            systems are connected.
+            Each project keeps scope honest: static proof where appropriate,
+            mock data only for sensitive workflows, and future integrations only
+            after the MVP direction is clear.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
@@ -113,9 +111,15 @@ export default function WorkPage() {
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-amber-100/30 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"
-              href="/work/clearbloom-beauty/case-study"
+              href="/work/ai-fashion-model"
             >
-              See storefront MVP case study
+              View AI Fashion Model
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-5 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300 hover:text-white"
+              href="/work/msw-application-review"
+            >
+              View MSW dashboard
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"

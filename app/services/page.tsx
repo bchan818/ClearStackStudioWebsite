@@ -47,6 +47,31 @@ const proofLinks = [
     title: "ClearBloom Beauty case study",
     text: "A fictional, inquiry-based storefront MVP that shows the Storefront MVP Package pattern for beauty, wellness, fashion, lifestyle, food/product, boutique ecommerce, and creator merchandise brands.",
     href: "/work/clearbloom-beauty/case-study"
+  },
+  {
+    title: "AI Fashion Model case study",
+    text: "An AI-assisted creative and product visualization prototype for creators, fashion, retail, and visual concept workflows.",
+    href: "/work/ai-fashion-model/case-study"
+  },
+  {
+    title: "MSW Application Review case study",
+    text: "A mock internal workflow dashboard for application review, status tracking, structured information, and operational efficiency.",
+    href: "/work/msw-application-review/case-study"
+  }
+];
+
+const specialtyServices = [
+  {
+    title: "AI-powered tool prototypes",
+    text: "AI Fashion Model shows how a creative idea can become a prompt-based MVP for fashion concepts, creator workflows, retail ideation, and visual product prototyping before real AI APIs are connected.",
+    href: "/work/ai-fashion-model/case-study",
+    cta: "See AI tool proof"
+  },
+  {
+    title: "Internal workflow dashboards",
+    text: "MSW Application Review shows how a manual application review process can become a structured dashboard MVP with status tracking, reviewer-friendly views, and mock data only.",
+    href: "/work/msw-application-review/case-study",
+    cta: "See dashboard proof"
   }
 ];
 
@@ -86,6 +111,33 @@ export default function ServicesPage() {
       </section>
 
       <ServicePackages />
+
+      <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
+        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">
+          Expanded proof areas
+        </p>
+        <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+          ClearStack Studio also builds AI-assisted tools and internal workflow dashboards.
+        </h2>
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {specialtyServices.map((service) => (
+            <article className="border border-white/10 bg-white/[0.04] p-6" key={service.title}>
+              <h3 className="text-2xl font-semibold text-white">
+                {service.title}
+              </h3>
+              <p className="mt-4 text-sm leading-6 text-slate-300">
+                {service.text}
+              </p>
+              <Link
+                className="focus-ring mt-6 inline-flex items-center justify-center border border-cyan-300/40 px-4 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyanGlow hover:text-slate-950"
+                href={service.href}
+              >
+                {service.cta}
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <section
         className="scroll-mt-24 px-6 py-16 sm:py-20 lg:px-8"

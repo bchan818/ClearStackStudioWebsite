@@ -14,7 +14,12 @@ const services = [
   {
     title: "AI-powered tools",
     description:
-      "Practical AI features and internal tools that reduce repetitive work and make information easier to use."
+      "AI-assisted prototypes and workflows like AI Fashion Model for creators, visual concepts, retail ideation, and practical business tools."
+  },
+  {
+    title: "Internal dashboards",
+    description:
+      "Reviewer-friendly workflow dashboards like MSW Application Review for status tracking, structured information, and operational decision support."
   },
   {
     title: "MVPs",
@@ -40,7 +45,7 @@ export function Services() {
             Digital product help for the first important version.
           </h2>
         </div>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <article
               className="border border-white/10 bg-slateInk p-6 transition hover:border-cyan-300/40"

@@ -1,5 +1,107 @@
 import Link from "next/link";
 
+const projects = [
+  {
+    eyebrow: "Featured Product",
+    badge: "Live MVP",
+    title: "CardScope by ClearStack Studio",
+    description:
+      "A live MVP for card search, collection tracking, and Pro-style product validation, built for collectors who want faster pricing and cleaner organization.",
+    tags: ["MVP software", "Collection tracker", "Pro preview"],
+    href: "https://cardscope-mvp.vercel.app",
+    cta: "View CardScope",
+    caseStudyHref: "/work/cardscope/case-study",
+    accent: "cyan",
+    previewLabel: "Estimated value",
+    previewTitle: "$42.80",
+    previewText: "Manual search, saved cards, and mock pricing workflows."
+  },
+  {
+    eyebrow: "Storefront MVP",
+    badge: "Inquiry-based",
+    title: "ClearBloom Beauty storefront",
+    description:
+      "A fictional premium perfume and cosmetics storefront proof with catalog pages, product detail pages, policies, inquiry checkout, and a future ecommerce upgrade path.",
+    tags: ["Storefront MVP", "Product drops", "No live checkout"],
+    href: "/work/clearbloom-beauty",
+    cta: "View storefront proof",
+    caseStudyHref: "/work/clearbloom-beauty/case-study",
+    accent: "rose",
+    previewLabel: "Signature Drop",
+    previewTitle: "Velvet Bloom",
+    previewText: "Premium catalog, bundles, policies, and inquiry checkout."
+  },
+  {
+    eyebrow: "AI-powered tool",
+    badge: "Prototype",
+    title: "AI Fashion Model",
+    description:
+      "An AI-assisted creative and product visualization prototype for prompt-based fashion concepts, creator workflows, retail ideation, and visual product prototyping.",
+    tags: ["AI-assisted", "Fashion concepts", "Visual prototype"],
+    href: "/work/ai-fashion-model",
+    cta: "View AI tool proof",
+    caseStudyHref: "/work/ai-fashion-model/case-study",
+    accent: "fuchsia",
+    previewLabel: "Creative prompt",
+    previewTitle: "Editorial concept board",
+    previewText: "Static MVP surface for testing AI-assisted design workflows."
+  },
+  {
+    eyebrow: "Internal workflow dashboard",
+    badge: "Mock MVP",
+    title: "MSW Application Review",
+    description:
+      "A privacy-safe internal dashboard proof for application review workflows, status tracking, structured applicant information, and reviewer-friendly decision support.",
+    tags: ["Workflow dashboard", "Status tracking", "Mock data only"],
+    href: "/work/msw-application-review",
+    cta: "View dashboard proof",
+    caseStudyHref: "/work/msw-application-review/case-study",
+    accent: "emerald",
+    previewLabel: "Review queue",
+    previewTitle: "20 mock records",
+    previewText: "Generic dashboard states with no private student or applicant data."
+  }
+];
+
+const accentStyles = {
+  cyan: {
+    article: "border-white/10 bg-slateInk shadow-glow",
+    text: "text-cyanGlow",
+    badge: "border-emerald-300/40 bg-emerald-300/[0.12] text-emerald-100",
+    tag: "border-emerald-300/30 bg-emerald-300/[0.08] text-emerald-100",
+    preview: "border-cyan-300/20 bg-gradient-to-br from-cyan-300/20 via-slate-900 to-emerald-300/20",
+    button: "bg-cyanGlow text-slate-950 hover:bg-emeraldLift",
+    secondary: "border-white/15 text-slate-100 hover:border-cyan-300/50 hover:text-white"
+  },
+  rose: {
+    article: "border-rose-200/20 bg-[#130d14] shadow-[0_0_80px_rgba(244,114,182,0.14)]",
+    text: "text-rose-200",
+    badge: "border-amber-200/40 bg-amber-100/10 text-amber-100",
+    tag: "border-rose-200/30 bg-rose-200/[0.08] text-rose-100",
+    preview: "border-rose-200/20 bg-gradient-to-br from-rose-300/20 via-fuchsia-200/10 to-amber-100/20",
+    button: "bg-rose-200 text-[#130d14] hover:bg-amber-100",
+    secondary: "border-amber-100/30 text-amber-100 hover:border-amber-100 hover:text-white"
+  },
+  fuchsia: {
+    article: "border-fuchsia-200/20 bg-fuchsia-200/[0.04] shadow-[0_0_80px_rgba(217,70,239,0.12)]",
+    text: "text-fuchsia-200",
+    badge: "border-fuchsia-200/40 bg-fuchsia-200/[0.1] text-fuchsia-100",
+    tag: "border-fuchsia-200/30 bg-fuchsia-200/[0.08] text-fuchsia-100",
+    preview: "border-fuchsia-200/20 bg-gradient-to-br from-fuchsia-300/20 via-slate-950 to-cyan-300/20",
+    button: "bg-cyanGlow text-slate-950 hover:bg-emeraldLift",
+    secondary: "border-fuchsia-200/40 text-fuchsia-100 hover:border-fuchsia-200 hover:text-white"
+  },
+  emerald: {
+    article: "border-emerald-300/20 bg-emerald-300/[0.04] shadow-[0_0_80px_rgba(52,211,153,0.1)]",
+    text: "text-emeraldLift",
+    badge: "border-emerald-300/40 bg-emerald-300/[0.12] text-emerald-100",
+    tag: "border-emerald-300/30 bg-emerald-300/[0.08] text-emerald-100",
+    preview: "border-emerald-300/20 bg-gradient-to-br from-emerald-300/20 via-slate-950 to-cyan-300/20",
+    button: "bg-cyanGlow text-slate-950 hover:bg-emeraldLift",
+    secondary: "border-emerald-300/40 text-emerald-100 hover:border-emerald-300 hover:text-white"
+  }
+};
+
 export function FeaturedProduct() {
   return (
     <section className="bg-[#081827] py-20 sm:py-24">
@@ -9,155 +111,83 @@ export function FeaturedProduct() {
             Featured Work
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            ClearStack Studio products and storefront MVPs
+            Proof projects across software, storefronts, AI tools, and dashboards.
           </h2>
           <p className="mt-5 text-lg leading-8 text-slate-300">
-            Live MVPs and polished storefront builds that show how ClearStack
-            Studio turns ideas into launch-ready digital experiences.
+            ClearStack Studio turns ideas into launch-ready proof: MVP software, storefront MVPs, AI-powered creative tools, and internal workflow dashboards.
           </p>
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <article className="border border-white/10 bg-slateInk p-5 shadow-glow">
-            <div className="flex flex-col gap-8 lg:min-h-[530px]">
-              <div>
-                <div className="flex flex-wrap items-center gap-3">
-                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">
-                    Featured Product
-                  </p>
-                  <span className="border border-emerald-300/40 bg-emerald-300/[0.12] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-100">
-                    Live MVP
-                  </span>
-                </div>
-                <h3 className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                  CardScope by ClearStack Studio
-                </h3>
-                <p className="mt-5 text-base leading-7 text-slate-300">
-                  A live MVP for card search, collection tracking, and Pro-style
-                  product validation, built for collectors who want faster
-                  pricing, cleaner organization, and a clearer view of their
-                  collection.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {["Live MVP", "Collection tracker", "Pro preview"].map(
-                    (tag) => (
-                      <span
-                        className="border border-emerald-300/30 bg-emerald-300/[0.08] px-3 py-2 text-sm text-emerald-100"
-                        key={tag}
-                      >
-                        {tag}
-                      </span>
-                    )
-                  )}
-                </div>
-              </div>
+          {projects.map((project) => {
+            const styles = accentStyles[project.accent as keyof typeof accentStyles];
 
-              <div className="mt-auto">
-                <div
-                  aria-label="CardScope scan preview mockup"
-                  className="min-h-[250px] border border-cyan-300/20 bg-gradient-to-br from-cyan-300/20 via-slate-900 to-emerald-300/20 p-4"
-                  role="img"
-                >
-                  <div className="flex h-full min-h-[218px] flex-col justify-between border border-white/20 bg-slate-950/55 p-4">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.22em] text-cyan-100">
-                        Scan Preview
+            return (
+              <article className={`border p-5 ${styles.article}`} key={project.title}>
+                <div className="flex h-full min-h-[500px] flex-col gap-8">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <p className={`text-sm font-semibold uppercase tracking-[0.24em] ${styles.text}`}>
+                        {project.eyebrow}
                       </p>
-                      <div
-                        aria-hidden="true"
-                        className="mt-10 h-24 border-2 border-cyan-200/70"
-                      />
+                      <span className={`border px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] ${styles.badge}`}>
+                        {project.badge}
+                      </span>
                     </div>
-                    <div>
-                      <p className="text-sm text-slate-300">Estimated value</p>
-                      <p className="mt-1 text-4xl font-semibold text-white">
-                        $42.80
-                      </p>
+                    <h3 className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                      {project.title}
+                    </h3>
+                    <p className="mt-5 text-base leading-7 text-slate-300">
+                      {project.description}
+                    </p>
+                    <div className="mt-6 flex flex-wrap gap-3">
+                      {project.tags.map((tag) => (
+                        <span className={`border px-3 py-2 text-sm ${styles.tag}`} key={tag}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-auto">
+                    <div
+                      aria-label={`${project.title} preview mockup`}
+                      className={`min-h-[230px] border p-4 ${styles.preview}`}
+                      role="img"
+                    >
+                      <div className="flex h-full min-h-[198px] flex-col justify-between border border-white/15 bg-slate-950/60 p-4">
+                        <div>
+                          <p className="text-xs uppercase tracking-[0.22em] text-slate-300">
+                            {project.previewLabel}
+                          </p>
+                          <p className="mt-8 text-3xl font-semibold text-white">
+                            {project.previewTitle}
+                          </p>
+                        </div>
+                        <p className="text-sm leading-6 text-slate-300">
+                          {project.previewText}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="mt-6 flex flex-wrap gap-3">
+                      <Link
+                        className={`focus-ring inline-flex w-fit items-center justify-center px-5 py-3 text-sm font-semibold transition ${styles.button}`}
+                        href={project.href}
+                      >
+                        {project.cta}
+                      </Link>
+                      <Link
+                        className={`focus-ring inline-flex w-fit items-center justify-center border px-5 py-3 text-sm font-semibold transition ${styles.secondary}`}
+                        href={project.caseStudyHref}
+                      >
+                        See case study
+                      </Link>
                     </div>
                   </div>
                 </div>
-                <Link
-                  className="focus-ring mt-6 inline-flex w-fit items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
-                  href="https://cardscope-mvp.vercel.app"
-                >
-                  View CardScope
-                </Link>
-              </div>
-            </div>
-          </article>
-
-          <article className="border border-rose-200/20 bg-[#130d14] p-5 shadow-[0_0_80px_rgba(244,114,182,0.14)]">
-            <div className="flex flex-col gap-8 lg:min-h-[530px]">
-              <div>
-                <div className="flex flex-wrap items-center gap-3">
-                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-rose-200">
-                    Storefront MVP
-                  </p>
-                  <span className="border border-amber-200/40 bg-amber-100/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-amber-100">
-                    Perfume + Cosmetics
-                  </span>
-                </div>
-                <h3 className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                  ClearBloom Beauty storefront
-                </h3>
-                <p className="mt-5 text-base leading-7 text-stone-300">
-                  A fictional premium perfume and cosmetics storefront tied to
-                  ClearStack Studio, designed as an inquiry-based Storefront MVP
-                  Package proof project with product detail pages, beauty
-                  bundles, policies, and future checkout integration.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {["Inquiry storefront", "Product drops", "No live checkout"].map(
-                    (tag) => (
-                      <span
-                        className="border border-rose-200/30 bg-rose-200/[0.08] px-3 py-2 text-sm text-rose-100"
-                        key={tag}
-                      >
-                        {tag}
-                      </span>
-                    )
-                  )}
-                </div>
-              </div>
-
-              <div className="mt-auto">
-                <div
-                  aria-label="ClearBloom perfume and cosmetics storefront mockup"
-                  className="min-h-[250px] border border-rose-200/20 bg-gradient-to-br from-rose-300/20 via-fuchsia-200/10 to-amber-100/20 p-4"
-                  role="img"
-                >
-                  <div className="grid h-full min-h-[218px] gap-4 border border-white/15 bg-[#1b1018]/80 p-4 sm:grid-cols-[0.85fr_1.15fr]">
-                    <div className="grid place-items-center border border-rose-100/30 bg-white/10">
-                      <div className="h-28 w-16 rounded-t-[36px] border border-rose-100/70 bg-white/20" />
-                    </div>
-                    <div className="flex flex-col justify-center">
-                      <p className="text-xs uppercase tracking-[0.22em] text-rose-100">
-                        Signature Drop
-                      </p>
-                      <p className="mt-3 text-3xl font-semibold text-white">
-                        Velvet Bloom
-                      </p>
-                      <p className="mt-2 text-sm text-stone-300">
-                        Rose petals, soft amber, white musk
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <Link
-                  className="focus-ring mt-6 inline-flex w-fit items-center justify-center bg-rose-200 px-5 py-3 text-sm font-semibold text-[#130d14] transition hover:bg-amber-100"
-                  href="/work/clearbloom-beauty"
-                >
-                  View storefront proof
-                </Link>
-                <Link
-                  className="focus-ring mt-3 inline-flex w-fit items-center justify-center border border-amber-100/30 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"
-                  href="/work/clearbloom-beauty/case-study"
-                >
-                  See case study
-                </Link>
-              </div>
-            </div>
-          </article>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -17,8 +17,8 @@ export function Hero() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
             Modern websites, inquiry-ready storefront MVPs, mobile apps,
-            AI-powered tools, and launch-focused builds for small businesses,
-            creators, and growing teams.
+            AI-powered tool prototypes, internal workflow dashboards, and
+            launch-focused builds for small businesses, creators, and growing teams.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link
@@ -68,9 +68,9 @@ export function Hero() {
                 <p className="mt-2 text-sm text-slate-400">Core services</p>
               </div>
               <div className="border border-white/10 bg-[#081827] p-4">
-                <p className="text-3xl font-semibold text-cyanGlow">2</p>
+                <p className="text-3xl font-semibold text-cyanGlow">4</p>
                 <p className="mt-2 text-sm text-slate-400">
-                  Featured projects
+                  Proof projects
                 </p>
               </div>
             </div>

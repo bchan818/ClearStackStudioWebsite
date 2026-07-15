@@ -7,7 +7,8 @@ const contactReasons = [
   "Storefront MVP Package",
   "Website/App Refresh Package",
   "A mobile app prototype",
-  "An AI workflow or internal tool"
+  "AI-powered tool inquiry",
+  "Internal dashboard/workflow inquiry"
 ];
 
 const projectDetails = [
@@ -63,6 +64,18 @@ const inquiryPaths = [
     text: "For businesses that need content cleanup, improved layout, responsive design, navigation updates, service/work sections, and deployment polish.",
     href: "mailto:hello@clearstack.studio?subject=Website%2FApp%20Refresh%20Package%20inquiry%20for%20ClearStack%20Studio",
     cta: "Start a refresh inquiry"
+  },
+  {
+    title: "AI-powered tool inquiry",
+    text: "For creators, retail teams, product ideas, and business workflows that need an AI-assisted prototype before real AI APIs, accounts, or databases are connected.",
+    href: "mailto:hello@clearstack.studio?subject=AI-powered%20tool%20inquiry%20for%20ClearStack%20Studio",
+    cta: "Start an AI tool inquiry"
+  },
+  {
+    title: "Internal dashboard/workflow inquiry",
+    text: "For teams that need structured status tracking, review queues, decision support, operational dashboards, or internal workflow MVPs using safe mock scope first.",
+    href: "mailto:hello@clearstack.studio?subject=Internal%20dashboard%20workflow%20inquiry%20for%20ClearStack%20Studio",
+    cta: "Start a workflow dashboard inquiry"
   }
 ];
 
@@ -76,6 +89,16 @@ const proofLinks = [
     title: "ClearBloom Beauty Storefront MVP case study",
     text: "Fictional inquiry-based storefront MVP proof for premium beauty, wellness, fashion, lifestyle, food/product, boutique ecommerce, and creator merchandise brands.",
     href: "/work/clearbloom-beauty/case-study"
+  },
+  {
+    title: "AI Fashion Model case study",
+    text: "AI-assisted creative and product visualization prototype proof for creators, fashion, retail, and product ideation workflows.",
+    href: "/work/ai-fashion-model/case-study"
+  },
+  {
+    title: "MSW Application Review case study",
+    text: "Mock internal workflow dashboard proof for structured application review, status tracking, and operational efficiency.",
+    href: "/work/msw-application-review/case-study"
   }
 ];
 

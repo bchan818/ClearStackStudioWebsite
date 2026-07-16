@@ -27,6 +27,12 @@ export function Footer() {
           </Link>
           <Link
             className="focus-ring transition hover:text-white"
+            href="/projects"
+          >
+            Projects
+          </Link>
+          <Link
+            className="focus-ring transition hover:text-white"
             href="/start"
           >
             Start a Project

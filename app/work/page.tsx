@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FeaturedProduct } from "@/components/FeaturedProduct";
-import { clearBloomLiveUrl } from "@/lib/siteLinks";
+import { cardScopeLiveUrl, clearBloomLiveUrl } from "@/lib/siteLinks";
 
 const capabilities = [
   "MVP software products",
@@ -100,7 +100,7 @@ export default function WorkPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
-              href="https://cardscope-mvp.vercel.app"
+              href={cardScopeLiveUrl}
             >
               View CardScope
             </Link>

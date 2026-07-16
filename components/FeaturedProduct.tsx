@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { clearBloomLiveUrl } from "@/lib/siteLinks";
+import { cardScopeLiveUrl, clearBloomLiveUrl } from "@/lib/siteLinks";
 
 const projects = [
   {
@@ -9,7 +9,7 @@ const projects = [
     description:
       "A live MVP for card search, collection tracking, and Pro-style product validation, built for collectors who want faster pricing and cleaner organization.",
     tags: ["MVP software", "Collection tracker", "Pro preview"],
-    href: "https://cardscope-mvp.vercel.app",
+    href: cardScopeLiveUrl,
     cta: "View CardScope",
     caseStudyHref: "/work/cardscope/case-study",
     accent: "cyan",

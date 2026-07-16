@@ -14,6 +14,7 @@ const projects = [
     proves:
       "Product MVPs, dashboards, collection tools, and Pro feature planning.",
     relatedService: "MVP Launch Package",
+    serviceHref: "/services",
     liveDemo: cardScopeLiveUrl,
     caseStudy: "/work/cardscope/case-study",
     cta: "View CardScope",
@@ -28,6 +29,7 @@ const projects = [
     proves:
       "Storefront MVPs, product catalogs, beauty/lifestyle branding, and inquiry checkout.",
     relatedService: "Storefront MVP Package",
+    serviceHref: "/services#storefront-mvp",
     liveDemo: clearBloomLiveUrl,
     caseStudy: "/work/clearbloom-beauty/case-study",
     cta: "View live storefront",
@@ -42,6 +44,7 @@ const projects = [
     proves:
       "AI creative tools, prompt workflows, visual product concepts, and creator/retail use cases.",
     relatedService: "AI-Powered Tool Build",
+    serviceHref: "/services",
     liveDemo: undefined,
     caseStudy: "/work/ai-fashion-model/case-study",
     cta: "Read AI case study",
@@ -56,6 +59,7 @@ const projects = [
     proves:
       "Internal tools, workflow dashboards, status tracking, and decision support.",
     relatedService: "Internal Dashboard Build",
+    serviceHref: "/services",
     liveDemo: undefined,
     caseStudy: "/work/msw-application-review/case-study",
     cta: "Read dashboard case study",
@@ -206,9 +210,12 @@ export default function ProjectsPage() {
                       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
                         Related service
                       </p>
-                      <p className="mt-3 text-sm font-semibold leading-6 text-white">
+                      <Link
+                        className="focus-ring mt-3 inline-flex text-sm font-semibold leading-6 text-white underline decoration-cyan-300/40 underline-offset-4 transition hover:text-cyanGlow"
+                        href={project.serviceHref}
+                      >
                         {project.relatedService}
-                      </p>
+                      </Link>
                     </div>
                   </div>
 

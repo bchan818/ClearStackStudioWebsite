@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { cardScopeLiveUrl, clearBloomLiveUrl } from "@/lib/siteLinks";
 
 const projectPaths = [
   {
@@ -10,6 +11,8 @@ const projectPaths = [
       "Landing pages, core product screens, prototype flows, launch-ready MVP structure, and validation paths.",
     proof: "CardScope",
     proofHref: "/work/cardscope/case-study",
+    liveHref: cardScopeLiveUrl,
+    liveLabel: "View live MVP",
     scope: "1 focused user flow, core pages, simple mock data, deployment, and launch checklist.",
     cta: "Start an MVP inquiry",
     accent: "cyan"
@@ -22,6 +25,8 @@ const projectPaths = [
       "Product catalog, product detail pages, brand storytelling, inquiry checkout, policy pages, and future ecommerce upgrade path.",
     proof: "ClearBloom Beauty",
     proofHref: "/work/clearbloom-beauty/case-study",
+    liveHref: clearBloomLiveUrl,
+    liveLabel: "View live storefront",
     scope: "Polished storefront surface with no live payments, inventory, shipping, or tax systems connected yet.",
     cta: "Start a storefront inquiry",
     accent: "rose"
@@ -130,9 +135,9 @@ export default function StartPage() {
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
-              href="/work"
+              href="/projects"
             >
-              See proof projects
+              Compare proof projects
             </Link>
           </div>
         </div>
@@ -203,6 +208,14 @@ export default function StartPage() {
                     >
                       See {path.proof}
                     </Link>
+                    {path.liveHref ? (
+                      <Link
+                        className="focus-ring inline-flex items-center justify-center border border-amber-100/40 px-4 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-100 hover:text-slate-950"
+                        href={path.liveHref}
+                      >
+                        {path.liveLabel}
+                      </Link>
+                    ) : null}
                   </div>
                 </article>
               );
@@ -269,9 +282,9 @@ export default function StartPage() {
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
-              href="/work"
+              href="/projects"
             >
-              See proof projects
+              Compare proof projects
             </Link>
           </div>
         </div>

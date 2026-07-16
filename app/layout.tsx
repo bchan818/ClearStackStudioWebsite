@@ -4,34 +4,54 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://clear-stack-studio-website.vercel.app"),
   title: {
-    default: "ClearStack Studio | From idea to app.",
+    default: "ClearStack Studio | MVPs, Storefronts, AI Tools, and Dashboards",
     template: "%s | ClearStack Studio"
   },
   description:
-    "ClearStack Studio builds modern websites, mobile apps, AI-powered tools, and MVPs for small businesses, creators, and growing teams.",
+    "ClearStack Studio turns ideas into launch-ready software MVPs, storefront MVPs, AI-powered tool prototypes, internal dashboards, and website/app refreshes.",
   applicationName: "ClearStack Studio",
   authors: [{ name: "ClearStack Studio" }],
+  alternates: {
+    canonical: "/"
+  },
   keywords: [
     "ClearStack Studio",
-    "websites",
-    "mobile apps",
-    "AI tools",
     "MVP development",
-    "small business websites"
+    "software studio",
+    "storefront MVP",
+    "AI-powered tools",
+    "internal dashboards",
+    "website refresh",
+    "app refresh"
   ],
   openGraph: {
     title: "ClearStack Studio | From idea to app.",
     description:
-      "Modern websites, mobile apps, AI-powered tools, and MVPs for small businesses, creators, and growing teams.",
+      "A software/app studio portfolio for MVP software, storefront MVPs, AI-powered tools, internal dashboards, and website/app refreshes.",
+    url: "/",
     siteName: "ClearStack Studio",
-    type: "website"
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "ClearStack Studio — From idea to app."
+      }
+    ]
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "ClearStack Studio | From idea to app.",
     description:
-      "Modern websites, mobile apps, AI-powered tools, and MVPs for small businesses, creators, and growing teams."
+      "MVP software, storefront MVPs, AI-powered tools, internal dashboards, and website/app refreshes by ClearStack Studio.",
+    images: ["/og-image.svg"]
+  },
+  icons: {
+    icon: "/icon.svg"
   },
   robots: {
     index: true,

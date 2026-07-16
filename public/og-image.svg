@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="ClearStack Studio social preview">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#081827"/>
+      <stop offset="0.55" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1010" cy="120" r="180" fill="#67e8f9" opacity="0.18"/>
+  <circle cx="190" cy="520" r="220" fill="#34d399" opacity="0.14"/>
+  <rect x="86" y="86" width="1028" height="458" rx="30" fill="#020617" opacity="0.72" stroke="#67e8f9" stroke-opacity="0.35"/>
+  <text x="120" y="205" fill="#67e8f9" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="8">CLEARSTACK STUDIO</text>
+  <text x="120" y="310" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="78" font-weight="800">From idea to app.</text>
+  <text x="120" y="395" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="34">MVPs · Storefronts · AI tools · Dashboards</text>
+  <text x="120" y="470" fill="#a7f3d0" font-family="Inter, Arial, sans-serif" font-size="28">clear-stack-studio-website.vercel.app</text>
+</svg>

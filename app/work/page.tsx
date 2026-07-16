@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FeaturedProduct } from "@/components/FeaturedProduct";
+import { clearBloomLiveUrl } from "@/lib/siteLinks";
 
 const capabilities = [
   "MVP software products",
@@ -105,9 +106,15 @@ export default function WorkPage() {
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-rose-200/40 px-5 py-3 text-sm font-semibold text-rose-100 transition hover:border-rose-200 hover:text-white"
-              href="/work/clearbloom-beauty"
+              href={clearBloomLiveUrl}
             >
-              View ClearBloom Beauty
+              View live storefront
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-amber-100/30 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"
+              href="/work/clearbloom-beauty/case-study"
+            >
+              Read ClearBloom case study
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-amber-100/30 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"

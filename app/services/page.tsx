@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ServicePackages } from "@/components/ServicePackages";
 import { StorefrontCta } from "@/components/StorefrontCta";
+import { clearBloomLiveUrl } from "@/lib/siteLinks";
 
 const processSteps = [
   {
@@ -156,6 +157,9 @@ export default function ServicesPage() {
                 The Storefront MVP Package gives beauty, wellness, fashion, lifestyle, food/product, boutique ecommerce, and creator merchandise brands a polished way to present products, validate demand, and collect qualified interest before Shopify, Stripe, inventory, shipping, tax, and automation systems are connected.
               </p>
               <p className="mt-4 text-sm leading-6 text-slate-300 sm:text-base">
+                ClearBloom Beauty is the live storefront MVP proof: a fictional premium beauty brand with product pages, inquiry checkout, policies, and a future ecommerce upgrade path.
+              </p>
+              <p className="mt-4 text-sm leading-6 text-slate-300 sm:text-base">
                 It is designed to be honest: visitors can explore products and send an inquiry, but the site does not pretend to process payments, reserve inventory, calculate shipping, or submit taxes.
               </p>
             </div>
@@ -208,9 +212,15 @@ export default function ServicesPage() {
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-amber-100/40 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-100 hover:text-slate-950"
+              href={clearBloomLiveUrl}
+            >
+              View ClearBloom live demo
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-amber-100/40 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-100 hover:text-slate-950"
               href="/work/clearbloom-beauty/case-study"
             >
-              See ClearBloom example
+              Read ClearBloom case study
             </Link>
           </div>
         </div>
@@ -221,6 +231,8 @@ export default function ServicesPage() {
         title="ClearBloom Beauty shows the package as a client-facing storefront demo."
         text="The case study explains how a fictional beauty brand became a premium inquiry-based storefront MVP with catalog structure, product detail pages, policies, and a future Shopify or Stripe upgrade path."
         variant="amber"
+        liveHref={clearBloomLiveUrl}
+        liveLabel="View ClearBloom live demo"
         proofHref="/work/clearbloom-beauty/case-study"
         proofLabel="See ClearBloom case study"
       />

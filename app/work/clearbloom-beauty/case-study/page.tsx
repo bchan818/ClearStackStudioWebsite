@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StorefrontCta } from "@/components/StorefrontCta";
+import { clearBloomLiveUrl } from "@/lib/siteLinks";
 
 const summaryStats = [
   { label: "Project type", value: "Storefront MVP" },
@@ -89,15 +90,15 @@ export default function ClearBloomCaseStudyPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 className="focus-ring inline-flex items-center justify-center bg-rose-200 px-6 py-3 text-sm font-semibold text-[#130d14] transition hover:bg-amber-100"
-                href="/work/clearbloom-beauty"
+                href={clearBloomLiveUrl}
               >
-                View ClearBloom Beauty
+                See the live storefront MVP
               </Link>
               <Link
                 className="focus-ring inline-flex items-center justify-center border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-rose-200 hover:text-rose-100"
-                href="/contact"
+                href="/start"
               >
-                Start a commerce build
+                Start a storefront inquiry
               </Link>
               <Link
                 className="focus-ring inline-flex items-center justify-center border border-amber-100/30 px-6 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"
@@ -218,6 +219,10 @@ export default function ClearBloomCaseStudyPage() {
         eyebrow="Build a Storefront MVP"
         title="Want a storefront concept like ClearBloom Beauty?"
         text="ClearStack Studio can help shape a beauty, wellness, fashion, food, lifestyle, or product idea into a polished storefront MVP before checkout, inventory, and fulfillment are fully connected."
+        liveHref={clearBloomLiveUrl}
+        liveLabel="See the live storefront MVP"
+        proofHref="/work/clearbloom-beauty/case-study"
+        proofLabel="Read ClearBloom case study"
       />
     </main>
   );

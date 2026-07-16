@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { clearBloomLiveUrl } from "@/lib/siteLinks";
 
 const packages = [
   {
@@ -40,13 +41,16 @@ const packages = [
       "Product catalog cards",
       "Product detail pages",
       "Inquiry checkout flow",
-      "ClearBloom-style case study proof"
+      "ClearBloom-style case study proof",
+      "Live ClearBloom storefront demo reference"
     ],
     price: "Starting at storefront-scope estimate",
     cta: "Start a storefront inquiry",
     href: "/contact",
     detailsCta: "Learn about the package",
-    detailsHref: "/services#storefront-mvp"
+    detailsHref: "/services#storefront-mvp",
+    liveCta: "View ClearBloom live demo",
+    liveHref: clearBloomLiveUrl
   },
   {
     name: "Website/App Refresh Package",
@@ -170,6 +174,14 @@ export function ServicePackages({ variant = "full" }: ServicePackagesProps) {
                     href={servicePackage.detailsHref}
                   >
                     {servicePackage.detailsCta}
+                  </Link>
+                ) : null}
+                {servicePackage.liveHref ? (
+                  <Link
+                    className="focus-ring mt-3 inline-flex w-full items-center justify-center border border-amber-100/40 px-4 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-100 hover:text-slate-950"
+                    href={servicePackage.liveHref}
+                  >
+                    {servicePackage.liveCta}
                   </Link>
                 ) : null}
               </div>

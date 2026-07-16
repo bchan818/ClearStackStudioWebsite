@@ -7,6 +7,8 @@ type StorefrontCtaProps = {
   variant?: "rose" | "amber";
   proofHref?: string;
   proofLabel?: string;
+  liveHref?: string;
+  liveLabel?: string;
 };
 
 export function StorefrontCta({
@@ -15,7 +17,9 @@ export function StorefrontCta({
   text = "ClearStack Studio can help shape a product brand into a polished storefront MVP before full checkout, inventory, shipping, and fulfillment systems are connected.",
   variant = "rose",
   proofHref,
-  proofLabel = "See ClearBloom case study"
+  proofLabel = "See ClearBloom case study",
+  liveHref,
+  liveLabel = "View ClearBloom live demo"
 }: StorefrontCtaProps) {
   const isAmber = variant === "amber";
 
@@ -56,6 +60,14 @@ export function StorefrontCta({
           >
             Start a storefront inquiry
           </Link>
+          {liveHref ? (
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-rose-200/40 px-6 py-3 text-sm font-semibold text-rose-100 transition hover:bg-rose-200 hover:text-[#130d14]"
+              href={liveHref}
+            >
+              {liveLabel}
+            </Link>
+          ) : null}
           {proofHref ? (
             <Link
               className="focus-ring inline-flex items-center justify-center border border-amber-100/40 px-6 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-100 hover:text-[#130d14]"

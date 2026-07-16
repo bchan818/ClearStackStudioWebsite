@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ClearBloomProductVisual } from "@/components/ClearBloomProductVisual";
 import { StorefrontCta } from "@/components/StorefrontCta";
 import { clearBloomBundles, clearBloomProducts } from "@/lib/clearbloomProducts";
+import { clearBloomLiveUrl } from "@/lib/siteLinks";
 
 const sellingPoints = [
   "Curated perfume and cosmetic collections with a luxury editorial feel.",
@@ -85,6 +86,18 @@ export default function ClearBloomBeautyPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 className="focus-ring inline-flex items-center justify-center bg-rose-200 px-5 py-3 text-sm font-semibold text-[#130d14] transition hover:bg-amber-100"
+                href={clearBloomLiveUrl}
+              >
+                View live storefront demo
+              </Link>
+              <Link
+                className="focus-ring inline-flex items-center justify-center border border-rose-200/40 px-5 py-3 text-sm font-semibold text-rose-100 transition hover:bg-rose-200 hover:text-[#130d14]"
+                href="/start"
+              >
+                Build a storefront like this
+              </Link>
+              <Link
+                className="focus-ring inline-flex items-center justify-center border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:border-rose-200 hover:text-rose-100"
                 href="#shop"
               >
                 Shop ClearBloom
@@ -386,6 +399,8 @@ export default function ClearBloomBeautyPage() {
         eyebrow="Storefront MVP Package"
         title="Build a storefront like this for a product brand."
         text="ClearStack Studio can use the ClearBloom pattern for beauty, wellness, fashion, lifestyle, food, and product brands that need a polished storefront MVP before full ecommerce operations are ready."
+        liveHref={clearBloomLiveUrl}
+        liveLabel="View live storefront demo"
         proofHref="/work/clearbloom-beauty/case-study"
         proofLabel="See ClearBloom case study"
       />

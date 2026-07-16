@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { clearBloomLiveUrl } from "@/lib/siteLinks";
 
 const projects = [
   {
@@ -23,9 +24,10 @@ const projects = [
     description:
       "A fictional premium perfume and cosmetics storefront proof with catalog pages, product detail pages, policies, inquiry checkout, and a future ecommerce upgrade path.",
     tags: ["Storefront MVP", "Product drops", "No live checkout"],
-    href: "/work/clearbloom-beauty",
-    cta: "View storefront proof",
+    href: clearBloomLiveUrl,
+    cta: "View live storefront",
     caseStudyHref: "/work/clearbloom-beauty/case-study",
+    caseStudyCta: "Read case study",
     accent: "rose",
     previewLabel: "Signature Drop",
     previewTitle: "Velvet Bloom",
@@ -180,7 +182,7 @@ export function FeaturedProduct() {
                         className={`focus-ring inline-flex w-fit items-center justify-center border px-5 py-3 text-sm font-semibold transition ${styles.secondary}`}
                         href={project.caseStudyHref}
                       >
-                        See case study
+                        {project.caseStudyCta ?? "See case study"}
                       </Link>
                     </div>
                   </div>

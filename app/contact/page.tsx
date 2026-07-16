@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StorefrontCta } from "@/components/StorefrontCta";
+import { clearBloomLiveUrl } from "@/lib/siteLinks";
 
 const contactReasons = [
   "MVP Launch Package",
@@ -55,7 +56,7 @@ const inquiryPaths = [
   },
   {
     title: "Storefront MVP Package",
-    text: "For beauty, wellness, fashion, lifestyle, food/product, boutique ecommerce, or creator merchandise brands that need a polished catalog, brand visuals, inquiry checkout, policies, and storefront launch structure before real commerce is connected.",
+    text: "Want a storefront like ClearBloom Beauty? This path is for beauty, wellness, fashion, lifestyle, food/product, boutique ecommerce, or creator merchandise brands that need a polished catalog, brand visuals, inquiry checkout, policies, and storefront launch structure before real commerce is connected.",
     href: "mailto:hello@clearstack.studio?subject=Storefront%20MVP%20Package%20inquiry%20for%20ClearStack%20Studio",
     cta: "Start a storefront inquiry"
   },
@@ -182,9 +183,11 @@ export default function ContactPage() {
 
       <StorefrontCta
         eyebrow="Storefront MVP Package proof"
-        title="Review ClearBloom Beauty before you send a storefront inquiry."
+        title="Want a storefront like ClearBloom Beauty?"
         text="ClearBloom Beauty is a fictional, inquiry-based storefront MVP that shows how ClearStack Studio can package premium product pages, catalog structure, policy pages, and a future ecommerce upgrade path for beauty, wellness, fashion, lifestyle, food/product, boutique ecommerce, and creator merchandise brands."
         variant="amber"
+        liveHref={clearBloomLiveUrl}
+        liveLabel="View ClearBloom live demo"
         proofHref="/work/clearbloom-beauty/case-study"
         proofLabel="See ClearBloom case study"
       />

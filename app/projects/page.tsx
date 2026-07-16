@@ -32,7 +32,7 @@ const projects = [
     serviceHref: "/services#storefront-mvp",
     liveDemo: clearBloomLiveUrl,
     caseStudy: "/work/clearbloom-beauty/case-study",
-    cta: "View live storefront",
+    cta: "View live storefront demo",
     accent: "rose"
   },
   {

@@ -187,7 +187,7 @@ export default function ContactPage() {
         text="ClearBloom Beauty is a fictional, inquiry-based storefront MVP that shows how ClearStack Studio can package premium product pages, catalog structure, policy pages, and a future ecommerce upgrade path for beauty, wellness, fashion, lifestyle, food/product, boutique ecommerce, and creator merchandise brands."
         variant="amber"
         liveHref={clearBloomLiveUrl}
-        liveLabel="View ClearBloom live demo"
+        liveLabel="View live storefront demo"
         proofHref="/work/clearbloom-beauty/case-study"
         proofLabel="See ClearBloom case study"
       />

@@ -92,7 +92,7 @@ export default function ClearBloomCaseStudyPage() {
                 className="focus-ring inline-flex items-center justify-center bg-rose-200 px-6 py-3 text-sm font-semibold text-[#130d14] transition hover:bg-amber-100"
                 href={clearBloomLiveUrl}
               >
-                See the live storefront MVP
+                View live storefront demo
               </Link>
               <Link
                 className="focus-ring inline-flex items-center justify-center border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-rose-200 hover:text-rose-100"
@@ -220,7 +220,7 @@ export default function ClearBloomCaseStudyPage() {
         title="Want a storefront concept like ClearBloom Beauty?"
         text="ClearStack Studio can help shape a beauty, wellness, fashion, food, lifestyle, or product idea into a polished storefront MVP before checkout, inventory, and fulfillment are fully connected."
         liveHref={clearBloomLiveUrl}
-        liveLabel="See the live storefront MVP"
+        liveLabel="View live storefront demo"
         proofHref="/work/clearbloom-beauty/case-study"
         proofLabel="Read ClearBloom case study"
       />

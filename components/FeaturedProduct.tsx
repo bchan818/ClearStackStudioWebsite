@@ -25,7 +25,7 @@ const projects = [
       "A fictional premium perfume and cosmetics storefront proof with catalog pages, product detail pages, policies, inquiry checkout, and a future ecommerce upgrade path.",
     tags: ["Storefront MVP", "Product drops", "No live checkout"],
     href: clearBloomLiveUrl,
-    cta: "View live storefront",
+    cta: "View live storefront demo",
     caseStudyHref: "/work/clearbloom-beauty/case-study",
     caseStudyCta: "Read case study",
     accent: "rose",

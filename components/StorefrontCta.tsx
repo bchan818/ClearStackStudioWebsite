@@ -19,7 +19,7 @@ export function StorefrontCta({
   proofHref,
   proofLabel = "See ClearBloom case study",
   liveHref,
-  liveLabel = "View ClearBloom live demo"
+  liveLabel = "View live storefront demo"
 }: StorefrontCtaProps) {
   const isAmber = variant === "amber";
 

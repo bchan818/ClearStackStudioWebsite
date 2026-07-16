@@ -108,7 +108,7 @@ export default function WorkPage() {
               className="focus-ring inline-flex items-center justify-center border border-rose-200/40 px-5 py-3 text-sm font-semibold text-rose-100 transition hover:border-rose-200 hover:text-white"
               href={clearBloomLiveUrl}
             >
-              View live storefront
+              View live storefront demo
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-amber-100/30 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"

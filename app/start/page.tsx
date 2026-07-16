@@ -26,7 +26,7 @@ const projectPaths = [
     proof: "ClearBloom Beauty",
     proofHref: "/work/clearbloom-beauty/case-study",
     liveHref: clearBloomLiveUrl,
-    liveLabel: "View live storefront",
+    liveLabel: "View live storefront demo",
     scope: "Polished storefront surface with no live payments, inventory, shipping, or tax systems connected yet.",
     cta: "Start a storefront inquiry",
     accent: "rose"

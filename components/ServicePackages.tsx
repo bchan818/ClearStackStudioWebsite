@@ -49,7 +49,7 @@ const packages = [
     href: "/contact",
     detailsCta: "Learn about the package",
     detailsHref: "/services#storefront-mvp",
-    liveCta: "View ClearBloom live demo",
+    liveCta: "View live storefront demo",
     liveHref: clearBloomLiveUrl
   },
   {

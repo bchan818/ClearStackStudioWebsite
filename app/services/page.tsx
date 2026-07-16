@@ -214,7 +214,7 @@ export default function ServicesPage() {
               className="focus-ring inline-flex items-center justify-center border border-amber-100/40 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-100 hover:text-slate-950"
               href={clearBloomLiveUrl}
             >
-              View ClearBloom live demo
+              View live storefront demo
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-amber-100/40 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-100 hover:text-slate-950"
@@ -232,7 +232,7 @@ export default function ServicesPage() {
         text="The case study explains how a fictional beauty brand became a premium inquiry-based storefront MVP with catalog structure, product detail pages, policies, and a future Shopify or Stripe upgrade path."
         variant="amber"
         liveHref={clearBloomLiveUrl}
-        liveLabel="View ClearBloom live demo"
+        liveLabel="View live storefront demo"
         proofHref="/work/clearbloom-beauty/case-study"
         proofLabel="See ClearBloom case study"
       />

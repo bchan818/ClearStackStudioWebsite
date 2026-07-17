@@ -51,6 +51,12 @@ export function Footer() {
           </Link>
           <Link
             className="focus-ring transition hover:text-white"
+            href="/launch-readiness"
+          >
+            Launch Readiness
+          </Link>
+          <Link
+            className="focus-ring transition hover:text-white"
             href="/work/clearbloom-beauty/case-study"
           >
             Storefront proof

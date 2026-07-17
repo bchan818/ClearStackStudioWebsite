@@ -23,7 +23,7 @@ const dashboardFeatures = [
 const proofPoints = [
   "Internal dashboard builds",
   "Application/review workflows",
-  "Role-based workflow planning",
+  "Reviewer assignment flows",
   "Status tracking",
   "Report/export interface planning",
   "Privacy-conscious dashboard design",
@@ -46,8 +46,8 @@ const safeRoutes = [
 ];
 
 const roadmapItems = [
-  "Public-safe demo environment",
-  "Mock seed database",
+  "Mock-data-only public demo",
+  "Safe seed database",
   "Role-based demo login",
   "Secure authentication",
   "Audit trail",

@@ -57,7 +57,7 @@ const projects = [
     description:
       "A structured application review dashboard prototype for organizing reviewer queues, applicant statuses, review notes, reports, and administrative workflows.",
     proves:
-      "Internal dashboard builds, application/review workflows, role-based workflow planning, status tracking, report/export interface planning, privacy-conscious dashboard design, and database-backed app architecture planning.",
+      "Internal dashboard builds, application/review workflows, status tracking, reviewer assignment flows, report/export interface planning, privacy-conscious dashboard design, and database-backed app architecture planning.",
     relatedService: "Internal Dashboard Build",
     serviceHref: "/services",
     liveDemo: undefined,

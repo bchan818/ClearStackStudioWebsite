@@ -18,7 +18,7 @@ const approachItems = [
 const proofPoints = [
   "Internal dashboard builds",
   "Application/review workflows",
-  "Role-based workflow planning",
+  "Reviewer assignment flows",
   "Status tracking",
   "Report/export interface planning",
   "Privacy-conscious dashboard design",
@@ -26,8 +26,8 @@ const proofPoints = [
 ];
 
 const futureRoadmap = [
-  "Public-safe demo environment",
-  "Mock seed database",
+  "Mock-data-only public demo",
+  "Safe seed database",
   "Role-based demo login",
   "Secure authentication",
   "Audit trail",
@@ -129,7 +129,7 @@ export default function MswApplicationReviewCaseStudyPage() {
             <article className="border border-white/10 bg-white/[0.04] p-6">
               <h2 className="text-2xl font-semibold text-white">Local/private app build verified</h2>
               <p className="mt-4 text-sm leading-6 text-slate-300">
-                The private MSW Admissions app build has been verified with Prisma client generation and a production Next.js build. ClearStack Studio does not expose that private app, private route URLs, local development paths, applicant IDs, student names, admissions records, or review notes.
+                The private MSW Admissions app build has been verified with a production Next.js build. ClearStack Studio does not expose that private app, private route URLs, local development paths, applicant IDs, student names, admissions records, or review notes.
               </p>
             </article>
             <article className="border border-emerald-300/20 bg-emerald-300/[0.05] p-6">

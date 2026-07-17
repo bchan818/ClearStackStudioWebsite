@@ -3,41 +3,63 @@ import Link from "next/link";
 
 const dashboardFeatures = [
   {
-    title: "Structured applicant view",
-    text: "Mock applicant information is organized into review-friendly sections without exposing real student records."
+    title: "Reviewer queues",
+    text: "Organize applications by review status, reviewer ownership, next action, and follow-up needs."
   },
   {
-    title: "Status tracking",
-    text: "Review stages, needs-review flags, and decision support notes are represented as safe static dashboard states."
+    title: "Applicant status tracking",
+    text: "Plan clear status views for applicant progress without exposing private applicant records in the public portfolio."
   },
   {
-    title: "Reviewer workflow",
-    text: "The interface focuses on what reviewers need to scan, compare, and move forward in a repeatable process."
+    title: "Review notes structure",
+    text: "Shape how notes, review context, and decision support can be grouped for a repeatable review workflow."
   },
   {
-    title: "Internal tool MVP",
-    text: "The proof stays static and generic while showing how manual review processes can become operational dashboards."
+    title: "Reports and exports planning",
+    text: "Map reporting and export surfaces before connecting real data, retention rules, or approval processes."
   }
 ];
 
-const workflowSteps = [
-  "Convert a manual review process into clear stages and dashboard views.",
-  "Separate applicant summary, status, review notes, and next action into readable cards.",
-  "Use generic mock data only so no private student or admissions information is exposed.",
-  "Plan future database, authentication, permissions, and audit logging only after workflow scope is approved."
+const proofPoints = [
+  "Internal dashboard builds",
+  "Application/review workflows",
+  "Role-based workflow planning",
+  "Status tracking",
+  "Report/export interface planning",
+  "Privacy-conscious dashboard design",
+  "Database-backed app architecture planning"
+];
+
+const safeRoutes = [
+  "/",
+  "/admin",
+  "/applicants",
+  "/applicants/[id]",
+  "/applicants/[id]/review",
+  "/applicants/new",
+  "/assignments",
+  "/login",
+  "/reports",
+  "/reviewer",
+  "/settings",
+  "/api/export"
 ];
 
 const roadmapItems = [
-  "Role-based authentication and reviewer permissions.",
-  "Database-backed application records and controlled document storage.",
-  "Audit logs, export controls, and privacy review before handling sensitive data.",
-  "Integrations with approved admissions or CRM systems only after security and compliance review."
+  "Public-safe demo environment",
+  "Mock seed database",
+  "Role-based demo login",
+  "Secure authentication",
+  "Audit trail",
+  "Exports",
+  "Reviewer assignment workflow",
+  "Deployment hardening"
 ];
 
 export const metadata: Metadata = {
   title: "MSW Application Review | ClearStack Studio",
   description:
-    "MSW Application Review is a mock internal workflow dashboard proof project by ClearStack Studio for structured application review and operational efficiency."
+    "MSW Application Review is a case-study-only internal workflow dashboard proof project for structured application review, reviewer queues, status tracking, and privacy-conscious dashboard design."
 };
 
 export default function MswApplicationReviewPage() {
@@ -47,20 +69,23 @@ export default function MswApplicationReviewPage() {
         <div className="flex flex-col justify-center">
           <div className="flex flex-wrap items-center gap-3">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emeraldLift">
-              Internal workflow dashboard
+              Internal Workflow Dashboard
             </p>
             <span className="border border-emerald-300/40 bg-emerald-300/[0.12] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-100">
-              Mock MVP
+              Private workflow prototype
             </span>
           </div>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            MSW Application Review turns a manual review process into a structured dashboard prototype.
+            MSW Application Review is an internal dashboard proof project for structured application review.
           </h1>
           <p className="mt-6 text-lg leading-8 text-slate-300">
-            From manual review process to structured application dashboard. This proof project shows how ClearStack Studio can build internal workflow tools for application review, status tracking, reviewer-friendly dashboards, and operational decision support using safe mock content only.
+            A structured application review dashboard prototype for organizing reviewer queues, applicant statuses, review notes, reports, and administrative workflows.
+          </p>
+          <p className="mt-5 text-sm leading-6 text-slate-300 sm:text-base">
+            This proof project is presented with generic descriptions and mock-data positioning only. No private applicant records, student data, admissions documents, or confidential review notes are shown in ClearStack Studio.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            {["Workflow dashboard", "Status tracking", "Decision support", "Mock data only"].map((tag) => (
+            {["Case-study-only", "Mock-data positioning", "No public live demo", "Privacy boundary"].map((tag) => (
               <span
                 className="border border-emerald-300/30 bg-emerald-300/[0.08] px-3 py-2 text-sm text-emerald-100"
                 key={tag}
@@ -72,15 +97,15 @@ export default function MswApplicationReviewPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
-              href="/contact"
+              href="/work/msw-application-review/case-study"
             >
-              Start a workflow dashboard inquiry
+              View case study
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-5 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300 hover:text-white"
-              href="/work/msw-application-review/case-study"
+              href="/contact"
             >
-              Read case study
+              Start a dashboard inquiry
             </Link>
           </div>
         </div>
@@ -88,33 +113,33 @@ export default function MswApplicationReviewPage() {
         <div className="border border-emerald-300/20 bg-emerald-300/[0.05] p-5 shadow-[0_0_80px_rgba(52,211,153,0.12)]">
           <div className="min-h-[420px] border border-white/10 bg-[#081827] p-5">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-100">
-              Dashboard preview
+              Project Overview
             </p>
             <div className="mt-8 grid gap-4">
               <div className="border border-white/15 bg-slateInk p-5">
-                <p className="text-sm text-slate-400">Review queue</p>
+                <p className="text-sm text-slate-400">Status</p>
                 <h2 className="mt-3 text-2xl font-semibold text-white">
-                  Applicant review batch
+                  Private workflow prototype
                 </h2>
                 <p className="mt-3 text-sm leading-6 text-slate-300">
-                  Generic mock records grouped by status, reviewer action, and decision support notes.
+                  Local/private app build verified. A live public demo is intentionally withheld until a mock-data-only demo is prepared.
                 </p>
               </div>
               <div className="grid gap-4 sm:grid-cols-3">
                 {[
-                  ["Ready", "12"],
-                  ["Needs review", "5"],
-                  ["Follow-up", "3"]
+                  ["Queue", "Review"],
+                  ["Status", "Track"],
+                  ["Reports", "Plan"]
                 ].map(([label, value]) => (
                   <div className="border border-emerald-300/20 bg-emerald-300/[0.06] p-4" key={label}>
                     <p className="text-sm text-slate-300">{label}</p>
-                    <p className="mt-2 text-3xl font-semibold text-white">{value}</p>
+                    <p className="mt-2 text-2xl font-semibold text-white">{value}</p>
                   </div>
                 ))}
               </div>
             </div>
             <p className="mt-6 text-sm leading-6 text-slate-400">
-              Static mock dashboard only. No real applicant names, private student data, admissions records, database, authentication, or integrations are included.
+              No private app URL, applicant route, applicant ID, student name, admissions record, or confidential review note is linked or displayed here.
             </p>
           </div>
         </div>
@@ -123,16 +148,15 @@ export default function MswApplicationReviewPage() {
       <section className="bg-[#081827] px-6 py-16 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emeraldLift">
-            Dashboard Features
+            What it proves
           </p>
           <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            A practical internal tool MVP for structured review work.
+            ClearStack Studio can plan sensitive internal dashboards without exposing private data.
           </h2>
-          <div className="mt-10 grid gap-4 md:grid-cols-2">
-            {dashboardFeatures.map((feature) => (
-              <article className="border border-white/10 bg-white/[0.04] p-5" key={feature.title}>
-                <h3 className="text-lg font-semibold text-white">{feature.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-300">{feature.text}</p>
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {proofPoints.map((point) => (
+              <article className="border border-white/10 bg-white/[0.04] p-5" key={point}>
+                <p className="text-sm font-semibold text-white">{point}</p>
               </article>
             ))}
           </div>
@@ -142,16 +166,18 @@ export default function MswApplicationReviewPage() {
       <section className="mx-auto grid max-w-6xl gap-8 px-6 py-16 sm:py-20 lg:grid-cols-2 lg:px-8">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">
-            MVP Workflow
+            Planned app route structure
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white">
-            From manual queue to reviewer-friendly dashboard.
+            The private build is organized around operational dashboard routes.
           </h2>
-          <div className="mt-8 grid gap-3">
-            {workflowSteps.map((step, index) => (
-              <div className="border border-cyan-300/20 bg-cyan-300/[0.05] p-4 text-sm leading-6 text-slate-200" key={step}>
-                <span className="font-semibold text-cyanGlow">0{index + 1}. </span>
-                {step}
+          <p className="mt-5 text-sm leading-6 text-slate-300 sm:text-base">
+            These route groups describe the app architecture only. They are not public links and do not expose private applicant data.
+          </p>
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            {safeRoutes.map((route) => (
+              <div className="border border-cyan-300/20 bg-cyan-300/[0.05] p-4 text-sm font-semibold text-cyan-100" key={route}>
+                {route}
               </div>
             ))}
           </div>
@@ -159,10 +185,10 @@ export default function MswApplicationReviewPage() {
 
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emeraldLift">
-            Future Roadmap
+            Future roadmap
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white">
-            Sensitive workflow systems need security and privacy planning first.
+            Public sharing waits for a safe mock-data demo path.
           </h2>
           <div className="mt-8 grid gap-3">
             {roadmapItems.map((item) => (
@@ -180,10 +206,10 @@ export default function MswApplicationReviewPage() {
             ClearStack Studio service connection
           </p>
           <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Use this pattern for internal dashboards and operational workflow tools.
+            Build an internal dashboard like this with safe MVP boundaries first.
           </h2>
           <p className="mt-5 max-w-3xl text-sm leading-6 text-slate-300 sm:text-base">
-            MSW Application Review is a proof project for turning messy internal processes into clear, review-ready MVP dashboards while protecting privacy and keeping sensitive-data features out of scope until properly approved.
+            MSW Application Review is positioned as case-study-only proof for internal dashboards, review workflows, status tracking, and privacy-conscious architecture planning.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
@@ -194,9 +220,9 @@ export default function MswApplicationReviewPage() {
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-emerald-300/60 hover:text-white"
-              href="/work"
+              href="/work/msw-application-review/case-study"
             >
-              View all work
+              View case study
             </Link>
           </div>
         </div>

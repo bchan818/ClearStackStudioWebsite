@@ -56,7 +56,7 @@ const proofLinks = [
   },
   {
     title: "MSW Application Review case study",
-    text: "A mock internal workflow dashboard for application review, status tracking, structured information, and operational efficiency.",
+    text: "A case-study-only internal workflow dashboard proof for application review, role-based workflow planning, status tracking, reports, export planning, and privacy-conscious dashboard design.",
     href: "/work/msw-application-review/case-study"
   }
 ];
@@ -70,9 +70,9 @@ const specialtyServices = [
   },
   {
     title: "Internal workflow dashboards",
-    text: "MSW Application Review shows how a manual application review process can become a structured dashboard MVP with status tracking, reviewer-friendly views, and mock data only.",
+    text: "A private workflow prototype for organizing reviewer queues, applicant statuses, review notes, reports, and administrative workflows using mock-data positioning only.",
     href: "/work/msw-application-review/case-study",
-    cta: "See dashboard proof"
+    cta: "View case study"
   }
 ];
 

@@ -9,7 +9,7 @@ const contactReasons = [
   "Website/App Refresh Package",
   "A mobile app prototype",
   "AI-powered tool inquiry",
-  "Internal dashboard/workflow inquiry"
+  "Internal dashboard inquiry"
 ];
 
 const projectDetails = [
@@ -73,10 +73,10 @@ const inquiryPaths = [
     cta: "Start an AI tool inquiry"
   },
   {
-    title: "Internal dashboard/workflow inquiry",
-    text: "For teams that need structured status tracking, review queues, decision support, operational dashboards, or internal workflow MVPs using safe mock scope first.",
-    href: "mailto:hello@clearstack.studio?subject=Internal%20dashboard%20workflow%20inquiry%20for%20ClearStack%20Studio",
-    cta: "Start a workflow dashboard inquiry"
+    title: "Internal dashboard inquiry",
+    text: "For teams that need structured reviewer queues, applicant/status tracking, review notes, reports, export planning, administrative workflows, or privacy-conscious internal dashboard MVPs using safe mock scope first.",
+    href: "mailto:hello@clearstack.studio?subject=Internal%20dashboard%20inquiry%20for%20ClearStack%20Studio",
+    cta: "Start a dashboard inquiry"
   }
 ];
 
@@ -98,7 +98,7 @@ const proofLinks = [
   },
   {
     title: "MSW Application Review case study",
-    text: "Mock internal workflow dashboard proof for structured application review, status tracking, and operational efficiency.",
+    text: "Case-study-only internal workflow dashboard proof for structured application review, role-based workflow planning, status tracking, reports, export planning, and privacy-conscious dashboard design.",
     href: "/work/msw-application-review/case-study"
   }
 ];

@@ -52,17 +52,17 @@ const projects = [
   },
   {
     name: "MSW Application Review",
-    category: "Internal Dashboard",
-    status: "Workflow prototype",
+    category: "Internal Workflow Dashboard",
+    status: "Private workflow prototype",
     description:
-      "Structured application review dashboard for organizing applicant information and review status.",
+      "A structured application review dashboard prototype for organizing reviewer queues, applicant statuses, review notes, reports, and administrative workflows.",
     proves:
-      "Internal tools, workflow dashboards, status tracking, and decision support.",
+      "Internal dashboard builds, application/review workflows, role-based workflow planning, status tracking, report/export interface planning, privacy-conscious dashboard design, and database-backed app architecture planning.",
     relatedService: "Internal Dashboard Build",
     serviceHref: "/services",
     liveDemo: undefined,
     caseStudy: "/work/msw-application-review/case-study",
-    cta: "Read dashboard case study",
+    cta: "View case study",
     accent: "emerald"
   }
 ];
@@ -236,16 +236,28 @@ export default function ProjectsPage() {
                         >
                           Live demo
                         </Link>
+                      ) : project.name === "MSW Application Review" ? (
+                        <span className="inline-flex items-center justify-center border border-emerald-300/20 px-4 py-3 text-center text-sm font-semibold text-emerald-100">
+                          Public demo withheld
+                        </span>
                       ) : (
                         <span className="inline-flex items-center justify-center border border-white/10 px-4 py-3 text-sm font-semibold text-slate-500">
                           Live demo planned
                         </span>
                       )}
+                      {project.name === "MSW Application Review" ? (
+                        <Link
+                          className="focus-ring inline-flex items-center justify-center border border-white/15 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+                          href="/work/msw-application-review"
+                        >
+                          View project overview
+                        </Link>
+                      ) : null}
                       <Link
                         className="focus-ring inline-flex items-center justify-center border border-white/15 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
                         href={project.caseStudy}
                       >
-                        Case study
+                        {project.name === "MSW Application Review" ? "View case study" : "Case study"}
                       </Link>
                     </div>
                     <Link

@@ -44,15 +44,15 @@ const projectPaths = [
     accent: "fuchsia"
   },
   {
-    title: "Internal Dashboard",
-    eyebrow: "Operational workflow MVP",
+    title: "Internal Workflow Dashboard",
+    eyebrow: "Private workflow prototype",
     who: "Teams with manual review, tracking, approval, reporting, intake, or decision-support workflows.",
     build:
-      "Reviewer-friendly dashboards, status tracking, structured records, decision support screens, and workflow maps.",
+      "Reviewer queues, applicant/status tracking, review note structure, report/export interface planning, administrative workflows, and role-based workflow maps.",
     proof: "MSW Application Review",
-    proofHref: "/work/msw-application-review/case-study",
-    scope: "Mock-data dashboard first; auth, databases, permissions, audit logs, and integrations come later.",
-    cta: "Start a workflow dashboard inquiry",
+    proofHref: "/work/msw-application-review",
+    scope: "Case-study-only dashboard proof first; live public demos, auth, databases, permissions, audit logs, and integrations wait until a mock-data-only demo is prepared.",
+    cta: "Start a dashboard inquiry",
     accent: "emerald"
   },
   {

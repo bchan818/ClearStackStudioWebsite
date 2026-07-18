@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StorefrontCta } from "@/components/StorefrontCta";
-import { clearBloomLiveUrl } from "@/lib/siteLinks";
+import { clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const contactReasons = [
   "MVP Launch Package",
@@ -74,7 +74,7 @@ const inquiryPaths = [
   },
   {
     title: "Internal dashboard inquiry",
-    text: "For teams that need structured reviewer queues, applicant/status tracking, review notes, reports, export planning, administrative workflows, or privacy-conscious internal dashboard MVPs using safe mock scope first.",
+    text: "For teams that need structured reviewer queues, applicant/status tracking, review notes, reports, export planning, administrative workflows, or privacy-conscious internal dashboard MVPs using safe mock scope first. See the MSW Application Review live mock-data dashboard demo as proof.",
     href: "mailto:hello@clearstack.studio?subject=Internal%20dashboard%20inquiry%20for%20ClearStack%20Studio",
     cta: "Start a dashboard inquiry"
   }
@@ -97,8 +97,13 @@ const proofLinks = [
     href: "/work/ai-fashion-model/case-study"
   },
   {
+    title: "View live dashboard demo",
+    text: "Public-safe dashboard demo using fictional mock applicant data only.",
+    href: mswApplicationReviewDemoUrl
+  },
+  {
     title: "MSW Application Review case study",
-    text: "Case-study-only internal workflow dashboard proof for structured application review, role-based workflow planning, status tracking, reports, export planning, and privacy-conscious dashboard design.",
+    text: "Live mock-data internal workflow dashboard demo for structured application review, reviewer assignment flows, status tracking, reports, export planning, and privacy-conscious dashboard design.",
     href: "/work/msw-application-review/case-study"
   }
 ];

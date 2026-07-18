@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ServicePackages } from "@/components/ServicePackages";
 import { StorefrontCta } from "@/components/StorefrontCta";
-import { clearBloomLiveUrl } from "@/lib/siteLinks";
+import { clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const processSteps = [
   {
@@ -56,7 +56,7 @@ const proofLinks = [
   },
   {
     title: "MSW Application Review case study",
-    text: "A case-study-only internal workflow dashboard proof for application review, role-based workflow planning, status tracking, reports, export planning, and privacy-conscious dashboard design.",
+    text: "A live mock-data internal workflow dashboard demo for application review, reviewer assignment flows, status tracking, reports, export planning, and privacy-conscious dashboard design.",
     href: "/work/msw-application-review/case-study"
   }
 ];
@@ -70,9 +70,9 @@ const specialtyServices = [
   },
   {
     title: "Internal workflow dashboards",
-    text: "A private workflow prototype for organizing reviewer queues, applicant statuses, review notes, reports, and administrative workflows using mock-data positioning only.",
-    href: "/work/msw-application-review/case-study",
-    cta: "View case study"
+    text: "A live mock-data dashboard demo for organizing reviewer queues, applicant statuses, review notes, reports, and administrative workflows using fictional applicant data only.",
+    href: mswApplicationReviewDemoUrl,
+    cta: "View live dashboard demo"
   }
 ];
 

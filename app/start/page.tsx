@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { cardScopeLiveUrl, clearBloomLiveUrl } from "@/lib/siteLinks";
+import { cardScopeLiveUrl, clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const projectPaths = [
   {
@@ -45,13 +45,15 @@ const projectPaths = [
   },
   {
     title: "Internal Workflow Dashboard",
-    eyebrow: "Private workflow prototype",
+    eyebrow: "Live mock-data dashboard demo",
     who: "Teams with manual review, tracking, approval, reporting, intake, or decision-support workflows.",
     build:
       "Reviewer queues, applicant/status tracking, review note structure, report/export interface planning, administrative workflows, and role-based workflow maps.",
     proof: "MSW Application Review",
     proofHref: "/work/msw-application-review",
-    scope: "Case-study-only dashboard proof first; live public demos, auth, databases, permissions, audit logs, and integrations wait until a mock-data-only demo is prepared.",
+    liveHref: mswApplicationReviewDemoUrl,
+    liveLabel: "View live dashboard demo",
+    scope: "Public-safe mock-data dashboard demo and case study first; real auth, databases, permissions, audit logs, and integrations wait until approved scope.",
     cta: "Start a dashboard inquiry",
     accent: "emerald"
   },

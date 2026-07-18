@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const summaryStats = [
   { label: "Project type", value: "Internal Workflow Dashboard" },
-  { label: "Status", value: "Private workflow prototype" },
-  { label: "Data posture", value: "Generic descriptions and mock-data positioning only" },
-  { label: "Public demo", value: "Intentionally withheld" }
+  { label: "Status", value: "Live mock-data dashboard demo" },
+  { label: "Data posture", value: "Fictional mock applicant data only" },
+  { label: "Public demo", value: "Verified live demo" }
 ];
 
 const approachItems = [
@@ -39,7 +40,7 @@ const futureRoadmap = [
 export const metadata: Metadata = {
   title: "MSW Application Review Case Study | ClearStack Studio",
   description:
-    "Case study for MSW Application Review, a case-study-only internal workflow dashboard proof project with mock-data positioning and privacy-safe boundaries."
+    "Case study for MSW Application Review, a live mock-data internal workflow dashboard demo with privacy-safe boundaries."
 };
 
 export default function MswApplicationReviewCaseStudyPage() {
@@ -51,17 +52,23 @@ export default function MswApplicationReviewCaseStudyPage() {
             Case Study
           </p>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            MSW Application Review: private workflow prototype for structured application review.
+            MSW Application Review: live mock-data dashboard demo for structured application review.
           </h1>
           <p className="mt-6 text-lg leading-8 text-slate-300">
             A structured application review dashboard prototype for organizing reviewer queues, applicant statuses, review notes, reports, and administrative workflows.
           </p>
           <p className="mt-5 text-sm leading-6 text-slate-300 sm:text-base">
-            This proof project is presented with generic descriptions and mock-data positioning only. No private applicant records, student data, admissions documents, or confidential review notes are shown in ClearStack Studio.
+            This public demo uses fictional mock applicant data only. No private applicant records, student data, admissions documents, or confidential review notes are included.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              href={mswApplicationReviewDemoUrl}
+            >
+              View live dashboard demo
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-6 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300 hover:text-white"
               href="/contact"
             >
               Build an internal dashboard like this
@@ -133,9 +140,9 @@ export default function MswApplicationReviewCaseStudyPage() {
               </p>
             </article>
             <article className="border border-emerald-300/20 bg-emerald-300/[0.05] p-6">
-              <h2 className="text-2xl font-semibold text-white">No public live demo yet</h2>
+              <h2 className="text-2xl font-semibold text-white">Live public mock-data demo available</h2>
               <p className="mt-4 text-sm leading-6 text-slate-300">
-                The live public demo is intentionally withheld until a mock-data-only demo is prepared. The ClearStack Studio site links only to this project overview and case study for now.
+                The live public demo is available as a mock-data-only dashboard. It uses fictional applicant records and does not include private admissions data, documents, or confidential review notes.
               </p>
             </article>
           </div>
@@ -164,7 +171,7 @@ export default function MswApplicationReviewCaseStudyPage() {
             Future roadmap
           </p>
           <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            The next phase is a public-safe demo environment, not a private-data deployment.
+            The next phase is strengthening the public-safe demo path without connecting private admissions data.
           </h2>
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {futureRoadmap.map((item) => (
@@ -176,6 +183,12 @@ export default function MswApplicationReviewCaseStudyPage() {
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              href={mswApplicationReviewDemoUrl}
+            >
+              View live dashboard demo
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-5 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300 hover:text-white"
               href="/contact"
             >
               Start a dashboard inquiry

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { cardScopeLiveUrl, clearBloomLiveUrl } from "@/lib/siteLinks";
+import { cardScopeLiveUrl, clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const categoryChips = ["All", "Software MVP", "Storefront MVP", "AI Tool", "Dashboard"];
 
@@ -53,16 +53,16 @@ const projects = [
   {
     name: "MSW Application Review",
     category: "Internal Workflow Dashboard",
-    status: "Private workflow prototype",
+    status: "Live mock-data dashboard demo",
     description:
       "A structured application review dashboard prototype for organizing reviewer queues, applicant statuses, review notes, reports, and administrative workflows.",
     proves:
       "Internal dashboard builds, application/review workflows, status tracking, reviewer assignment flows, report/export interface planning, privacy-conscious dashboard design, and database-backed app architecture planning.",
     relatedService: "Internal Dashboard Build",
     serviceHref: "/services",
-    liveDemo: undefined,
+    liveDemo: mswApplicationReviewDemoUrl,
     caseStudy: "/work/msw-application-review/case-study",
-    cta: "View case study",
+    cta: "View live dashboard demo",
     accent: "emerald"
   }
 ];
@@ -234,11 +234,11 @@ export default function ProjectsPage() {
                           className="focus-ring inline-flex items-center justify-center border border-white/15 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
                           href={project.liveDemo}
                         >
-                          Live demo
+                          {project.name === "MSW Application Review" ? "View live dashboard demo" : "Live demo"}
                         </Link>
                       ) : project.name === "MSW Application Review" ? (
                         <span className="inline-flex items-center justify-center border border-emerald-300/20 px-4 py-3 text-center text-sm font-semibold text-emerald-100">
-                          Public demo withheld
+                          Live mock-data demo available
                         </span>
                       ) : (
                         <span className="inline-flex items-center justify-center border border-white/10 px-4 py-3 text-sm font-semibold text-slate-500">

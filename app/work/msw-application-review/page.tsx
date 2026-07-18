@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const dashboardFeatures = [
   {
@@ -59,7 +60,7 @@ const roadmapItems = [
 export const metadata: Metadata = {
   title: "MSW Application Review | ClearStack Studio",
   description:
-    "MSW Application Review is a case-study-only internal workflow dashboard proof project for structured application review, reviewer queues, status tracking, and privacy-conscious dashboard design."
+    "MSW Application Review is a public-safe internal workflow dashboard demo and case study for structured application review, reviewer queues, status tracking, and privacy-conscious dashboard design."
 };
 
 export default function MswApplicationReviewPage() {
@@ -72,7 +73,7 @@ export default function MswApplicationReviewPage() {
               Internal Workflow Dashboard
             </p>
             <span className="border border-emerald-300/40 bg-emerald-300/[0.12] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-100">
-              Private workflow prototype
+              Live mock-data dashboard demo
             </span>
           </div>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
@@ -82,10 +83,10 @@ export default function MswApplicationReviewPage() {
             A structured application review dashboard prototype for organizing reviewer queues, applicant statuses, review notes, reports, and administrative workflows.
           </p>
           <p className="mt-5 text-sm leading-6 text-slate-300 sm:text-base">
-            This proof project is presented with generic descriptions and mock-data positioning only. No private applicant records, student data, admissions documents, or confidential review notes are shown in ClearStack Studio.
+            This public demo uses fictional mock applicant data only. No private applicant records, student data, admissions documents, or confidential review notes are included.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            {["Case-study-only", "Mock-data positioning", "No public live demo", "Privacy boundary"].map((tag) => (
+            {["Public demo prototype", "Mock applicant data only", "Live dashboard demo", "Privacy boundary"].map((tag) => (
               <span
                 className="border border-emerald-300/30 bg-emerald-300/[0.08] px-3 py-2 text-sm text-emerald-100"
                 key={tag}
@@ -97,6 +98,12 @@ export default function MswApplicationReviewPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              href={mswApplicationReviewDemoUrl}
+            >
+              View live dashboard demo
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-5 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300 hover:text-white"
               href="/work/msw-application-review/case-study"
             >
               View case study
@@ -119,10 +126,10 @@ export default function MswApplicationReviewPage() {
               <div className="border border-white/15 bg-slateInk p-5">
                 <p className="text-sm text-slate-400">Status</p>
                 <h2 className="mt-3 text-2xl font-semibold text-white">
-                  Private workflow prototype
+                  Live mock-data dashboard demo
                 </h2>
                 <p className="mt-3 text-sm leading-6 text-slate-300">
-                  Local/private app build verified. A live public demo is intentionally withheld until a mock-data-only demo is prepared.
+                  Live mock-data dashboard demo verified. The demo uses fictional applicant records only and does not expose private admissions data.
                 </p>
               </div>
               <div className="grid gap-4 sm:grid-cols-3">
@@ -139,7 +146,7 @@ export default function MswApplicationReviewPage() {
               </div>
             </div>
             <p className="mt-6 text-sm leading-6 text-slate-400">
-              No private app URL, applicant route, applicant ID, student name, admissions record, or confidential review note is linked or displayed here.
+              The linked public demo contains fictional mock records only; no private applicant IDs, student names, admissions records, documents, or confidential review notes are linked or displayed.
             </p>
           </div>
         </div>
@@ -169,10 +176,10 @@ export default function MswApplicationReviewPage() {
             Planned app route structure
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white">
-            The private build is organized around operational dashboard routes.
+            The demo and planning pattern are organized around operational dashboard routes.
           </h2>
           <p className="mt-5 text-sm leading-6 text-slate-300 sm:text-base">
-            These route groups describe the app architecture only. They are not public links and do not expose private applicant data.
+            These route groups describe the public-safe mock demo architecture and the private app planning pattern. They do not expose private applicant data.
           </p>
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
             {safeRoutes.map((route) => (
@@ -188,7 +195,7 @@ export default function MswApplicationReviewPage() {
             Future roadmap
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white">
-            Public sharing waits for a safe mock-data demo path.
+            Public sharing uses the verified mock-data-only demo path.
           </h2>
           <div className="mt-8 grid gap-3">
             {roadmapItems.map((item) => (
@@ -209,11 +216,17 @@ export default function MswApplicationReviewPage() {
             Build an internal dashboard like this with safe MVP boundaries first.
           </h2>
           <p className="mt-5 max-w-3xl text-sm leading-6 text-slate-300 sm:text-base">
-            MSW Application Review is positioned as case-study-only proof for internal dashboards, review workflows, status tracking, and privacy-conscious architecture planning.
+            MSW Application Review is positioned as live mock-data dashboard proof for internal dashboards, review workflows, status tracking, and privacy-conscious architecture planning.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              href={mswApplicationReviewDemoUrl}
+            >
+              View live dashboard demo
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-5 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300 hover:text-white"
               href="/contact"
             >
               Build an internal dashboard like this

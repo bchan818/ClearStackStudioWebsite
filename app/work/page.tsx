@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FeaturedProduct } from "@/components/FeaturedProduct";
-import { cardScopeLiveUrl, clearBloomLiveUrl } from "@/lib/siteLinks";
+import { cardScopeLiveUrl, clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const capabilities = [
   "MVP software products",
@@ -95,7 +95,7 @@ export default function WorkPage() {
           <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-300">
             Each project keeps scope honest: static proof where appropriate,
             mock data only for sensitive workflows, and future integrations only
-            after the MVP direction is clear.
+            after the MVP direction is clear. MSW Application Review now includes a public-safe live mock-data dashboard demo.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
@@ -121,6 +121,12 @@ export default function WorkPage() {
               href="/work/ai-fashion-model"
             >
               View AI Fashion Model
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-5 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300 hover:text-white"
+              href={mswApplicationReviewDemoUrl}
+            >
+              View live dashboard demo
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-5 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300 hover:text-white"

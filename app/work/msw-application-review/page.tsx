@@ -28,7 +28,7 @@ const proofPoints = [
   "Status tracking",
   "Report/export interface planning",
   "Privacy-conscious dashboard design",
-  "Database-backed app architecture planning"
+  "Operational workflow tool planning"
 ];
 
 const safeRoutes = [
@@ -43,7 +43,8 @@ const safeRoutes = [
   "/reports",
   "/reviewer",
   "/settings",
-  "/api/export"
+  "/api/export",
+  "/demo-safety"
 ];
 
 const roadmapItems = [
@@ -83,7 +84,7 @@ export default function MswApplicationReviewPage() {
             A structured application review dashboard prototype for organizing reviewer queues, applicant statuses, review notes, reports, and administrative workflows.
           </p>
           <p className="mt-5 text-sm leading-6 text-slate-300 sm:text-base">
-            This public demo uses fictional mock applicant data only. No private applicant records, student data, admissions documents, or confidential review notes are included.
+            This public demo uses fictional mock applicant data only. It does not contain real student records, admissions documents, private reviewer notes, or confidential institutional information.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             {["Public demo prototype", "Mock applicant data only", "Live dashboard demo", "Privacy boundary"].map((tag) => (
@@ -129,7 +130,7 @@ export default function MswApplicationReviewPage() {
                   Live mock-data dashboard demo
                 </h2>
                 <p className="mt-3 text-sm leading-6 text-slate-300">
-                  Live mock-data dashboard demo verified. The demo uses fictional applicant records only and does not expose private admissions data.
+                  Live mock-data dashboard demo verified. The demo includes applicant workflow, review queue, reviewer assignments, reports, admin previews, and settings previews without exposing real admissions information.
                 </p>
               </div>
               <div className="grid gap-4 sm:grid-cols-3">
@@ -146,7 +147,7 @@ export default function MswApplicationReviewPage() {
               </div>
             </div>
             <p className="mt-6 text-sm leading-6 text-slate-400">
-              The linked public demo contains fictional mock records only; no private applicant IDs, student names, admissions records, documents, or confidential review notes are linked or displayed.
+              This public demo uses fictional mock applicant data only. It does not contain real student records, admissions documents, private reviewer notes, or confidential institutional information.
             </p>
           </div>
         </div>
@@ -216,7 +217,7 @@ export default function MswApplicationReviewPage() {
             Build an internal dashboard like this with safe MVP boundaries first.
           </h2>
           <p className="mt-5 max-w-3xl text-sm leading-6 text-slate-300 sm:text-base">
-            MSW Application Review is positioned as live mock-data dashboard proof for internal dashboards, review workflows, status tracking, and privacy-conscious architecture planning.
+            MSW Application Review is positioned as live mock-data dashboard proof for internal dashboards, workflow tools, operational software, review workflows, status tracking, and privacy-conscious architecture planning.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link

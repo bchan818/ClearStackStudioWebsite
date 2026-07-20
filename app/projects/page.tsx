@@ -55,9 +55,9 @@ const projects = [
     category: "Internal Workflow Dashboard",
     status: "Live mock-data dashboard demo",
     description:
-      "A structured application review dashboard prototype for organizing reviewer queues, applicant statuses, review notes, reports, and administrative workflows.",
+      "Live mock-data internal dashboard demo for applicant workflow, review queues, reviewer assignments, reports, admin previews, and privacy-safe operations tooling.",
     proves:
-      "Internal dashboard builds, application/review workflows, status tracking, reviewer assignment flows, report/export interface planning, privacy-conscious dashboard design, and database-backed app architecture planning.",
+      "Internal dashboard builds, workflow tools, operational software, application/review workflows, status tracking, reviewer assignment flows, report/export interface planning, and privacy-conscious dashboard design.",
     relatedService: "Internal Dashboard Build",
     serviceHref: "/services",
     liveDemo: mswApplicationReviewDemoUrl,

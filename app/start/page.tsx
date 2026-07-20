@@ -44,11 +44,11 @@ const projectPaths = [
     accent: "fuchsia"
   },
   {
-    title: "Internal Workflow Dashboard",
+    title: "Internal Dashboard / Workflow Tool",
     eyebrow: "Live mock-data dashboard demo",
-    who: "Teams with manual review, tracking, approval, reporting, intake, or decision-support workflows.",
+    who: "Teams with manual review, operations, tracking, approval, reporting, intake, or decision-support workflows.",
     build:
-      "Reviewer queues, applicant/status tracking, review note structure, report/export interface planning, administrative workflows, and role-based workflow maps.",
+      "Workflow-tool screens like MSW Application Review: reviewer queues, applicant/status tracking, review note structure, report/export interface planning, administrative workflows, and role-based workflow maps.",
     proof: "MSW Application Review",
     proofHref: "/work/msw-application-review",
     liveHref: mswApplicationReviewDemoUrl,

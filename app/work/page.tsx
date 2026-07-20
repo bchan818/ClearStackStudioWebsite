@@ -82,6 +82,42 @@ export default function WorkPage() {
       <FeaturedProduct />
 
       <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
+        <article className="border border-emerald-300/25 bg-emerald-300/[0.06] p-8 shadow-glow/20 sm:p-10">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="border border-emerald-300/40 bg-emerald-300/[0.12] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-100">
+              Internal Workflow Dashboard
+            </span>
+            <span className="border border-white/10 bg-slateInk/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-100">
+              Live Demo
+            </span>
+          </div>
+          <h2 className="mt-5 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            MSW Application Review shows how a sensitive review workflow can become a public-safe dashboard proof.
+          </h2>
+          <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-300 sm:text-base">
+            The live mock-data demo presents applicant workflow, review queue, reviewer assignment, reporting, admin, and settings previews for an internal dashboard or workflow-tool build.
+          </p>
+          <p className="mt-4 max-w-3xl text-sm leading-6 text-emerald-50">
+            This public demo uses fictional mock applicant data only. It does not contain real student records, admissions documents, private reviewer notes, or confidential institutional information.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              href={mswApplicationReviewDemoUrl}
+            >
+              View live dashboard demo
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-5 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300 hover:text-white"
+              href="/work/msw-application-review/case-study"
+            >
+              View case study
+            </Link>
+          </div>
+        </article>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
         <div className="border border-cyan-300/20 bg-cyan-300/[0.05] p-8 sm:p-10">
           <h2 className="text-2xl font-semibold text-white">
             A balanced portfolio of practical proof projects.

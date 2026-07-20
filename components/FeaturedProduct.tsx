@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { cardScopeLiveUrl, clearBloomLiveUrl } from "@/lib/siteLinks";
+import { cardScopeLiveUrl, clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const projects = [
   {
@@ -50,13 +50,13 @@ const projects = [
   },
   {
     eyebrow: "Internal workflow dashboard",
-    badge: "Mock MVP",
+    badge: "Live Demo",
     title: "MSW Application Review",
     description:
-      "A privacy-safe internal dashboard proof for application review workflows, status tracking, structured applicant information, and reviewer-friendly decision support.",
+      "A live mock-data internal dashboard proof for application review workflows, review queues, reviewer assignments, reporting, admin previews, and privacy-safe operations tooling.",
     tags: ["Workflow dashboard", "Status tracking", "Mock data only"],
-    href: "/work/msw-application-review",
-    cta: "View dashboard proof",
+    href: mswApplicationReviewDemoUrl,
+    cta: "View live dashboard demo",
     caseStudyHref: "/work/msw-application-review/case-study",
     accent: "emerald",
     previewLabel: "Review queue",

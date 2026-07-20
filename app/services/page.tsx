@@ -55,8 +55,13 @@ const proofLinks = [
     href: "/work/ai-fashion-model/case-study"
   },
   {
+    title: "MSW Application Review live demo",
+    text: "A live mock-data internal dashboard and workflow-tool proof for review queues, assignments, reporting, operational software, and privacy-conscious dashboard design.",
+    href: mswApplicationReviewDemoUrl
+  },
+  {
     title: "MSW Application Review case study",
-    text: "A live mock-data internal workflow dashboard demo for application review, reviewer assignment flows, status tracking, reports, export planning, and privacy-conscious dashboard design.",
+    text: "Case study for the public-safe internal workflow dashboard demo and the service pattern behind it.",
     href: "/work/msw-application-review/case-study"
   }
 ];
@@ -69,8 +74,8 @@ const specialtyServices = [
     cta: "See AI tool proof"
   },
   {
-    title: "Internal workflow dashboards",
-    text: "A live mock-data dashboard demo for organizing reviewer queues, applicant statuses, review notes, reports, and administrative workflows using fictional applicant data only.",
+    title: "Internal dashboards, workflow tools, and operational software",
+    text: "MSW Application Review shows how ClearStack can turn manual review, assignment, reporting, and operations workflows into a live mock-data dashboard proof before adding real authentication, databases, or integrations.",
     href: mswApplicationReviewDemoUrl,
     cta: "View live dashboard demo"
   }
@@ -118,7 +123,7 @@ export default function ServicesPage() {
           Expanded proof areas
         </p>
         <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          ClearStack Studio also builds AI-assisted tools and internal workflow dashboards.
+          ClearStack Studio also builds AI-assisted tools, internal dashboards, workflow tools, and operational software.
         </h2>
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {specialtyServices.map((service) => (

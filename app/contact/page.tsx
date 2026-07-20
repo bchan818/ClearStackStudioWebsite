@@ -73,8 +73,8 @@ const inquiryPaths = [
     cta: "Start an AI tool inquiry"
   },
   {
-    title: "Internal dashboard inquiry",
-    text: "For teams that need structured reviewer queues, applicant/status tracking, review notes, reports, export planning, administrative workflows, or privacy-conscious internal dashboard MVPs using safe mock scope first. See the MSW Application Review live mock-data dashboard demo as proof.",
+    title: "Need an internal dashboard like MSW Application Review?",
+    text: "For teams that need structured reviewer queues, applicant/status tracking, review notes, reports, export planning, administrative workflows, workflow tools, or privacy-conscious operational software using safe mock scope first.",
     href: "mailto:hello@clearstack.studio?subject=Internal%20dashboard%20inquiry%20for%20ClearStack%20Studio",
     cta: "Start a dashboard inquiry"
   }
@@ -98,7 +98,7 @@ const proofLinks = [
   },
   {
     title: "View live dashboard demo",
-    text: "Public-safe dashboard demo using fictional mock applicant data only.",
+    text: "Public-safe dashboard demo using fictional mock applicant data only. It does not contain real student records, admissions documents, private reviewer notes, or confidential institutional information.",
     href: mswApplicationReviewDemoUrl
   },
   {

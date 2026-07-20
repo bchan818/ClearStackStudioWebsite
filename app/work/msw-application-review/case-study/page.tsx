@@ -23,7 +23,7 @@ const proofPoints = [
   "Status tracking",
   "Report/export interface planning",
   "Privacy-conscious dashboard design",
-  "Database-backed app architecture planning"
+  "Operational workflow tool planning"
 ];
 
 const futureRoadmap = [
@@ -58,7 +58,7 @@ export default function MswApplicationReviewCaseStudyPage() {
             A structured application review dashboard prototype for organizing reviewer queues, applicant statuses, review notes, reports, and administrative workflows.
           </p>
           <p className="mt-5 text-sm leading-6 text-slate-300 sm:text-base">
-            This public demo uses fictional mock applicant data only. No private applicant records, student data, admissions documents, or confidential review notes are included.
+            This public demo uses fictional mock applicant data only. It does not contain real student records, admissions documents, private reviewer notes, or confidential institutional information.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
@@ -134,15 +134,15 @@ export default function MswApplicationReviewCaseStudyPage() {
           </p>
           <div className="mt-4 grid gap-6 lg:grid-cols-2">
             <article className="border border-white/10 bg-white/[0.04] p-6">
-              <h2 className="text-2xl font-semibold text-white">Local/private app build verified</h2>
+              <h2 className="text-2xl font-semibold text-white">Public-safe live demo separated from private app scope</h2>
               <p className="mt-4 text-sm leading-6 text-slate-300">
-                The private MSW Admissions app build has been verified with a production Next.js build. ClearStack Studio does not expose that private app, private route URLs, local development paths, applicant IDs, student names, admissions records, or review notes.
+                The public version is separated from private app scope and contains fictional mock data only. ClearStack Studio does not expose a private app, private route URLs, local development paths, applicant IDs, student names, admissions records, documents, or review notes.
               </p>
             </article>
             <article className="border border-emerald-300/20 bg-emerald-300/[0.05] p-6">
               <h2 className="text-2xl font-semibold text-white">Live public mock-data demo available</h2>
               <p className="mt-4 text-sm leading-6 text-slate-300">
-                The live public demo is available as a mock-data-only dashboard. It uses fictional applicant records and does not include private admissions data, documents, or confidential review notes.
+                The live public demo is available as a mock-data-only dashboard with applicant workflow, review queue, reviewer assignments, reports, admin previews, and settings previews. It does not expose real admissions information.
               </p>
             </article>
           </div>

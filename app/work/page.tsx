@@ -98,7 +98,7 @@ export default function WorkPage() {
             The live mock-data demo presents applicant workflow, review queue, reviewer assignment, reporting, admin, and settings previews for an internal dashboard or workflow-tool build.
           </p>
           <p className="mt-4 max-w-3xl text-sm leading-6 text-emerald-50">
-            This public demo uses fictional mock applicant data only. It does not contain real student records, admissions documents, private reviewer notes, or confidential institutional information.
+            This public demo uses fictional mock applicant data only. No private applicant records, student data, admissions documents, or confidential review notes are included.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link

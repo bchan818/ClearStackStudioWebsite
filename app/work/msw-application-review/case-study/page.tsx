@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
@@ -37,6 +38,61 @@ const futureRoadmap = [
   "Deployment hardening"
 ];
 
+const screenshotSafetyNote =
+  "This public demo uses fictional mock applicant data only. No private applicant records, student data, admissions documents, or confidential review notes are included.";
+
+const demoTourSections = [
+  {
+    title: "Dashboard overview",
+    image: "/projects/msw-application-review/dashboard-overview.png",
+    alt: "MSW Application Review dashboard overview showing fictional review metrics, workflow cards, reviewer progress, and recently updated mock applicants.",
+    text: "The dashboard summarizes review activity, statuses, assignments, and next actions so an operations team can quickly see what needs attention before moving into deeper review work.",
+    caption: "Dashboard overview with fictional metrics, reviewer progress, and mock applicant activity."
+  },
+  {
+    title: "Applicant review queue",
+    image: "/projects/msw-application-review/applicant-list.png",
+    alt: "Applicant review queue showing fictional applicants, mock review statuses, assigned reviewers, scores, and last updated dates.",
+    text: "The applicant queue shows how reviewers can scan applicants, statuses, assigned reviewers, review progress, and last-updated dates before opening a detail page.",
+    caption: "Applicant queue with status badges, reviewer assignment, and detail/review CTAs."
+  },
+  {
+    title: "Applicant detail",
+    image: "/projects/msw-application-review/applicant-detail.png",
+    alt: "Fictional applicant detail page with profile summary, review checklist, mock document checklist, review notes, and status cards.",
+    text: "The detail page groups a fictional applicant summary, review checklist, mock document checklist, reviewer notes, and review status in one place so a reviewer can understand the record before scoring.",
+    caption: "Applicant detail view with fictional profile fields and checklist-style review context."
+  },
+  {
+    title: "Review and recommendation workflow",
+    image: "/projects/msw-application-review/review-workflow.png",
+    alt: "Mock rubric review page showing fictional rubric score cards, recommendation status, review status, and disabled reviewer note placeholder.",
+    text: "The review workflow organizes a mock rubric, score cards, note placeholder, and recommendation-status language while keeping the demo read-only and clearly separated from real admissions decisions.",
+    caption: "Read-only rubric preview with fictional scores and demo-only recommendation language."
+  },
+  {
+    title: "Assignments and reviewer workload",
+    image: "/projects/msw-application-review/assignments.png",
+    alt: "Reviewer assignment overview showing fictional reviewer workload cards and a static assignment table for mock applicants.",
+    text: "The assignments view shows how reviewer assignments and queues can be structured, including reviewer workload summaries and links back to fictional applicant records.",
+    caption: "Assignment overview for fictional reviewers and mock records."
+  },
+  {
+    title: "Reports and summaries",
+    image: "/projects/msw-application-review/reports.png",
+    alt: "Reports page showing fictional summary metrics, status distribution, reviewer workload, export preview, and assignment-review rows.",
+    text: "The reports page demonstrates how status distribution, workload, review progress, and export previews can be summarized without connecting private systems or real records.",
+    caption: "Reporting view with fake-data-only metrics, workload summaries, and export preview."
+  },
+  {
+    title: "Admin and settings",
+    image: "/projects/msw-application-review/admin-settings.png",
+    alt: "Prototype settings page showing fictional settings placeholders, rubric categories, and demo reviewer accounts.",
+    text: "The settings view represents future administrative controls, rubric configuration, access-control planning, audit logging, and export-control placeholders as static demo content only.",
+    caption: "Settings placeholders for future admin controls, rubric categories, and fictional reviewer accounts."
+  }
+];
+
 export const metadata: Metadata = {
   title: "MSW Application Review Case Study | ClearStack Studio",
   description:
@@ -58,7 +114,7 @@ export default function MswApplicationReviewCaseStudyPage() {
             A structured application review dashboard prototype for organizing reviewer queues, applicant statuses, review notes, reports, and administrative workflows.
           </p>
           <p className="mt-5 text-sm leading-6 text-slate-300 sm:text-base">
-            This public demo uses fictional mock applicant data only. It does not contain real student records, admissions documents, private reviewer notes, or confidential institutional information.
+            This public demo uses fictional mock applicant data only. No private applicant records, student data, admissions documents, or confidential review notes are included.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
@@ -72,6 +128,12 @@ export default function MswApplicationReviewCaseStudyPage() {
               href="/contact"
             >
               Build an internal dashboard like this
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+              href="/contact"
+            >
+              Start a dashboard inquiry
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-6 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300 hover:text-white"
@@ -124,6 +186,71 @@ export default function MswApplicationReviewCaseStudyPage() {
               <p className="mt-3 text-sm leading-6 text-slate-200">{item}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-[#081827] px-6 py-16 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emeraldLift">
+              Guided Demo Tour
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              See the main workflow before opening the live demo.
+            </h2>
+            <p className="mt-5 text-sm leading-6 text-slate-300 sm:text-base">
+              These screenshots walk through the public-safe dashboard flow: overview, applicant queue, applicant detail, review workflow, assignments, reports, and settings.
+            </p>
+          </div>
+
+          <div className="mt-8 border border-amber-200/30 bg-amber-100/[0.08] p-5 text-sm leading-6 text-amber-50">
+            <strong>Screenshot safety note:</strong> {screenshotSafetyNote}
+          </div>
+
+          <div className="mt-10 grid gap-8">
+            {demoTourSections.map((section, index) => (
+              <article className="overflow-hidden border border-white/10 bg-white/[0.04]" key={section.title}>
+                <div className="grid gap-0 lg:grid-cols-[0.82fr_1.18fr]">
+                  <div className="flex flex-col justify-center p-6 sm:p-8">
+                    <p className="text-sm font-semibold text-cyanGlow">0{index + 1}</p>
+                    <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">
+                      {section.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-6 text-slate-300 sm:text-base">
+                      {section.text}
+                    </p>
+                  </div>
+                  <figure className="border-t border-white/10 bg-slateInk p-3 lg:border-l lg:border-t-0">
+                    <Image
+                      alt={section.alt}
+                      className="h-auto w-full border border-white/10 shadow-glow/20"
+                      height={980}
+                      src={section.image}
+                      width={1440}
+                    />
+                    <figcaption className="mt-3 text-xs leading-5 text-slate-400">
+                      {section.caption}
+                    </figcaption>
+                  </figure>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Link
+              className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              href={mswApplicationReviewDemoUrl}
+            >
+              View live dashboard demo
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-5 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300 hover:text-white"
+              href="/contact"
+            >
+              Start a dashboard inquiry
+            </Link>
+          </div>
         </div>
       </section>
 

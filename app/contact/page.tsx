@@ -98,7 +98,7 @@ const proofLinks = [
   },
   {
     title: "View live dashboard demo",
-    text: "Public-safe dashboard demo using fictional mock applicant data only. It does not contain real student records, admissions documents, private reviewer notes, or confidential institutional information.",
+    text: "This public demo uses fictional mock applicant data only. No private applicant records, student data, admissions documents, or confidential review notes are included.",
     href: mswApplicationReviewDemoUrl
   },
   {

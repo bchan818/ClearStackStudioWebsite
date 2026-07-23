@@ -21,7 +21,7 @@ export function MvpServiceCta() {
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:mt-0 lg:grid-cols-1">
           <Link
             className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
-            href="/contact"
+            href="/start"
           >
             Start your MVP project
           </Link>

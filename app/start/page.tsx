@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { StartInquiryWorkflow } from "@/components/StartInquiryWorkflow";
 import { cardScopeLiveUrl, clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const projectPaths = [
@@ -91,13 +92,15 @@ const nextSteps = [
 ];
 
 const inquiryDetails = [
+  "Name and email",
   "Project type",
   "Goal",
   "Audience/users",
-  "Timeline",
   "Must-have features",
+  "Timeline",
+  "Budget range",
   "Existing links or references",
-  "Budget range if known"
+  "Confirmation that you will email or copy the summary manually"
 ];
 
 const accentStyles = {
@@ -126,12 +129,12 @@ export default function StartPage() {
             Start with the right first version.
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Tell ClearStack Studio what you’re trying to launch, and we’ll help shape the simplest useful version.
+            Tell ClearStack Studio what you’re trying to launch, then turn the details into a prefilled email or copyable project summary. This page stays static: no backend submission occurs.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
-              href="/contact"
+              href="#inquiry-workflow"
             >
               Start your project inquiry
             </Link>
@@ -200,7 +203,7 @@ export default function StartPage() {
                   <div className="mt-6 flex flex-wrap gap-3">
                     <Link
                       className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
-                      href="/contact"
+                      href="#inquiry-workflow"
                     >
                       {path.cta}
                     </Link>
@@ -225,6 +228,8 @@ export default function StartPage() {
           </div>
         </div>
       </section>
+
+      <StartInquiryWorkflow />
 
       <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
         <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">
@@ -254,7 +259,7 @@ export default function StartPage() {
               Send enough context for a useful first reply.
             </h2>
             <p className="mt-5 text-sm leading-6 text-slate-300 sm:text-base">
-              No connected form is needed yet. Use this checklist to write a clear project inquiry through the Contact page.
+              No connected form, database, account, payment system, API, or environment variable is used. Use the static workflow above to open a prefilled email or copy the summary manually.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -278,7 +283,7 @@ export default function StartPage() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
-              href="/contact"
+              href="#inquiry-workflow"
             >
               Start your project inquiry
             </Link>

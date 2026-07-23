@@ -22,7 +22,7 @@ const packages = [
     ],
     price: "Starting at project-scope estimate",
     cta: "Start an MVP inquiry",
-    href: "/contact"
+    href: "/start"
   },
   {
     name: "Storefront MVP Package",
@@ -46,7 +46,7 @@ const packages = [
     ],
     price: "Starting at storefront-scope estimate",
     cta: "Start a storefront inquiry",
-    href: "/contact",
+    href: "/start",
     detailsCta: "Learn about the package",
     detailsHref: "/services#storefront-mvp",
     liveCta: "View live storefront demo",
@@ -72,7 +72,7 @@ const packages = [
     ],
     price: "Starting at refresh-scope estimate",
     cta: "Start a refresh inquiry",
-    href: "/contact"
+    href: "/start"
   }
 ];
 

@@ -50,13 +50,13 @@ export function StorefrontCta({
         <div className="mt-8 flex flex-wrap gap-3 lg:mt-0">
           <Link
             className="focus-ring inline-flex items-center justify-center bg-rose-200 px-6 py-3 text-sm font-semibold text-[#130d14] transition hover:bg-amber-100"
-            href="/contact"
+            href="/start"
           >
             Build a storefront like this
           </Link>
           <Link
             className="focus-ring inline-flex items-center justify-center border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-rose-200 hover:text-rose-100"
-            href="/contact"
+            href="/start"
           >
             Start a storefront inquiry
           </Link>

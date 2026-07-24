@@ -11,6 +11,7 @@ const routes = [
   "/proposal-builder",
   "/sow-builder",
   "/project-handoff",
+  "/project-tracker",
   "/contact",
   "/qa-checklist",
   "/launch-readiness",

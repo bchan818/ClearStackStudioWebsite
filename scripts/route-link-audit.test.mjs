@@ -14,6 +14,7 @@ const requiredInternalRoutes = [
   "/proposal-builder",
   "/sow-builder",
   "/project-handoff",
+  "/project-tracker",
   "/contact",
   "/launch-readiness",
   "/qa-checklist",
@@ -99,7 +100,7 @@ test("Header navigation includes the primary public routes", () => {
 test("Footer navigation includes primary and utility routes", () => {
   const footer = readProjectFile("components/Footer.tsx");
 
-  for (const route of ["/services", "/work", "/projects", "/start", "/proposal-builder", "/sow-builder", "/project-handoff", "/contact", "/qa-checklist", "/launch-readiness"]) {
+  for (const route of ["/services", "/work", "/projects", "/start", "/proposal-builder", "/sow-builder", "/project-handoff", "/project-tracker", "/contact", "/qa-checklist", "/launch-readiness"]) {
     assertContains(footer, `href="${route}"`, `Footer nav should include ${route}`);
   }
 });
@@ -108,11 +109,15 @@ test("builder workflow routes connect planning through handoff", () => {
   const proposalBuilder = readProjectFile("app/proposal-builder/page.tsx");
   const sowBuilder = readProjectFile("app/sow-builder/page.tsx");
   const projectHandoff = readProjectFile("app/project-handoff/page.tsx");
+  const projectTracker = readProjectFile("app/project-tracker/page.tsx");
 
   assertContains(proposalBuilder, "Inquiry", "Proposal builder should explain the workflow sequence");
   assertContains(proposalBuilder, 'href="/sow-builder"', "Proposal builder should link to SOW builder");
   assertContains(sowBuilder, 'href="/project-handoff"', "SOW builder should link to project handoff");
   assertContains(projectHandoff, 'href="/projects"', "Project handoff should link back to proof projects");
+  assertContains(projectTracker, 'href="/proposal-builder"', "Project tracker should link to proposal builder");
+  assertContains(projectTracker, 'href="/sow-builder"', "Project tracker should link to SOW builder");
+  assertContains(projectTracker, 'href="/project-handoff"', "Project tracker should link to project handoff");
 });
 
 test("Start Project CTAs route visitors to /start", () => {

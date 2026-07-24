@@ -57,6 +57,12 @@ export function Footer() {
           </Link>
           <Link
             className="focus-ring transition hover:text-white"
+            href="/project-tracker"
+          >
+            Project Tracker
+          </Link>
+          <Link
+            className="focus-ring transition hover:text-white"
             href="/contact"
           >
             Contact

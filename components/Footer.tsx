@@ -63,6 +63,12 @@ export function Footer() {
           </Link>
           <Link
             className="focus-ring transition hover:text-white"
+            href="/status-report-builder"
+          >
+            Status Report Builder
+          </Link>
+          <Link
+            className="focus-ring transition hover:text-white"
             href="/contact"
           >
             Contact

@@ -12,6 +12,7 @@ const routes = [
   "/sow-builder",
   "/project-handoff",
   "/project-tracker",
+  "/status-report-builder",
   "/contact",
   "/qa-checklist",
   "/launch-readiness",

@@ -469,6 +469,7 @@ export function ProjectTracker() {
               <Link className="focus-ring border border-white/15 px-4 py-2 text-slate-100 transition hover:border-cyan-300/50" href="/start">Start inquiry</Link>
               <Link className="focus-ring border border-white/15 px-4 py-2 text-slate-100 transition hover:border-cyan-300/50" href="/proposal-builder">Proposal</Link>
               <Link className="focus-ring border border-white/15 px-4 py-2 text-slate-100 transition hover:border-cyan-300/50" href="/sow-builder">SOW</Link>
+              <Link className="focus-ring border border-white/15 px-4 py-2 text-slate-100 transition hover:border-cyan-300/50" href="/status-report-builder">Update</Link>
               <Link className="focus-ring border border-white/15 px-4 py-2 text-slate-100 transition hover:border-cyan-300/50" href="/project-handoff">Handoff</Link>
             </div>
           </div>

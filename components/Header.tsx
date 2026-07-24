@@ -8,6 +8,7 @@ import { TrackedLink } from "@/components/TrackedLink";
 const navItems = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services", shortLabel: "Svc" },
+  { href: "/pricing", label: "Pricing", shortLabel: "Price" },
   { href: "/work", label: "Work" },
   { href: "/projects", label: "Projects", shortLabel: "Projects" },
   { href: "/start", label: "Start a Project", shortLabel: "Start" },

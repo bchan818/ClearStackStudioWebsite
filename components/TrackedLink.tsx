@@ -17,7 +17,10 @@ type TrackingEventName =
   | "how_we_work_projects_click"
   | "faq_start_project_click"
   | "faq_contact_click"
-  | "faq_related_link_click";
+  | "faq_related_link_click"
+  | "pricing_start_project_click"
+  | "pricing_service_click"
+  | "pricing_project_click";
 
 type TrackedLinkProps = ComponentProps<typeof Link> & {
   eventName: TrackingEventName;

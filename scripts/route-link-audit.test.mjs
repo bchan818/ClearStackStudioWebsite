@@ -10,6 +10,7 @@ const requiredInternalRoutes = [
   "/about",
   "/how-we-work",
   "/faq",
+  "/pricing",
   "/services",
   "/work",
   "/projects",
@@ -48,6 +49,7 @@ const expectedSeoPages = [
   ["app/about/page.tsx", "About ClearStack Studio | From idea to app", "Learn how ClearStack Studio builds focused MVPs, storefronts, AI-powered prototypes, internal dashboards, and website or app refreshes.", "/social/clearstack-default.png"],
   ["app/how-we-work/page.tsx", "How We Work | ClearStack Studio", "Learn how ClearStack Studio scopes, designs, builds, tests, launches, and hands off focused MVPs, storefronts, dashboards, AI prototypes, and website refreshes.", "/social/clearstack-default.png"],
   ["app/faq/page.tsx", "FAQ | ClearStack Studio", "Answers about ClearStack Studio services, pricing approach, timelines, revisions, ownership, hosting, privacy, launch, support, and project eligibility.", "/social/clearstack-default.png"],
+  ["app/pricing/page.tsx", "Pricing Guidance | ClearStack Studio", "Learn how ClearStack Studio scopes and prices product MVPs, storefronts, AI-powered tools, internal dashboards, and website or app refreshes.", "/social/clearstack-default.png"],
   ["app/services/page.tsx", "Services | ClearStack Studio", "Explore ClearStack Studio services for product MVPs, storefront MVPs, AI-powered prototypes, internal dashboards, and website or app refreshes.", "/social/services.png"],
   ["app/projects/page.tsx", "Proof Projects | ClearStack Studio", "Explore ClearStack Studio proof projects across software MVPs, storefronts, AI-assisted tools, and internal workflow dashboards.", "/social/projects.png"],
   ["app/work/page.tsx", "Work and Case Studies | ClearStack Studio", "See how ClearStack Studio turns product ideas, storefront concepts, AI workflows, and operational processes into focused digital prototypes.", "/social/projects.png"],
@@ -141,7 +143,7 @@ test("important internal routes exist as App Router pages", () => {
 test("Header navigation includes the primary public routes", () => {
   const header = readProjectFile("components/Header.tsx");
 
-  for (const route of ["/about", "/services", "/work", "/projects", "/start", "/contact"]) {
+  for (const route of ["/about", "/services", "/pricing", "/work", "/projects", "/start", "/contact"]) {
     assertContains(header, `href: "${route}"`, `Header nav should include ${route}`);
   }
 
@@ -161,7 +163,7 @@ test("Layout includes skip link and stable main-content target", () => {
 test("Footer navigation includes primary and utility routes", () => {
   const footer = readProjectFile("components/Footer.tsx");
 
-  for (const route of ["/about", "/how-we-work", "/faq", "/services", "/work", "/projects", "/start", "/studio-tools", "/contact"]) {
+  for (const route of ["/about", "/how-we-work", "/faq", "/pricing", "/services", "/work", "/projects", "/start", "/studio-tools", "/contact"]) {
     assertContains(footer, `href="${route}"`, `Footer nav should include ${route}`);
   }
 });
@@ -349,6 +351,51 @@ test("FAQ page answers client questions, links public context, and uses safe CTA
 
   for (const eventName of ["faq_start_project_click", "faq_contact_click", "faq_related_link_click"]) {
     assertContains(faq, eventName, `FAQ page should track safe CTA event ${eventName}`);
+    assertContains(trackedLink, eventName, `TrackedLink should type ${eventName}`);
+  }
+});
+
+test("Pricing page provides scope-based guidance, proof links, and safe CTA analytics", () => {
+  const pricing = readProjectFile("app/pricing/page.tsx");
+  const services = readProjectFile("app/services/page.tsx");
+  const faq = readProjectFile("app/faq/page.tsx");
+  const start = readProjectFile("app/start/page.tsx");
+  const sitemap = readProjectFile("app/sitemap.ts");
+  const trackedLink = readProjectFile("components/TrackedLink.tsx");
+
+  assertContains(sitemap, '"/pricing"', "Sitemap should include the public Pricing page");
+  assertContains(services, 'href="/pricing"', "Services page should link to Pricing");
+  assertContains(faq, 'href: "/pricing"', "FAQ page related links should include Pricing");
+  assertContains(start, 'href="/pricing"', "Start page should link to Pricing");
+
+  for (const text of [
+    "Clear pricing starts with clear scope.",
+    "Pricing approach",
+    "Starting scope: Confirmed after discovery",
+    "What affects project cost",
+    "What may cost extra",
+    "Third-party providers control their own pricing, limits, availability, and policies.",
+    "What is usually included",
+    "What is not automatically included",
+    "Example project paths",
+    "No development begins until scope, deliverables, timeline, and payment terms are confirmed in writing.",
+    "Do you offer fixed-price projects?",
+    "Do you charge hourly?",
+    "An inquiry is not a quote or contract."
+  ]) {
+    assertContains(pricing, text, `Pricing page should include ${text}`);
+  }
+
+  for (const projectName of ["CardScope", "ClearBloom Beauty", "AI Fashion Model", "MSW Application Review", "ClearStack Studio"]) {
+    assertContains(pricing, projectName, `Pricing page should include proof project ${projectName}`);
+  }
+
+  for (const route of ["/services", "/start", "/projects", "/work/cardscope", "/work/cardscope/case-study", "/work/clearbloom-beauty", "/work/clearbloom-beauty/case-study", "/work/ai-fashion-model", "/work/ai-fashion-model/case-study", "/work/msw-application-review", "/work/msw-application-review/case-study"]) {
+    assertContains(pricing, route, `Pricing page should link to ${route}`);
+  }
+
+  for (const eventName of ["pricing_start_project_click", "pricing_service_click", "pricing_project_click"]) {
+    assertContains(pricing, eventName, `Pricing page should track safe CTA event ${eventName}`);
     assertContains(trackedLink, eventName, `TrackedLink should type ${eventName}`);
   }
 });

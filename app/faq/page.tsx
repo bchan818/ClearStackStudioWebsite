@@ -301,6 +301,7 @@ const categories: FaqCategory[] = [
 const relatedLinks = [
   { label: "Services", href: "/services" },
   { label: "How We Work", href: "/how-we-work" },
+  { label: "Pricing guidance", href: "/pricing" },
   { label: "About ClearStack", href: "/about" },
   { label: "Start a project", href: "/start" },
   { label: "Proof projects", href: "/projects" },

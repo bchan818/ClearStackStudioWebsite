@@ -153,6 +153,12 @@ export default function StartPage() {
             >
               Compare proof projects
             </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+              href="/pricing"
+            >
+              Review pricing guidance
+            </Link>
           </div>
         </div>
 

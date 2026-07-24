@@ -99,6 +99,18 @@ test("Header navigation includes the primary public routes", () => {
   for (const route of ["/services", "/work", "/projects", "/start", "/contact"]) {
     assertContains(header, `href: "${route}"`, `Header nav should include ${route}`);
   }
+
+  assertContains(header, "aria-expanded", "Mobile menu button should expose expanded state");
+  assertContains(header, "aria-controls=\"mobile-navigation\"", "Mobile menu button should control the mobile navigation region");
+  assertContains(header, "Mobile navigation", "Mobile navigation should have an accessible label");
+});
+
+test("Layout includes skip link and stable main-content target", () => {
+  const layout = readProjectFile("app/layout.tsx");
+
+  assertContains(layout, "Skip to main content", "Layout should include a descriptive skip link");
+  assertContains(layout, "href=\"#main-content\"", "Skip link should target main content");
+  assertContains(layout, "id=\"main-content\"", "Layout should provide a stable main content target");
 });
 
 test("Footer navigation includes primary and utility routes", () => {
@@ -149,6 +161,7 @@ test("Start Project CTAs route visitors to /start", () => {
     "components/MvpServiceCta.tsx",
     "components/ServicePackages.tsx",
     "components/StorefrontCta.tsx",
+    "app/page.tsx",
     "app/projects/page.tsx",
     "app/work/page.tsx"
   ];
@@ -180,6 +193,21 @@ test("project card source includes required proof project routes", () => {
   for (const route of requiredProjectLinks) {
     assertContains(projectSources, route, `Project cards and proof sections should include ${route}`);
   }
+});
+
+test("Start inquiry workflow keeps form controls labeled and copy status announced", () => {
+  const startWorkflow = readProjectFile("components/StartInquiryWorkflow.tsx");
+
+  for (const fieldName of ["name", "email", "projectType", "timeline", "projectGoal", "audience", "mustHaveFeatures", "budgetRange", "existingLink"]) {
+    assertContains(startWorkflow, `name=\"${fieldName}\"`, `Start inquiry field ${fieldName} should exist`);
+  }
+
+  for (const label of ["Name", "Email", "Project type", "Timeline", "Project goal", "Audience", "Must-have features", "Budget range", "Optional existing link"]) {
+    assertContains(startWorkflow, label, `Start inquiry should include visible label text: ${label}`);
+  }
+
+  assertContains(startWorkflow, "inquiry-form-help", "Start inquiry form should expose helper/safety text");
+  assertContains(startWorkflow, "role=\"status\"", "Copy confirmation should be announced through a live status region");
 });
 
 test("expected external demo URLs are defined exactly once in shared site links", () => {

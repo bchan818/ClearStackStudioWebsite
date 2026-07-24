@@ -142,7 +142,7 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">
               ClearStack Studio
             </p>
-            <h1 className="mt-5 max-w-3xl text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
+            <h1 className="mt-5 max-w-3xl text-4xl font-semibold tracking-tight text-white min-[375px]:text-5xl sm:text-6xl lg:text-7xl">
               From idea to app.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
@@ -153,7 +153,7 @@ export default function Home() {
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <TrackedLink
-                className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+                className="focus-ring inline-flex min-h-11 items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
                 ctaLocation="homepage_hero"
                 eventLabel="homepage_hero_start_project"
                 eventName="start_project_click"
@@ -162,7 +162,7 @@ export default function Home() {
                 Start a project
               </TrackedLink>
               <Link
-                className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyanGlow hover:text-white"
+                className="focus-ring inline-flex min-h-11 items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyanGlow hover:text-white"
                 href="/projects"
               >
                 View proof projects
@@ -213,7 +213,7 @@ export default function Home() {
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">Services overview</p>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Five focused ways to move from idea to usable product.</h2>
             </div>
-            <Link className="focus-ring inline-flex w-fit items-center justify-center border border-cyan-300/40 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyanGlow hover:text-slate-950" href="/services">
+            <Link className="focus-ring inline-flex min-h-11 w-full items-center justify-center border border-cyan-300/40 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyanGlow hover:text-slate-950 sm:w-fit" href="/services">
               View all services
             </Link>
           </div>
@@ -225,7 +225,7 @@ export default function Home() {
                 <p className="mt-5 text-sm font-semibold text-slate-100">Best fit</p>
                 <p className="mt-2 text-sm leading-6 text-slate-300">{service.bestFit}</p>
                 <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-emeraldLift">Proof: {service.proof}</p>
-                <Link className="focus-ring mt-auto inline-flex items-center justify-center border border-white/15 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white" href={service.href}>
+                <Link className="focus-ring mt-auto inline-flex min-h-11 items-center justify-center border border-white/15 px-4 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white" href={service.href}>
                   {service.cta}
                 </Link>
               </article>
@@ -255,7 +255,7 @@ export default function Home() {
                 <p className="mt-5 text-sm text-emerald-100">Related service: {project.relatedService}</p>
                 <div className="mt-auto flex flex-wrap gap-3 pt-6">
                   <TrackedLink
-                    className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+                    className="focus-ring inline-flex min-h-11 items-center justify-center bg-cyanGlow px-5 py-3 text-center text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
                     ctaLocation="homepage_proof_project"
                     eventLabel={`homepage_${project.slug}_live_demo`}
                     eventName={project.liveHref.startsWith("http") ? "live_demo_click" : "case_study_click"}
@@ -266,7 +266,7 @@ export default function Home() {
                     View {project.name} demo
                   </TrackedLink>
                   <TrackedLink
-                    className="focus-ring inline-flex items-center justify-center border border-white/15 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+                    className="focus-ring inline-flex min-h-11 items-center justify-center border border-white/15 px-5 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
                     ctaLocation="homepage_proof_project"
                     eventLabel={`homepage_${project.slug}_case_study`}
                     eventName="case_study_click"
@@ -332,7 +332,7 @@ export default function Home() {
           <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">Start with the smallest version that proves the idea.</h2>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <TrackedLink
-              className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              className="focus-ring inline-flex min-h-11 items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
               ctaLocation="homepage_final_cta"
               eventLabel="homepage_final_start_project"
               eventName="start_project_click"
@@ -340,7 +340,7 @@ export default function Home() {
             >
               Start a project
             </TrackedLink>
-            <Link className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white" href="/services">
+            <Link className="focus-ring inline-flex min-h-11 items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white" href="/services">
               View services
             </Link>
           </div>

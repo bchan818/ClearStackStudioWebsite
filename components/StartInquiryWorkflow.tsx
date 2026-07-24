@@ -46,7 +46,7 @@ const budgetRanges = [
 ];
 
 const fieldClass =
-  "mt-2 w-full border border-white/10 bg-slateInk/80 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/70";
+  "mt-2 w-full min-w-0 border border-white/10 bg-slateInk/80 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/70";
 
 function buildSummary(inquiry: InquiryForm) {
   return [
@@ -112,7 +112,10 @@ export function StartInquiryWorkflow() {
             Fill out the fields below to create a prefilled email and a copyable inquiry summary. This is a static page: no backend submission occurs, no account is created, and nothing is stored by this website.
           </p>
 
-          <form className="mt-8 grid gap-5" onSubmit={(event) => event.preventDefault()}>
+          <form aria-describedby="inquiry-form-help" className="mt-8 grid gap-5" onSubmit={(event) => event.preventDefault()}>
+            <p className="text-xs leading-5 text-slate-400" id="inquiry-form-help">
+              All fields are optional for this static draft, but more detail makes the copied summary easier to review. Do not enter passwords, payment details, API keys, or private records.
+            </p>
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="text-sm font-semibold text-slate-100">
                 Name
@@ -244,7 +247,7 @@ export function StartInquiryWorkflow() {
           </p>
           <textarea
             aria-label="Generated project inquiry summary"
-            className="mt-6 min-h-[360px] w-full resize-y border border-white/10 bg-slateInk/80 p-4 font-mono text-xs leading-5 text-slate-200 outline-none focus:border-cyan-300/70"
+            className="mt-6 min-h-[320px] w-full min-w-0 resize-y whitespace-pre-wrap break-words border border-white/10 bg-slateInk/80 p-4 font-mono text-xs leading-5 text-slate-200 outline-none focus:border-cyan-300/70 sm:min-h-[360px]"
             readOnly
             value={summary}
           />
@@ -262,6 +265,7 @@ export function StartInquiryWorkflow() {
               Open prefilled email
             </a>
             <button
+              aria-describedby="copy-summary-status"
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
               onClick={copySummary}
               type="button"
@@ -269,6 +273,9 @@ export function StartInquiryWorkflow() {
               {copyStatus}
             </button>
           </div>
+          <p className="sr-only" id="copy-summary-status" role="status">
+            {copyStatus === "Copied" ? "Inquiry summary copied to clipboard." : copyStatus}
+          </p>
           <div className="mt-5 border border-amber-100/30 bg-amber-100/[0.06] p-4 text-sm leading-6 text-amber-50">
             No backend submission occurs. If your email app does not open, copy the summary and send it to hello@clearstack.studio manually.
           </div>

@@ -15,42 +15,42 @@ export function Footer() {
             2026 ClearStack Studio. All rights reserved.
           </p>
         </div>
-        <nav aria-label="Footer navigation" className="flex flex-wrap gap-5">
+        <nav aria-label="Footer navigation" className="flex flex-wrap gap-3 sm:justify-end">
           <Link
-            className="focus-ring transition hover:text-white"
+            className="focus-ring inline-flex min-h-11 items-center transition hover:text-white"
             href="/services"
           >
             Services
           </Link>
-          <Link className="focus-ring transition hover:text-white" href="/work">
+          <Link className="focus-ring inline-flex min-h-11 items-center transition hover:text-white" href="/work">
             Work
           </Link>
           <Link
-            className="focus-ring transition hover:text-white"
+            className="focus-ring inline-flex min-h-11 items-center transition hover:text-white"
             href="/projects"
           >
             Projects
           </Link>
           <Link
-            className="focus-ring transition hover:text-white"
+            className="focus-ring inline-flex min-h-11 items-center transition hover:text-white"
             href="/start"
           >
             Start a Project
           </Link>
           <Link
-            className="focus-ring transition hover:text-white"
+            className="focus-ring inline-flex min-h-11 items-center transition hover:text-white"
             href="/studio-tools"
           >
             Studio Tools
           </Link>
           <Link
-            className="focus-ring transition hover:text-white"
+            className="focus-ring inline-flex min-h-11 items-center transition hover:text-white"
             href="/contact"
           >
             Contact
           </Link>
           <Link
-            className="focus-ring transition hover:text-white"
+            className="focus-ring inline-flex min-h-11 items-center transition hover:text-white"
             href="/work/clearbloom-beauty/case-study"
           >
             Storefront proof

@@ -72,10 +72,10 @@ export default function RootLayout({
           className="focus-ring sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-cyanGlow focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-slate-950"
           href="#main-content"
         >
-          Skip to content
+          Skip to main content
         </a>
         <Header />
-        <div id="main-content">{children}</div>
+        <div id="main-content" tabIndex={-1}>{children}</div>
         <Footer />
         <Analytics />
       </body>

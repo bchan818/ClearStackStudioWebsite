@@ -12,6 +12,8 @@ const requiredInternalRoutes = [
   "/projects",
   "/start",
   "/proposal-builder",
+  "/sow-builder",
+  "/project-handoff",
   "/contact",
   "/launch-readiness",
   "/qa-checklist",
@@ -97,9 +99,20 @@ test("Header navigation includes the primary public routes", () => {
 test("Footer navigation includes primary and utility routes", () => {
   const footer = readProjectFile("components/Footer.tsx");
 
-  for (const route of ["/services", "/work", "/projects", "/start", "/proposal-builder", "/contact", "/qa-checklist", "/launch-readiness"]) {
+  for (const route of ["/services", "/work", "/projects", "/start", "/proposal-builder", "/sow-builder", "/project-handoff", "/contact", "/qa-checklist", "/launch-readiness"]) {
     assertContains(footer, `href="${route}"`, `Footer nav should include ${route}`);
   }
+});
+
+test("builder workflow routes connect planning through handoff", () => {
+  const proposalBuilder = readProjectFile("app/proposal-builder/page.tsx");
+  const sowBuilder = readProjectFile("app/sow-builder/page.tsx");
+  const projectHandoff = readProjectFile("app/project-handoff/page.tsx");
+
+  assertContains(proposalBuilder, "Inquiry", "Proposal builder should explain the workflow sequence");
+  assertContains(proposalBuilder, 'href="/sow-builder"', "Proposal builder should link to SOW builder");
+  assertContains(sowBuilder, 'href="/project-handoff"', "SOW builder should link to project handoff");
+  assertContains(projectHandoff, 'href="/projects"', "Project handoff should link back to proof projects");
 });
 
 test("Start Project CTAs route visitors to /start", () => {

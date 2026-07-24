@@ -45,6 +45,18 @@ export function Footer() {
           </Link>
           <Link
             className="focus-ring transition hover:text-white"
+            href="/sow-builder"
+          >
+            SOW Builder
+          </Link>
+          <Link
+            className="focus-ring transition hover:text-white"
+            href="/project-handoff"
+          >
+            Project Handoff
+          </Link>
+          <Link
+            className="focus-ring transition hover:text-white"
             href="/contact"
           >
             Contact

@@ -39,6 +39,12 @@ export function Footer() {
           </Link>
           <Link
             className="focus-ring transition hover:text-white"
+            href="/proposal-builder"
+          >
+            Proposal Builder
+          </Link>
+          <Link
+            className="focus-ring transition hover:text-white"
             href="/contact"
           >
             Contact

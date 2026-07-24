@@ -304,6 +304,12 @@ export default function StartPage() {
             >
               Compare proof projects
             </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-6 py-3 text-sm font-semibold text-emerald-100 transition hover:bg-emeraldLift hover:text-slate-950"
+              href="/proposal-builder"
+            >
+              Build proposal draft
+            </Link>
           </div>
         </div>
       </section>

@@ -11,6 +11,7 @@ const requiredInternalRoutes = [
   "/work",
   "/projects",
   "/start",
+  "/proposal-builder",
   "/contact",
   "/launch-readiness",
   "/qa-checklist",
@@ -96,7 +97,7 @@ test("Header navigation includes the primary public routes", () => {
 test("Footer navigation includes primary and utility routes", () => {
   const footer = readProjectFile("components/Footer.tsx");
 
-  for (const route of ["/services", "/work", "/projects", "/start", "/contact", "/qa-checklist", "/launch-readiness"]) {
+  for (const route of ["/services", "/work", "/projects", "/start", "/proposal-builder", "/contact", "/qa-checklist", "/launch-readiness"]) {
     assertContains(footer, `href="${route}"`, `Footer nav should include ${route}`);
   }
 });

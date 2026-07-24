@@ -8,6 +8,7 @@ const routes = [
   "/work",
   "/projects",
   "/start",
+  "/proposal-builder",
   "/contact",
   "/qa-checklist",
   "/launch-readiness",

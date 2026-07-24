@@ -13,6 +13,8 @@ const routes = [
   "/project-handoff",
   "/project-tracker",
   "/status-report-builder",
+  "/client-feedback",
+  "/launch-acceptance",
   "/contact",
   "/qa-checklist",
   "/launch-readiness",

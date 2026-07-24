@@ -69,6 +69,18 @@ export function Footer() {
           </Link>
           <Link
             className="focus-ring transition hover:text-white"
+            href="/client-feedback"
+          >
+            Client Feedback
+          </Link>
+          <Link
+            className="focus-ring transition hover:text-white"
+            href="/launch-acceptance"
+          >
+            Launch Acceptance
+          </Link>
+          <Link
+            className="focus-ring transition hover:text-white"
             href="/contact"
           >
             Contact

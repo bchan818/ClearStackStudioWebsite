@@ -16,6 +16,8 @@ const requiredInternalRoutes = [
   "/project-handoff",
   "/project-tracker",
   "/status-report-builder",
+  "/client-feedback",
+  "/launch-acceptance",
   "/contact",
   "/launch-readiness",
   "/qa-checklist",
@@ -101,7 +103,7 @@ test("Header navigation includes the primary public routes", () => {
 test("Footer navigation includes primary and utility routes", () => {
   const footer = readProjectFile("components/Footer.tsx");
 
-  for (const route of ["/services", "/work", "/projects", "/start", "/proposal-builder", "/sow-builder", "/project-handoff", "/project-tracker", "/status-report-builder", "/contact", "/qa-checklist", "/launch-readiness"]) {
+  for (const route of ["/services", "/work", "/projects", "/start", "/proposal-builder", "/sow-builder", "/project-handoff", "/project-tracker", "/status-report-builder", "/client-feedback", "/launch-acceptance", "/contact", "/qa-checklist", "/launch-readiness"]) {
     assertContains(footer, `href="${route}"`, `Footer nav should include ${route}`);
   }
 });
@@ -112,6 +114,8 @@ test("builder workflow routes connect planning through handoff", () => {
   const projectHandoff = readProjectFile("app/project-handoff/page.tsx");
   const projectTracker = readProjectFile("app/project-tracker/page.tsx");
   const statusReportBuilder = readProjectFile("app/status-report-builder/page.tsx");
+  const clientFeedback = readProjectFile("app/client-feedback/page.tsx");
+  const launchAcceptance = readProjectFile("app/launch-acceptance/page.tsx");
 
   assertContains(proposalBuilder, "Inquiry", "Proposal builder should explain the workflow sequence");
   assertContains(proposalBuilder, 'href="/sow-builder"', "Proposal builder should link to SOW builder");
@@ -121,7 +125,9 @@ test("builder workflow routes connect planning through handoff", () => {
   assertContains(projectTracker, 'href="/sow-builder"', "Project tracker should link to SOW builder");
   assertContains(projectTracker, 'href="/project-handoff"', "Project tracker should link to project handoff");
   assertContains(projectTracker, 'href="/status-report-builder"', "Project tracker should link to status report builder");
-  assertContains(statusReportBuilder, 'href="/project-handoff"', "Status report builder should link to project handoff");
+  assertContains(statusReportBuilder, 'href="/client-feedback"', "Status report builder should link to client feedback");
+  assertContains(clientFeedback, 'href="/launch-acceptance"', "Client feedback should link to launch acceptance");
+  assertContains(launchAcceptance, 'href="/project-handoff"', "Launch acceptance should link to project handoff");
 });
 
 test("Start Project CTAs route visitors to /start", () => {

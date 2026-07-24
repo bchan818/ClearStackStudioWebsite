@@ -96,6 +96,145 @@ const specialtyServices = [
   }
 ];
 
+const clientDeliverables = [
+  "Scoped first-version plan",
+  "Responsive interface",
+  "Core pages and workflows",
+  "Reusable components",
+  "Deployment setup",
+  "Source-code handoff",
+  "Basic project documentation",
+  "Lint/build verification",
+  "Launch-readiness checks",
+  "Agreed revision rounds",
+  "Short post-launch support period"
+];
+
+const serviceDeliverables = [
+  {
+    service: "Product MVP",
+    description: "A focused product proof for validating a useful first workflow before a larger platform build.",
+    items: [
+      "Core user journey",
+      "Product landing page",
+      "Primary workflow",
+      "Dashboard or structured interface",
+      "Mock or production-ready data architecture, depending on scope",
+      "Deployment-ready build"
+    ]
+  },
+  {
+    service: "Storefront MVP",
+    description: "A polished product-brand surface for presenting an offer and collecting qualified interest honestly.",
+    items: [
+      "Branded storefront",
+      "Product catalog",
+      "Product detail pages",
+      "Inquiry or commerce-ready flow",
+      "Policies and customer-information pages",
+      "Future Shopify/Stripe upgrade path"
+    ]
+  },
+  {
+    service: "AI-Powered Tool",
+    description: "A practical prototype for testing an AI-assisted workflow before connecting production AI services.",
+    items: [
+      "Focused AI-assisted workflow",
+      "Prompt/input interface",
+      "Output/results presentation",
+      "Usage boundaries",
+      "Prototype evaluation path",
+      "Future API integration plan"
+    ]
+  },
+  {
+    service: "Internal Workflow Dashboard",
+    description: "A structured interface for turning manual operations into clear status, review, and action paths.",
+    items: [
+      "Dashboard navigation",
+      "Record/status views",
+      "Review or operational workflow",
+      "Filters, summaries, and action states",
+      "Mock-data or approved-data structure",
+      "Privacy-conscious interface planning"
+    ]
+  },
+  {
+    service: "Website/App Refresh",
+    description: "A focused improvement pass for an existing experience that needs clearer navigation, UI, and conversion paths.",
+    items: [
+      "Content and navigation cleanup",
+      "Responsive UI improvements",
+      "Conversion-path improvements",
+      "Performance and accessibility review",
+      "Deployment and handoff"
+    ]
+  }
+];
+
+const faqs = [
+  {
+    question: "How long does a project usually take?",
+    answer:
+      "Timelines depend on scope, content readiness, feedback speed, and whether the build is a simple static proof, storefront, MVP workflow, or more complex dashboard. ClearStack confirms a practical timeline after reviewing the requested first version."
+  },
+  {
+    question: "What information do you need to begin?",
+    answer:
+      "A useful inquiry includes the project goal, audience, preferred project type, must-have features, existing links if available, timeline goals, and budget range. Sensitive credentials or private data should not be submitted through the public inquiry workflow."
+  },
+  {
+    question: "Do you handle both design and development?",
+    answer:
+      "Yes. ClearStack can shape the page structure, responsive interface, component system, and implementation together for a focused first version. Brand identity, illustration, photography, or advanced UX research can be scoped separately if needed."
+  },
+  {
+    question: "Who owns the final code and assets?",
+    answer:
+      "Ownership details are confirmed in the project agreement. In general, the handoff can include the source code and project documentation for the approved scope, while third-party assets, fonts, services, or licenses follow their own terms."
+  },
+  {
+    question: "Are domain, hosting, and third-party fees included?",
+    answer:
+      "Third-party services and recurring fees are separate unless the project agreement states otherwise. This can include domains, hosting, email, analytics, payment providers, SaaS tools, stock assets, and other vendor costs."
+  },
+  {
+    question: "Can you add payments, accounts, or databases?",
+    answer:
+      "Yes, but payments, authentication, databases, external APIs, and production integrations require separate scope, planning, and security review. They are not included by default in a static proof or inquiry-based MVP."
+  },
+  {
+    question: "How many revisions are included?",
+    answer:
+      "Revision rounds are agreed before the project begins. The goal is to keep feedback focused on the approved first-version scope so the project can move toward launch without uncontrolled expansion."
+  },
+  {
+    question: "What happens after launch?",
+    answer:
+      "After launch, ClearStack can provide a short support period for small fixes, handoff questions, and launch checks. Larger new features, integrations, or content expansions are scoped as follow-up work."
+  },
+  {
+    question: "Can the MVP be expanded later?",
+    answer:
+      "Yes. MVPs are built to create useful proof first, then expand later based on feedback, demand, and budget. Common next steps include richer dashboards, real data, payments, accounts, automations, or third-party integrations."
+  },
+  {
+    question: "Can you improve an existing website or app?",
+    answer:
+      "Yes. A refresh project can improve content structure, navigation, responsive UI, accessibility, performance, conversion paths, and deployment readiness while preserving what already works."
+  },
+  {
+    question: "Do you work with confidential or sensitive data?",
+    answer:
+      "Sensitive data requires a separate privacy and security discussion before any access is shared. Do not send credentials, private records, applicant data, customer lists, health information, financial details, or other sensitive material through the public inquiry workflow."
+  },
+  {
+    question: "Is submitting an inquiry a contract?",
+    answer:
+      "No. Submitting an inquiry is not a binding contract. Pricing, ownership, timeline, included revision rounds, and final scope are confirmed only after review and agreement."
+  }
+];
+
 export const metadata: Metadata = {
   title: "Services",
   description:
@@ -135,6 +274,70 @@ export default function ServicesPage() {
       </section>
 
       <ServicePackages />
+
+      <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">
+              Deliverables
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              What clients receive
+            </h2>
+            <p className="mt-5 text-sm leading-6 text-slate-300 sm:text-base">
+              Every engagement is scoped around a focused, useful first version with clear deliverables, working code, launch checks, and a practical handoff.
+            </p>
+            <p className="mt-4 text-sm leading-6 text-slate-400">
+              The exact scope, revision rounds, support window, ownership details, and third-party costs are confirmed before work begins.
+            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            {clientDeliverables.map((deliverable) => (
+              <div
+                className="border border-white/10 bg-white/[0.04] p-4 text-sm font-medium leading-6 text-slate-200"
+                key={deliverable}
+              >
+                <span aria-hidden="true" className="mr-2 text-cyanGlow">-</span>
+                {deliverable}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#081827] px-6 py-16 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emeraldLift">
+            Service-specific deliverables
+          </p>
+          <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            Representative outcomes by project type.
+          </h2>
+          <p className="mt-5 max-w-3xl text-sm leading-6 text-slate-300 sm:text-base">
+            These are practical examples, not fixed bundles. Final deliverables depend on approved scope, available content, technical complexity, and budget.
+          </p>
+          <div className="mt-10 grid gap-5 lg:grid-cols-2">
+            {serviceDeliverables.map((service) => (
+              <article className="border border-white/10 bg-white/[0.04] p-6" key={service.service}>
+                <h3 className="text-2xl font-semibold text-white">
+                  {service.service}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-slate-300">
+                  {service.description}
+                </p>
+                <ul className="mt-5 grid gap-2 text-sm leading-6 text-slate-300 sm:grid-cols-2">
+                  {service.items.map((item) => (
+                    <li className="border border-white/10 bg-slateInk/70 px-3 py-2" key={item}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
         <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">
@@ -294,6 +497,72 @@ export default function ServicesPage() {
               <p className="mt-3 text-sm leading-6 text-slate-300">{step.text}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-[#081827] px-6 py-16 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emeraldLift">
+            FAQ
+          </p>
+          <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            Practical questions before starting an inquiry.
+          </h2>
+          <p className="mt-5 max-w-3xl text-sm leading-6 text-slate-300 sm:text-base">
+            These answers keep the first conversation clear. Final pricing, ownership, revision rounds, support, and technical scope are confirmed in the project agreement.
+          </p>
+
+          <div className="mt-10 grid gap-3">
+            {faqs.map((faq) => (
+              <details
+                className="group border border-white/10 bg-white/[0.04] p-5 open:border-cyan-300/40"
+                key={faq.question}
+              >
+                <summary className="focus-ring cursor-pointer list-none text-base font-semibold text-white marker:hidden">
+                  <span className="flex items-center justify-between gap-4">
+                    <span>{faq.question}</span>
+                    <span
+                      aria-hidden="true"
+                      className="text-cyanGlow transition group-open:rotate-45"
+                    >
+                      +
+                    </span>
+                  </span>
+                </summary>
+                <p className="mt-4 text-sm leading-6 text-slate-300">
+                  {faq.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+
+          <div className="mt-10 border border-cyan-300/20 bg-cyan-300/[0.05] p-6 sm:flex sm:items-center sm:justify-between sm:gap-8">
+            <div>
+              <h3 className="text-2xl font-semibold tracking-tight text-white">
+                Ready to scope the first version?
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-slate-300">
+                Start with a focused inquiry, or compare proof projects before choosing the closest path.
+              </p>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3 sm:mt-0">
+              <TrackedLink
+                className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+                ctaLocation="services_faq_cta"
+                eventLabel="services_faq_start_project"
+                eventName="start_project_click"
+                href="/start"
+              >
+                Start a project
+              </TrackedLink>
+              <Link
+                className="focus-ring inline-flex items-center justify-center border border-white/15 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+                href="/projects"
+              >
+                View proof projects
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

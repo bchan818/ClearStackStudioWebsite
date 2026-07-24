@@ -1,6 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedLink } from "@/components/TrackedLink";
+import { createSeoMetadata, socialImages } from "@/lib/seo";
 import { cardScopeLiveUrl, clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
+
+export const metadata: Metadata = createSeoMetadata({
+  title: "ClearStack Studio | From idea to app",
+  description:
+    "Focused MVPs, storefronts, AI-powered tools, internal dashboards, and website or app refreshes built for launch.",
+  path: "/",
+  image: socialImages.default,
+  imageAlt: "ClearStack Studio default social preview for focused MVPs, storefronts, AI tools, dashboards, and website refreshes."
+});
 
 const audiences = [
   "Founders testing a product idea",

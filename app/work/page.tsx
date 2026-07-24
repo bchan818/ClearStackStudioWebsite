@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FeaturedProduct } from "@/components/FeaturedProduct";
 import { TrackedLink } from "@/components/TrackedLink";
+import { createSeoMetadata, socialImages } from "@/lib/seo";
 import { cardScopeLiveUrl, clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const capabilities = [
@@ -27,9 +28,14 @@ const proofPoints = [
 ];
 
 export const metadata: Metadata = {
-  title: "Work",
-  description:
-    "Explore ClearStack Studio proof projects across MVP software, storefront MVPs, AI-powered tools, and internal workflow dashboards."
+  ...createSeoMetadata({
+    title: "Work and Case Studies | ClearStack Studio",
+    description:
+      "See how ClearStack Studio turns product ideas, storefront concepts, AI workflows, and operational processes into focused digital prototypes.",
+    path: "/work",
+    image: socialImages.projects,
+    imageAlt: "ClearStack Studio work and case studies social preview."
+  })
 };
 
 export default function WorkPage() {

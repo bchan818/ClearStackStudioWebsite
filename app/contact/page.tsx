@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StorefrontCta } from "@/components/StorefrontCta";
+import { createSeoMetadata, socialImages } from "@/lib/seo";
 import { clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const contactReasons = [
@@ -109,9 +110,14 @@ const proofLinks = [
 ];
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Contact ClearStack Studio to discuss a website, mobile app, AI tool, storefront, or MVP project."
+  ...createSeoMetadata({
+    title: "Contact | ClearStack Studio",
+    description:
+      "Contact ClearStack Studio about a product MVP, storefront, AI-powered tool, internal dashboard, or website refresh.",
+    path: "/contact",
+    image: socialImages.default,
+    imageAlt: "ClearStack Studio contact social preview."
+  })
 };
 
 export default function ContactPage() {

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createSeoMetadata, socialImages } from "@/lib/seo";
 
 const prototypeFeatures = [
   {
@@ -35,9 +36,14 @@ const roadmapItems = [
 ];
 
 export const metadata: Metadata = {
-  title: "AI Fashion Model | ClearStack Studio",
-  description:
-    "AI Fashion Model is an AI-assisted creative and product visualization prototype by ClearStack Studio for fashion, retail, creator, and visual concept workflows."
+  ...createSeoMetadata({
+    title: "AI Fashion Model Prototype | ClearStack Studio",
+    description:
+      "An AI-assisted fashion concept and visualization prototype exploring creative workflows for creators, retail, and product ideation.",
+    path: "/work/ai-fashion-model",
+    image: socialImages.aiFashionModel,
+    imageAlt: "AI Fashion Model social preview labeled AI-Assisted Prototype."
+  })
 };
 
 export default function AiFashionModelPage() {

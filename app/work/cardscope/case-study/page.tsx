@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MvpServiceCta } from "@/components/MvpServiceCta";
+import { createSeoMetadata, socialImages } from "@/lib/seo";
 
 const summaryStats = [
   { label: "Project type", value: "Standalone MVP" },
@@ -52,9 +53,15 @@ const proofPoints = [
 ];
 
 export const metadata: Metadata = {
-  title: "CardScope Case Study | ClearStack Studio",
-  description:
-    "See how ClearStack Studio shaped CardScope from product idea to live MVP, including scope, launch result, guardrails, and client-ready proof points."
+  ...createSeoMetadata({
+    title: "CardScope Case Study | ClearStack Studio",
+    description:
+      "See how ClearStack Studio shaped CardScope from product idea to live MVP, including scope, launch result, guardrails, and client-ready proof points.",
+    path: "/work/cardscope/case-study",
+    image: socialImages.cardscope,
+    imageAlt: "CardScope case study social preview labeled Software MVP.",
+    type: "article"
+  })
 };
 
 export default function CardScopeCaseStudyPage() {

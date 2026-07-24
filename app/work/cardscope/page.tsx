@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MvpServiceCta } from "@/components/MvpServiceCta";
+import { createSeoMetadata, socialImages } from "@/lib/seo";
 
 const problems = [
   "Card values are scattered across tools, listings, notes, and memory.",
@@ -66,9 +67,14 @@ const statusItems = [
 ];
 
 export const metadata: Metadata = {
-  title: "CardScope",
-  description:
-    "CardScope is a live card search and collection tracker MVP by ClearStack Studio for collectors, sellers, and hobbyists."
+  ...createSeoMetadata({
+    title: "CardScope MVP | ClearStack Studio",
+    description:
+      "A card discovery, collection tracking, watchlist, and seller-tools prototype demonstrating a focused software MVP.",
+    path: "/work/cardscope",
+    image: socialImages.cardscope,
+    imageAlt: "CardScope MVP social preview labeled Software MVP."
+  })
 };
 
 export default function CardScopePage() {

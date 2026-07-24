@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedLink } from "@/components/TrackedLink";
+import { createSeoMetadata, socialImages } from "@/lib/seo";
 import { cardScopeLiveUrl, clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const categoryChips = ["All", "Software MVP", "Storefront MVP", "AI Tool", "Dashboard"];
@@ -115,9 +116,14 @@ const portfolioSteps = [
 ];
 
 export const metadata: Metadata = {
-  title: "Projects",
-  description:
-    "A unified ClearStack Studio projects dashboard across MVP software, storefront MVPs, AI-powered tools, and internal workflow dashboards."
+  ...createSeoMetadata({
+    title: "Proof Projects | ClearStack Studio",
+    description:
+      "Explore ClearStack Studio proof projects across software MVPs, storefronts, AI-assisted tools, and internal workflow dashboards.",
+    path: "/projects",
+    image: socialImages.projects,
+    imageAlt: "ClearStack Studio proof projects social preview for software MVPs, storefronts, AI-assisted tools, and dashboards."
+  })
 };
 
 export default function ProjectsPage() {

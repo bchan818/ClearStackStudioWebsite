@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ClearBloomProductVisual } from "@/components/ClearBloomProductVisual";
 import { StorefrontCta } from "@/components/StorefrontCta";
+import { createSeoMetadata, socialImages } from "@/lib/seo";
 import { clearBloomBundles, clearBloomProducts } from "@/lib/clearbloomProducts";
 import { clearBloomLiveUrl } from "@/lib/siteLinks";
 
@@ -55,9 +56,14 @@ const storefrontWorkflow = [
 ];
 
 export const metadata: Metadata = {
-  title: "ClearBloom Beauty",
-  description:
-    "ClearBloom Beauty is a perfume and cosmetics storefront by ClearStack Studio with products, bundles, and order inquiry paths."
+  ...createSeoMetadata({
+    title: "ClearBloom Beauty Storefront MVP | ClearStack Studio",
+    description:
+      "A premium beauty storefront prototype featuring product discovery, product pages, branding, and an inquiry-based checkout flow.",
+    path: "/work/clearbloom-beauty",
+    image: socialImages.clearBloomBeauty,
+    imageAlt: "ClearBloom Beauty social preview labeled Storefront MVP."
+  })
 };
 
 export default function ClearBloomBeautyPage() {

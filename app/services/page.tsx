@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ServicePackages } from "@/components/ServicePackages";
 import { StorefrontCta } from "@/components/StorefrontCta";
 import { TrackedLink } from "@/components/TrackedLink";
+import { createSeoMetadata, socialImages } from "@/lib/seo";
 import { clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const processSteps = [
@@ -236,9 +237,14 @@ const faqs = [
 ];
 
 export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "ClearStack Studio service packages for MVP launches, storefront MVPs, website refreshes, app refreshes, and practical launch-ready digital products."
+  ...createSeoMetadata({
+    title: "Services | ClearStack Studio",
+    description:
+      "Explore ClearStack Studio services for product MVPs, storefront MVPs, AI-powered prototypes, internal dashboards, and website or app refreshes.",
+    path: "/services",
+    image: socialImages.services,
+    imageAlt: "ClearStack Studio services social preview for MVPs, storefronts, AI prototypes, dashboards, and refreshes."
+  })
 };
 
 export default function ServicesPage() {

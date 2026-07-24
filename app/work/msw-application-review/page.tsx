@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createSeoMetadata, socialImages } from "@/lib/seo";
 import { mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const dashboardFeatures = [
@@ -59,9 +60,14 @@ const roadmapItems = [
 ];
 
 export const metadata: Metadata = {
-  title: "MSW Application Review | ClearStack Studio",
-  description:
-    "MSW Application Review is a public-safe internal workflow dashboard demo and case study for structured application review, reviewer queues, status tracking, and privacy-conscious dashboard design."
+  ...createSeoMetadata({
+    title: "MSW Application Review Demo | ClearStack Studio",
+    description:
+      "A public-safe mock application review dashboard demonstrating applicant tracking, reviewer workflows, assignments, and reporting.",
+    path: "/work/msw-application-review",
+    image: socialImages.mswApplicationReview,
+    imageAlt: "MSW Application Review social preview labeled Internal Dashboard Demo."
+  })
 };
 
 export default function MswApplicationReviewPage() {

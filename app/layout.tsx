@@ -3,17 +3,18 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { defaultDescription, defaultTitle, siteName, siteTagline, siteUrl, socialImages } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://clear-stack-studio-website.vercel.app"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "ClearStack Studio | MVPs, Storefronts, AI Tools, and Dashboards",
-    template: "%s | ClearStack Studio"
+    default: defaultTitle,
+    template: "%s"
   },
-  description:
-    "ClearStack Studio turns ideas into launch-ready software MVPs, storefront MVPs, AI-powered tool prototypes, internal dashboards, and website/app refreshes.",
-  applicationName: "ClearStack Studio",
-  authors: [{ name: "ClearStack Studio" }],
+  description: defaultDescription,
+  applicationName: siteName,
+  authors: [{ name: siteName }],
+  creator: siteName,
   alternates: {
     canonical: "/"
   },
@@ -28,36 +29,65 @@ export const metadata: Metadata = {
     "app refresh"
   ],
   openGraph: {
-    title: "ClearStack Studio | From idea to app.",
-    description:
-      "A software/app studio portfolio for MVP software, storefront MVPs, AI-powered tools, internal dashboards, and website/app refreshes.",
+    title: defaultTitle,
+    description: defaultDescription,
     url: "/",
-    siteName: "ClearStack Studio",
+    siteName,
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/og-image.svg",
+        url: socialImages.default,
         width: 1200,
         height: 630,
-        alt: "ClearStack Studio — From idea to app."
+        alt: "ClearStack Studio social preview with the tagline From idea to app."
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "ClearStack Studio | From idea to app.",
-    description:
-      "MVP software, storefront MVPs, AI-powered tools, internal dashboards, and website/app refreshes by ClearStack Studio.",
-    images: ["/og-image.svg"]
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [
+      {
+        url: socialImages.default,
+        alt: "ClearStack Studio social preview with the tagline From idea to app."
+      }
+    ]
   },
   icons: {
-    icon: "/icon.svg"
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg"
   },
   robots: {
     index: true,
     follow: true
   }
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": `${siteUrl}/#organization`,
+      name: siteName,
+      url: siteUrl,
+      slogan: siteTagline,
+      description: defaultDescription,
+      image: `${siteUrl}${socialImages.default}`
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      name: siteName,
+      url: siteUrl,
+      publisher: {
+        "@id": `${siteUrl}/#organization`
+      }
+    }
+  ]
 };
 
 export default function RootLayout({
@@ -77,6 +107,10 @@ export default function RootLayout({
         <Header />
         <div id="main-content" tabIndex={-1}>{children}</div>
         <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <Analytics />
       </body>
     </html>

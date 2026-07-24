@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createSeoMetadata, socialImages } from "@/lib/seo";
 
 const summaryStats = [
   { label: "Project type", value: "AI-powered tool prototype" },
@@ -50,9 +51,15 @@ const proofPoints = [
 ];
 
 export const metadata: Metadata = {
-  title: "AI Fashion Model Case Study | ClearStack Studio",
-  description:
-    "See how ClearStack Studio positions AI Fashion Model as an AI-assisted creative and product visualization prototype with honest MVP guardrails."
+  ...createSeoMetadata({
+    title: "AI Fashion Model Case Study | ClearStack Studio",
+    description:
+      "See how ClearStack Studio positions AI Fashion Model as an AI-assisted creative and product visualization prototype with honest MVP guardrails.",
+    path: "/work/ai-fashion-model/case-study",
+    image: socialImages.aiFashionModel,
+    imageAlt: "AI Fashion Model case study social preview labeled AI-Assisted Prototype.",
+    type: "article"
+  })
 };
 
 export default function AiFashionModelCaseStudyPage() {

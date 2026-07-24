@@ -38,6 +38,35 @@ const expectedDemoUrls = {
   "MSW Application Review": "https://msw-application-review-demo.vercel.app"
 };
 
+const expectedBaseUrl = "https://clear-stack-studio-website.vercel.app";
+
+const expectedSeoPages = [
+  ["app/page.tsx", "ClearStack Studio | From idea to app", "Focused MVPs, storefronts, AI-powered tools, internal dashboards, and website or app refreshes built for launch.", "/social/clearstack-default.png"],
+  ["app/services/page.tsx", "Services | ClearStack Studio", "Explore ClearStack Studio services for product MVPs, storefront MVPs, AI-powered prototypes, internal dashboards, and website or app refreshes.", "/social/services.png"],
+  ["app/projects/page.tsx", "Proof Projects | ClearStack Studio", "Explore ClearStack Studio proof projects across software MVPs, storefronts, AI-assisted tools, and internal workflow dashboards.", "/social/projects.png"],
+  ["app/work/page.tsx", "Work and Case Studies | ClearStack Studio", "See how ClearStack Studio turns product ideas, storefront concepts, AI workflows, and operational processes into focused digital prototypes.", "/social/projects.png"],
+  ["app/start/page.tsx", "Start a Project | ClearStack Studio", "Tell ClearStack Studio what you want to launch and outline the first useful version of your product, storefront, dashboard, or website.", "/social/clearstack-default.png"],
+  ["app/contact/page.tsx", "Contact | ClearStack Studio", "Contact ClearStack Studio about a product MVP, storefront, AI-powered tool, internal dashboard, or website refresh.", "/social/clearstack-default.png"],
+  ["app/work/cardscope/page.tsx", "CardScope MVP | ClearStack Studio", "A card discovery, collection tracking, watchlist, and seller-tools prototype demonstrating a focused software MVP.", "/social/cardscope.png"],
+  ["app/work/cardscope/case-study/page.tsx", "CardScope Case Study | ClearStack Studio", "See how ClearStack Studio shaped CardScope from product idea to live MVP, including scope, launch result, guardrails, and client-ready proof points.", "/social/cardscope.png"],
+  ["app/work/clearbloom-beauty/page.tsx", "ClearBloom Beauty Storefront MVP | ClearStack Studio", "A premium beauty storefront prototype featuring product discovery, product pages, branding, and an inquiry-based checkout flow.", "/social/clearbloom-beauty.png"],
+  ["app/work/clearbloom-beauty/case-study/page.tsx", "ClearBloom Beauty Case Study | ClearStack Studio", "See how ClearStack Studio shaped ClearBloom Beauty from perfume and cosmetics idea into a storefront MVP with products, bundles, order inquiry paths, and commerce guardrails.", "/social/clearbloom-beauty.png"],
+  ["app/work/ai-fashion-model/page.tsx", "AI Fashion Model Prototype | ClearStack Studio", "An AI-assisted fashion concept and visualization prototype exploring creative workflows for creators, retail, and product ideation.", "/social/ai-fashion-model.png"],
+  ["app/work/ai-fashion-model/case-study/page.tsx", "AI Fashion Model Case Study | ClearStack Studio", "See how ClearStack Studio positions AI Fashion Model as an AI-assisted creative and product visualization prototype with honest MVP guardrails.", "/social/ai-fashion-model.png"],
+  ["app/work/msw-application-review/page.tsx", "MSW Application Review Demo | ClearStack Studio", "A public-safe mock application review dashboard demonstrating applicant tracking, reviewer workflows, assignments, and reporting.", "/social/msw-application-review.png"],
+  ["app/work/msw-application-review/case-study/page.tsx", "MSW Application Review Case Study | ClearStack Studio", "Case study for MSW Application Review, a live mock-data internal workflow dashboard demo with privacy-safe boundaries.", "/social/msw-application-review.png"]
+];
+
+const expectedSocialImages = [
+  "public/social/clearstack-default.png",
+  "public/social/services.png",
+  "public/social/projects.png",
+  "public/social/cardscope.png",
+  "public/social/clearbloom-beauty.png",
+  "public/social/ai-fashion-model.png",
+  "public/social/msw-application-review.png"
+];
+
 const sourceRoots = ["app", "components", "lib"];
 const sourceExtensions = new Set([".css", ".js", ".jsx", ".md", ".ts", ".tsx"]);
 
@@ -85,6 +114,16 @@ function assertLinksToStart(fileContent, message) {
       fileContent.includes("href={item.href}"),
     message
   );
+}
+
+function pngDimensions(relativePath) {
+  const buffer = readFileSync(path.join(rootDir, relativePath));
+  assert.equal(buffer.toString("ascii", 1, 4), "PNG", `${relativePath} should be a PNG file`);
+
+  return {
+    width: buffer.readUInt32BE(16),
+    height: buffer.readUInt32BE(20)
+  };
 }
 
 test("important internal routes exist as App Router pages", () => {
@@ -208,6 +247,37 @@ test("Start inquiry workflow keeps form controls labeled and copy status announc
 
   assertContains(startWorkflow, "inquiry-form-help", "Start inquiry form should expose helper/safety text");
   assertContains(startWorkflow, "role=\"status\"", "Copy confirmation should be announced through a live status region");
+});
+
+test("SEO metadata uses canonical ClearStack branding and social preview images", () => {
+  const layout = readProjectFile("app/layout.tsx");
+  const seoHelper = readProjectFile("lib/seo.ts");
+  const sitemap = readProjectFile("app/sitemap.ts");
+  const robots = readProjectFile("app/robots.ts");
+
+  for (const source of [seoHelper, sitemap, robots]) {
+    assertContains(source, expectedBaseUrl, "SEO configuration should use the canonical live base URL");
+  }
+
+  assertContains(layout, "metadataBase: new URL(siteUrl)", "Layout metadata should use the shared canonical site URL");
+  assertContains(layout, "summary_large_image", "Global metadata should configure summary_large_image Twitter cards");
+  assertContains(layout, "ProfessionalService", "Structured data should accurately identify ClearStack Studio as a service business");
+  assertContains(layout, "WebSite", "Structured data should include a WebSite node");
+
+  for (const [file, title, description, image] of expectedSeoPages) {
+    const content = readProjectFile(file);
+    assertContains(content, title, `${file} should include expected SEO title`);
+    assertContains(content, description, `${file} should include expected SEO description`);
+    assertContains(content, "createSeoMetadata", `${file} should use the shared SEO metadata helper`);
+    assertContains(seoHelper, image, `Shared SEO helper should define ${image}`);
+  }
+});
+
+test("required social preview PNG assets exist at 1200 by 630", () => {
+  for (const imagePath of expectedSocialImages) {
+    assert.ok(existsSync(path.join(rootDir, imagePath)), `${imagePath} should exist`);
+    assert.deepEqual(pngDimensions(imagePath), { width: 1200, height: 630 }, `${imagePath} should be 1200x630`);
+  }
 });
 
 test("expected external demo URLs are defined exactly once in shared site links", () => {

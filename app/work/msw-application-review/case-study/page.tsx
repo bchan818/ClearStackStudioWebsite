@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { createSeoMetadata, socialImages } from "@/lib/seo";
 import { mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const summaryStats = [
@@ -94,9 +95,15 @@ const demoTourSections = [
 ];
 
 export const metadata: Metadata = {
-  title: "MSW Application Review Case Study | ClearStack Studio",
-  description:
-    "Case study for MSW Application Review, a live mock-data internal workflow dashboard demo with privacy-safe boundaries."
+  ...createSeoMetadata({
+    title: "MSW Application Review Case Study | ClearStack Studio",
+    description:
+      "Case study for MSW Application Review, a live mock-data internal workflow dashboard demo with privacy-safe boundaries.",
+    path: "/work/msw-application-review/case-study",
+    image: socialImages.mswApplicationReview,
+    imageAlt: "MSW Application Review case study social preview labeled Internal Dashboard Demo.",
+    type: "article"
+  })
 };
 
 export default function MswApplicationReviewCaseStudyPage() {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { StartInquiryWorkflow } from "@/components/StartInquiryWorkflow";
 import { TrackedLink } from "@/components/TrackedLink";
+import { createSeoMetadata, socialImages } from "@/lib/seo";
 import { cardScopeLiveUrl, clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const projectPaths = [
@@ -113,9 +114,14 @@ const accentStyles = {
 };
 
 export const metadata: Metadata = {
-  title: "Start a Project",
-  description:
-    "Start a ClearStack Studio project by choosing the right inquiry path for an MVP, storefront MVP, AI-powered tool, internal dashboard, or website/app refresh."
+  ...createSeoMetadata({
+    title: "Start a Project | ClearStack Studio",
+    description:
+      "Tell ClearStack Studio what you want to launch and outline the first useful version of your product, storefront, dashboard, or website.",
+    path: "/start",
+    image: socialImages.default,
+    imageAlt: "ClearStack Studio start a project social preview."
+  })
 };
 
 export default function StartPage() {

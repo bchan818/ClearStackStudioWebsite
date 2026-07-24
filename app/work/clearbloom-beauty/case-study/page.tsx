@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StorefrontCta } from "@/components/StorefrontCta";
+import { createSeoMetadata, socialImages } from "@/lib/seo";
 import { clearBloomLiveUrl } from "@/lib/siteLinks";
 
 const summaryStats = [
@@ -63,9 +64,15 @@ const studioProof = [
 ];
 
 export const metadata: Metadata = {
-  title: "ClearBloom Beauty Case Study | ClearStack Studio",
-  description:
-    "See how ClearStack Studio shaped ClearBloom Beauty from perfume and cosmetics idea into a storefront MVP with products, bundles, order inquiry paths, and commerce guardrails."
+  ...createSeoMetadata({
+    title: "ClearBloom Beauty Case Study | ClearStack Studio",
+    description:
+      "See how ClearStack Studio shaped ClearBloom Beauty from perfume and cosmetics idea into a storefront MVP with products, bundles, order inquiry paths, and commerce guardrails.",
+    path: "/work/clearbloom-beauty/case-study",
+    image: socialImages.clearBloomBeauty,
+    imageAlt: "ClearBloom Beauty case study social preview labeled Storefront MVP.",
+    type: "article"
+  })
 };
 
 export default function ClearBloomCaseStudyPage() {

@@ -8,6 +8,7 @@ const rootDir = process.cwd();
 const requiredInternalRoutes = [
   "/",
   "/about",
+  "/how-we-work",
   "/services",
   "/work",
   "/projects",
@@ -44,6 +45,7 @@ const expectedBaseUrl = "https://clear-stack-studio-website.vercel.app";
 const expectedSeoPages = [
   ["app/page.tsx", "ClearStack Studio | From idea to app", "Focused MVPs, storefronts, AI-powered tools, internal dashboards, and website or app refreshes built for launch.", "/social/clearstack-default.png"],
   ["app/about/page.tsx", "About ClearStack Studio | From idea to app", "Learn how ClearStack Studio builds focused MVPs, storefronts, AI-powered prototypes, internal dashboards, and website or app refreshes.", "/social/clearstack-default.png"],
+  ["app/how-we-work/page.tsx", "How We Work | ClearStack Studio", "Learn how ClearStack Studio scopes, designs, builds, tests, launches, and hands off focused MVPs, storefronts, dashboards, AI prototypes, and website refreshes.", "/social/clearstack-default.png"],
   ["app/services/page.tsx", "Services | ClearStack Studio", "Explore ClearStack Studio services for product MVPs, storefront MVPs, AI-powered prototypes, internal dashboards, and website or app refreshes.", "/social/services.png"],
   ["app/projects/page.tsx", "Proof Projects | ClearStack Studio", "Explore ClearStack Studio proof projects across software MVPs, storefronts, AI-assisted tools, and internal workflow dashboards.", "/social/projects.png"],
   ["app/work/page.tsx", "Work and Case Studies | ClearStack Studio", "See how ClearStack Studio turns product ideas, storefront concepts, AI workflows, and operational processes into focused digital prototypes.", "/social/projects.png"],
@@ -157,7 +159,7 @@ test("Layout includes skip link and stable main-content target", () => {
 test("Footer navigation includes primary and utility routes", () => {
   const footer = readProjectFile("components/Footer.tsx");
 
-  for (const route of ["/about", "/services", "/work", "/projects", "/start", "/studio-tools", "/contact"]) {
+  for (const route of ["/about", "/how-we-work", "/services", "/work", "/projects", "/start", "/studio-tools", "/contact"]) {
     assertContains(footer, `href="${route}"`, `Footer nav should include ${route}`);
   }
 });
@@ -264,6 +266,44 @@ test("About page explains studio scope, proof projects, boundaries, and safe CTA
 
   for (const eventName of ["about_start_project_click", "about_view_projects_click", "about_service_click"]) {
     assertContains(about, eventName, `About page should track safe CTA event ${eventName}`);
+  }
+});
+
+test("How We Work page explains project process, client expectations, and safe CTA analytics", () => {
+  const howWeWork = readProjectFile("app/how-we-work/page.tsx");
+  const about = readProjectFile("app/about/page.tsx");
+  const services = readProjectFile("app/services/page.tsx");
+  const sitemap = readProjectFile("app/sitemap.ts");
+
+  assertContains(sitemap, '"/how-we-work"', "Sitemap should include the public How We Work page");
+  assertContains(about, 'href="/how-we-work"', "About page should link to How We Work");
+  assertContains(services, 'href="/how-we-work"', "Services page should link to How We Work");
+
+  for (const text of [
+    "A clear path from idea to launch.",
+    "Engagement overview",
+    "Project stages",
+    "Client responsibilities",
+    "ClearStack responsibilities",
+    "Communication expectations",
+    "Feedback and revision boundaries",
+    "Timeline expectations",
+    "Third-party services and costs",
+    "Launch and post-launch support",
+    "Privacy and sensitive information",
+    "Frequently asked process questions",
+    "An inquiry starts a conversation and is not a contract"
+  ]) {
+    assertContains(howWeWork, text, `How We Work page should include ${text}`);
+  }
+
+  for (const stage of ["Clarify", "Scope", "Design", "Build", "Review", "Test", "Launch", "Handoff"]) {
+    assertContains(howWeWork, stage, `How We Work page should include stage ${stage}`);
+  }
+
+  for (const eventName of ["how_we_work_start_click", "how_we_work_services_click", "how_we_work_projects_click"]) {
+    assertContains(howWeWork, eventName, `How We Work page should track safe CTA event ${eventName}`);
+    assertContains(readProjectFile("components/TrackedLink.tsx"), eventName, `TrackedLink should type ${eventName}`);
   }
 });
 

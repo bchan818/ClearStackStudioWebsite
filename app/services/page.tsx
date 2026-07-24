@@ -276,6 +276,12 @@ export default function ServicesPage() {
           >
             View work
           </Link>
+          <Link
+            className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+            href="/how-we-work"
+          >
+            How we work
+          </Link>
         </div>
       </section>
 
@@ -495,6 +501,12 @@ export default function ServicesPage() {
         <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           A simple path from idea to launch-ready proof.
         </h2>
+        <Link
+          className="focus-ring mt-6 inline-flex min-h-11 items-center justify-center border border-cyan-300/40 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyanGlow hover:text-slate-950"
+          href="/how-we-work"
+        >
+          Review the full project process
+        </Link>
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {processSteps.map((step, index) => (
             <article className="border border-white/10 bg-white/[0.03] p-5" key={step.title}>

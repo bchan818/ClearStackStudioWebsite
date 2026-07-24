@@ -203,6 +203,12 @@ export default function AboutPage() {
             >
               View proof projects
             </TrackedLink>
+            <Link
+              className="focus-ring inline-flex min-h-11 items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyanGlow hover:text-white"
+              href="/how-we-work"
+            >
+              See how we work
+            </Link>
           </div>
         </div>
       </section>
@@ -299,6 +305,12 @@ export default function AboutPage() {
           <p className="mt-5 max-w-3xl text-sm leading-6 text-slate-300">
             Scope is confirmed before development. Advanced features are added only when needed. Launch readiness includes lint, build, responsive layout, link checks, and deployment verification. Final deliverables depend on the written project scope.
           </p>
+          <Link
+            className="focus-ring mt-6 inline-flex min-h-11 items-center justify-center border border-cyan-300/40 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyanGlow hover:text-slate-950"
+            href="/how-we-work"
+          >
+            Read the full How We Work process
+          </Link>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step, index) => (
               <article className="border border-white/10 bg-white/[0.04] p-5" key={step.title}>

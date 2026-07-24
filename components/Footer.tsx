@@ -24,6 +24,12 @@ export function Footer() {
           </Link>
           <Link
             className="focus-ring inline-flex min-h-11 items-center transition hover:text-white"
+            href="/how-we-work"
+          >
+            How We Work
+          </Link>
+          <Link
+            className="focus-ring inline-flex min-h-11 items-center transition hover:text-white"
             href="/services"
           >
             Services

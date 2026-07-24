@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { TrackedLink } from "@/components/TrackedLink";
 
 type StorefrontCtaProps = {
   eyebrow?: string;
@@ -48,33 +48,41 @@ export function StorefrontCta({
           </p>
         </div>
         <div className="mt-8 flex flex-wrap gap-3 lg:mt-0">
-          <Link
+          <TrackedLink
             className="focus-ring inline-flex items-center justify-center bg-rose-200 px-6 py-3 text-sm font-semibold text-[#130d14] transition hover:bg-amber-100"
+            eventLabel="storefront_cta_build_start_project"
+            eventName="start_project_click"
             href="/start"
           >
             Build a storefront like this
-          </Link>
-          <Link
+          </TrackedLink>
+          <TrackedLink
             className="focus-ring inline-flex items-center justify-center border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-rose-200 hover:text-rose-100"
+            eventLabel="storefront_cta_start_inquiry"
+            eventName="start_project_click"
             href="/start"
           >
             Start a storefront inquiry
-          </Link>
+          </TrackedLink>
           {liveHref ? (
-            <Link
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center border border-rose-200/40 px-6 py-3 text-sm font-semibold text-rose-100 transition hover:bg-rose-200 hover:text-[#130d14]"
+              eventLabel="storefront_cta_live_demo"
+              eventName="live_demo_click"
               href={liveHref}
             >
               {liveLabel}
-            </Link>
+            </TrackedLink>
           ) : null}
           {proofHref ? (
-            <Link
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center border border-amber-100/40 px-6 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-100 hover:text-[#130d14]"
+              eventLabel="storefront_cta_case_study"
+              eventName="case_study_click"
               href={proofHref}
             >
               {proofLabel}
-            </Link>
+            </TrackedLink>
           ) : null}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackedLink } from "@/components/TrackedLink";
 
 export function Hero() {
   return (
@@ -21,24 +22,28 @@ export function Hero() {
             launch-focused builds for small businesses, creators, and growing teams.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Link
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              eventLabel="homepage_hero_start_project"
+              eventName="start_project_click"
               href="/start"
             >
               Start a Project
-            </Link>
+            </TrackedLink>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyanGlow hover:text-white"
               href="/work"
             >
               See the work
             </Link>
-            <Link
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center border border-amber-100/30 px-6 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"
+              eventLabel="homepage_hero_storefront_case_study"
+              eventName="case_study_click"
               href="/work/clearbloom-beauty/case-study"
             >
               See storefront proof
-            </Link>
+            </TrackedLink>
           </div>
         </div>
 

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { TrackedLink } from "@/components/TrackedLink";
 
 const navItems = [
   { href: "/services", label: "Services", shortLabel: "Svc" },
@@ -38,23 +39,38 @@ export function Header() {
         </Link>
 
         <div className="flex shrink-0 items-center gap-1 sm:gap-3">
-          {navItems.map((item) => (
-            <Link
-              aria-current={pathname === item.href ? "page" : undefined}
-              className="focus-ring px-3 py-2 text-sm font-medium text-slate-300 transition hover:text-white aria-[current=page]:border aria-[current=page]:border-cyan-300/40 aria-[current=page]:text-white"
-              href={item.href}
-              key={item.href}
-            >
-              {item.shortLabel ? (
-                <>
-                  <span className="sm:hidden">{item.shortLabel}</span>
-                  <span className="hidden sm:inline">{item.label}</span>
-                </>
-              ) : (
-                item.label
-              )}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const label = item.shortLabel ? (
+              <>
+                <span className="sm:hidden">{item.shortLabel}</span>
+                <span className="hidden sm:inline">{item.label}</span>
+              </>
+            ) : (
+              item.label
+            );
+
+            return item.href === "/start" ? (
+              <TrackedLink
+                aria-current={pathname === item.href ? "page" : undefined}
+                className="focus-ring px-3 py-2 text-sm font-medium text-slate-300 transition hover:text-white aria-[current=page]:border aria-[current=page]:border-cyan-300/40 aria-[current=page]:text-white"
+                eventLabel="header_start_project"
+                eventName="start_project_click"
+                href={item.href}
+                key={item.href}
+              >
+                {label}
+              </TrackedLink>
+            ) : (
+              <Link
+                aria-current={pathname === item.href ? "page" : undefined}
+                className="focus-ring px-3 py-2 text-sm font-medium text-slate-300 transition hover:text-white aria-[current=page]:border aria-[current=page]:border-cyan-300/40 aria-[current=page]:text-white"
+                href={item.href}
+                key={item.href}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </div>
       </nav>
     </header>

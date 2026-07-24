@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ServicePackages } from "@/components/ServicePackages";
 import { StorefrontCta } from "@/components/StorefrontCta";
+import { TrackedLink } from "@/components/TrackedLink";
 import { clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const processSteps = [
@@ -41,26 +42,36 @@ const inquiryBenefits = [
 const proofLinks = [
   {
     title: "CardScope case study",
+    slug: "cardscope",
+    eventName: "case_study_click",
     text: "From card-collector product idea to live MVP proof point.",
     href: "/work/cardscope/case-study"
   },
   {
     title: "ClearBloom Beauty case study",
+    slug: "clearbloom-beauty",
+    eventName: "case_study_click",
     text: "A fictional, inquiry-based storefront MVP that shows the Storefront MVP Package pattern for beauty, wellness, fashion, lifestyle, food/product, boutique ecommerce, and creator merchandise brands.",
     href: "/work/clearbloom-beauty/case-study"
   },
   {
     title: "AI Fashion Model case study",
+    slug: "ai-fashion-model",
+    eventName: "case_study_click",
     text: "An AI-assisted creative and product visualization prototype for creators, fashion, retail, and visual concept workflows.",
     href: "/work/ai-fashion-model/case-study"
   },
   {
     title: "MSW Application Review live demo",
+    slug: "msw-application-review",
+    eventName: "live_demo_click",
     text: "A live mock-data internal dashboard and workflow-tool proof for review queues, assignments, reporting, operational software, and privacy-conscious dashboard design.",
     href: mswApplicationReviewDemoUrl
   },
   {
     title: "MSW Application Review case study",
+    slug: "msw-application-review",
+    eventName: "case_study_click",
     text: "Case study for the public-safe internal workflow dashboard demo and the service pattern behind it.",
     href: "/work/msw-application-review/case-study"
   }
@@ -69,12 +80,16 @@ const proofLinks = [
 const specialtyServices = [
   {
     title: "AI-powered tool prototypes",
+    slug: "ai-fashion-model",
+    eventName: "case_study_click",
     text: "AI Fashion Model shows how a creative idea can become a prompt-based MVP for fashion concepts, creator workflows, retail ideation, and visual product prototyping before real AI APIs are connected.",
     href: "/work/ai-fashion-model/case-study",
     cta: "See AI tool proof"
   },
   {
     title: "Internal dashboards, workflow tools, and operational software",
+    slug: "msw-application-review",
+    eventName: "live_demo_click",
     text: "MSW Application Review shows how ClearStack can turn manual review, assignment, reporting, and operations workflows into a live mock-data dashboard proof before adding real authentication, databases, or integrations.",
     href: mswApplicationReviewDemoUrl,
     cta: "View live dashboard demo"
@@ -101,12 +116,15 @@ export default function ServicesPage() {
           ClearStack Studio helps founders, creators, small businesses, and product brands move from rough idea to a clean, responsive, launch-ready digital experience.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link
+          <TrackedLink
             className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+            ctaLocation="services_hero"
+            eventLabel="services_hero_start_project"
+            eventName="start_project_click"
             href="/start"
           >
             Start a Project
-          </Link>
+          </TrackedLink>
           <Link
             className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
             href="/work"
@@ -134,12 +152,17 @@ export default function ServicesPage() {
               <p className="mt-4 text-sm leading-6 text-slate-300">
                 {service.text}
               </p>
-              <Link
+              <TrackedLink
                 className="focus-ring mt-6 inline-flex items-center justify-center border border-cyan-300/40 px-4 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyanGlow hover:text-slate-950"
+                ctaLocation="services_expanded_proof"
+                eventLabel={`services_${service.slug}`}
+                eventName={service.eventName as "case_study_click" | "live_demo_click"}
                 href={service.href}
+                projectSlug={service.slug}
+                serviceCategory={service.title}
               >
                 {service.cta}
-              </Link>
+              </TrackedLink>
             </article>
           ))}
         </div>
@@ -209,24 +232,38 @@ export default function ServicesPage() {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              ctaLocation="services_storefront_mvp"
+              eventLabel="services_storefront_mvp_start_project"
+              eventName="service_package_click"
               href="/start"
+              serviceCategory="Storefront MVP Package"
             >
               Start a storefront inquiry
-            </Link>
-            <Link
+            </TrackedLink>
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center border border-amber-100/40 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-100 hover:text-slate-950"
+              ctaLocation="services_storefront_mvp"
+              eventLabel="services_clearbloom_live_demo"
+              eventName="live_demo_click"
               href={clearBloomLiveUrl}
+              projectSlug="clearbloom-beauty"
+              serviceCategory="Storefront MVP Package"
             >
               View live storefront demo
-            </Link>
-            <Link
+            </TrackedLink>
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center border border-amber-100/40 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-100 hover:text-slate-950"
+              ctaLocation="services_storefront_mvp"
+              eventLabel="services_clearbloom_case_study"
+              eventName="case_study_click"
               href="/work/clearbloom-beauty/case-study"
+              projectSlug="clearbloom-beauty"
+              serviceCategory="Storefront MVP Package"
             >
               Read ClearBloom case study
-            </Link>
+            </TrackedLink>
           </div>
         </div>
       </section>
@@ -270,14 +307,18 @@ export default function ServicesPage() {
           </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {proofLinks.map((link) => (
-              <Link
+              <TrackedLink
                 className="focus-ring block border border-white/10 bg-white/[0.04] p-5 transition hover:border-cyan-300/50"
+                ctaLocation="services_proof_grid"
+                eventLabel={`services_proof_${link.slug}`}
+                eventName={link.eventName as "case_study_click" | "live_demo_click"}
                 href={link.href}
                 key={link.title}
+                projectSlug={link.slug}
               >
                 <h3 className="text-lg font-semibold text-white">{link.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-300">{link.text}</p>
-              </Link>
+              </TrackedLink>
             ))}
           </div>
         </div>

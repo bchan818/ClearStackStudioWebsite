@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { TrackedLink } from "@/components/TrackedLink";
 
 export function MvpServiceCta() {
   return (
@@ -19,18 +19,22 @@ export function MvpServiceCta() {
         </div>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:mt-0 lg:grid-cols-1">
-          <Link
+          <TrackedLink
             className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+            eventLabel="mvp_service_cta_start_project"
+            eventName="start_project_click"
             href="/start"
           >
             Start your MVP project
-          </Link>
-          <Link
+          </TrackedLink>
+          <TrackedLink
             className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+            eventLabel="mvp_service_cta_cardscope_live"
+            eventName="live_demo_click"
             href="https://cardscope-mvp.vercel.app"
           >
             View CardScope MVP
-          </Link>
+          </TrackedLink>
         </div>
       </div>
     </section>

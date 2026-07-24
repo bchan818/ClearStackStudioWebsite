@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackedLink } from "@/components/TrackedLink";
 import { clearBloomLiveUrl } from "@/lib/siteLinks";
 
 const packages = [
@@ -162,12 +163,16 @@ export function ServicePackages({ variant = "full" }: ServicePackagesProps) {
                 <p className="border-t border-white/10 pt-5 text-sm font-semibold text-emerald-100">
                   {servicePackage.price}
                 </p>
-                <Link
+                <TrackedLink
                   className="focus-ring mt-5 inline-flex w-full items-center justify-center bg-cyanGlow px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+                  ctaLocation="service_package_card"
+                  eventLabel={`service_package_${servicePackage.name.toLowerCase().replaceAll(" ", "_")}`}
+                  eventName="service_package_click"
                   href={servicePackage.href}
+                  serviceCategory={servicePackage.name}
                 >
                   {servicePackage.cta}
-                </Link>
+                </TrackedLink>
                 {servicePackage.detailsHref ? (
                   <Link
                     className="focus-ring mt-3 inline-flex w-full items-center justify-center border border-white/15 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
@@ -177,12 +182,17 @@ export function ServicePackages({ variant = "full" }: ServicePackagesProps) {
                   </Link>
                 ) : null}
                 {servicePackage.liveHref ? (
-                  <Link
+                  <TrackedLink
                     className="focus-ring mt-3 inline-flex w-full items-center justify-center border border-amber-100/40 px-4 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-100 hover:text-slate-950"
+                    ctaLocation="service_package_card"
+                    eventLabel="service_package_clearbloom_live_demo"
+                    eventName="live_demo_click"
                     href={servicePackage.liveHref}
+                    projectSlug="clearbloom-beauty"
+                    serviceCategory="Storefront MVP Package"
                   >
                     {servicePackage.liveCta}
-                  </Link>
+                  </TrackedLink>
                 ) : null}
               </div>
             </article>
@@ -191,12 +201,15 @@ export function ServicePackages({ variant = "full" }: ServicePackagesProps) {
 
         {isPreview ? (
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              ctaLocation="service_packages_preview"
+              eventLabel="service_packages_preview_start_project"
+              eventName="start_project_click"
               href="/start"
             >
               Start a Project
-            </Link>
+            </TrackedLink>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
               href="/services"

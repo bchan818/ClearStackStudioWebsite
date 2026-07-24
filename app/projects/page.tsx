@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TrackedLink } from "@/components/TrackedLink";
 import { cardScopeLiveUrl, clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const categoryChips = ["All", "Software MVP", "Storefront MVP", "AI Tool", "Dashboard"];
@@ -7,6 +8,7 @@ const categoryChips = ["All", "Software MVP", "Storefront MVP", "AI Tool", "Dash
 const projects = [
   {
     name: "CardScope",
+    slug: "cardscope",
     category: "Software MVP",
     status: "Live MVP",
     description:
@@ -22,6 +24,7 @@ const projects = [
   },
   {
     name: "ClearBloom Beauty",
+    slug: "clearbloom-beauty",
     category: "Storefront MVP",
     status: "Live storefront demo",
     description:
@@ -37,6 +40,7 @@ const projects = [
   },
   {
     name: "AI Fashion Model",
+    slug: "ai-fashion-model",
     category: "AI-Powered Tool",
     status: "Prototype concept",
     description:
@@ -52,6 +56,7 @@ const projects = [
   },
   {
     name: "MSW Application Review",
+    slug: "msw-application-review",
     category: "Internal Workflow Dashboard",
     status: "Live mock-data dashboard demo",
     description:
@@ -218,24 +223,34 @@ export default function ProjectsPage() {
                       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
                         Related service
                       </p>
-                      <Link
+                      <TrackedLink
                         className="focus-ring mt-3 inline-flex text-sm font-semibold leading-6 text-white underline decoration-cyan-300/40 underline-offset-4 transition hover:text-cyanGlow"
+                        ctaLocation="projects_matrix_related_service"
+                        eventLabel={`projects_${project.slug}_related_service`}
+                        eventName="service_package_click"
                         href={project.serviceHref}
+                        projectSlug={project.slug}
+                        serviceCategory={project.relatedService}
                       >
                         {project.relatedService}
-                      </Link>
+                      </TrackedLink>
                     </div>
                   </div>
 
                   <div className="flex flex-col justify-between gap-4">
                     <div className="grid gap-3">
                       {project.liveDemo ? (
-                        <Link
+                        <TrackedLink
                           className="focus-ring inline-flex items-center justify-center border border-white/15 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+                          ctaLocation="projects_matrix_card"
+                          eventLabel={`projects_${project.slug}_live_demo`}
+                          eventName="live_demo_click"
                           href={project.liveDemo}
+                          projectSlug={project.slug}
+                          projectType={project.category}
                         >
                           {project.name === "MSW Application Review" ? "View live dashboard demo" : "Live demo"}
-                        </Link>
+                        </TrackedLink>
                       ) : project.name === "MSW Application Review" ? (
                         <span className="inline-flex items-center justify-center border border-emerald-300/20 px-4 py-3 text-center text-sm font-semibold text-emerald-100">
                           Live mock-data demo available
@@ -253,19 +268,29 @@ export default function ProjectsPage() {
                           View project overview
                         </Link>
                       ) : null}
-                      <Link
+                      <TrackedLink
                         className="focus-ring inline-flex items-center justify-center border border-white/15 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+                        ctaLocation="projects_matrix_card"
+                        eventLabel={`projects_${project.slug}_case_study`}
+                        eventName="case_study_click"
                         href={project.caseStudy}
+                        projectSlug={project.slug}
+                        projectType={project.category}
                       >
                         {project.name === "MSW Application Review" ? "View case study" : "Case study"}
-                      </Link>
+                      </TrackedLink>
                     </div>
-                    <Link
+                    <TrackedLink
                       className={`focus-ring inline-flex items-center justify-center px-4 py-3 text-sm font-semibold transition ${styles.button}`}
+                      ctaLocation="projects_matrix_primary"
+                      eventLabel={`projects_${project.slug}_primary`}
+                      eventName={project.liveDemo ? "live_demo_click" : "case_study_click"}
                       href={primaryHref}
+                      projectSlug={project.slug}
+                      projectType={project.category}
                     >
                       {project.cta}
-                    </Link>
+                    </TrackedLink>
                   </div>
                 </article>
               );
@@ -306,12 +331,15 @@ export default function ProjectsPage() {
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-3 lg:mt-0">
-            <Link
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              ctaLocation="projects_bottom_cta"
+              eventLabel="projects_bottom_start_project"
+              eventName="start_project_click"
               href="/start"
             >
               Start a project like these
-            </Link>
+            </TrackedLink>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
               href="/services"

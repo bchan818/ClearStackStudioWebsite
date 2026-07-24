@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FeaturedProduct } from "@/components/FeaturedProduct";
+import { TrackedLink } from "@/components/TrackedLink";
 import { cardScopeLiveUrl, clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const capabilities = [
@@ -101,18 +102,22 @@ export default function WorkPage() {
             This public demo uses fictional mock applicant data only. No private applicant records, student data, admissions documents, or confidential review notes are included.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              eventLabel="work_msw_live_dashboard_demo"
+              eventName="live_demo_click"
               href={mswApplicationReviewDemoUrl}
             >
               View live dashboard demo
-            </Link>
-            <Link
+            </TrackedLink>
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-5 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300 hover:text-white"
+              eventLabel="work_msw_case_study"
+              eventName="case_study_click"
               href="/work/msw-application-review/case-study"
             >
               View case study
-            </Link>
+            </TrackedLink>
           </div>
         </article>
       </section>
@@ -134,48 +139,58 @@ export default function WorkPage() {
             after the MVP direction is clear. MSW Application Review now includes a public-safe live mock-data dashboard demo.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              eventLabel="work_cardscope_live"
+              eventName="live_demo_click"
               href={cardScopeLiveUrl}
             >
               View CardScope
-            </Link>
-            <Link
+            </TrackedLink>
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center border border-rose-200/40 px-5 py-3 text-sm font-semibold text-rose-100 transition hover:border-rose-200 hover:text-white"
+              eventLabel="work_clearbloom_live"
+              eventName="live_demo_click"
               href={clearBloomLiveUrl}
             >
               View live storefront demo
-            </Link>
-            <Link
+            </TrackedLink>
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center border border-amber-100/30 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"
+              eventLabel="work_clearbloom_case_study"
+              eventName="case_study_click"
               href="/work/clearbloom-beauty/case-study"
             >
               Read ClearBloom case study
-            </Link>
+            </TrackedLink>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-amber-100/30 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:text-white"
               href="/work/ai-fashion-model"
             >
               View AI Fashion Model
             </Link>
-            <Link
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-5 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300 hover:text-white"
+              eventLabel="work_msw_live_dashboard_demo_bottom"
+              eventName="live_demo_click"
               href={mswApplicationReviewDemoUrl}
             >
               View live dashboard demo
-            </Link>
+            </TrackedLink>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-5 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-300 hover:text-white"
               href="/work/msw-application-review"
             >
               View project overview
             </Link>
-            <Link
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+              eventLabel="work_start_project"
+              eventName="start_project_click"
               href="/start"
             >
               Start a project
-            </Link>
+            </TrackedLink>
           </div>
         </div>
       </section>

@@ -70,6 +70,25 @@ Specific proof boundaries:
 - AI Fashion Model is a concept/prototype surface, not a connected AI generation service.
 - MSW Application Review uses generic mock workflow content only and no private student/applicant data.
 
+## Analytics and privacy
+
+Analytics provider: Vercel Analytics via the official `@vercel/analytics` package.
+
+The site uses Vercel Analytics for automatic page-view tracking and a small set of privacy-conscious custom events that help measure which services, proof projects, and conversion paths generate interest:
+
+- `start_project_click` — Start Project and project inquiry CTA clicks.
+- `service_package_click` — service package CTA clicks and related service links.
+- `case_study_click` — case study and proof-project case-study clicks.
+- `live_demo_click` — live demo clicks for public proof projects.
+- `inquiry_summary_copy` — when a visitor copies the generated inquiry summary.
+- `inquiry_email_open` — when a visitor opens the prefilled email link.
+
+Custom event payloads are intentionally limited to non-sensitive labels such as CTA location, service category, project type, and project slug.
+
+The analytics implementation does **not** send inquiry contents or personal details. It does not track names, email addresses, company names, project descriptions, audience details, must-have features, user-entered URLs, timeline values, budget values, or any other form field content.
+
+No Google Analytics, cookie banner, database, authentication, payment tracking, environment variables, or unrelated tracking provider is added for the current implementation.
+
 ## Local development
 
 Install dependencies:
@@ -119,5 +138,5 @@ The app includes site-level metadata, Open Graph metadata, Twitter card metadata
 - Add more polished visual case-study assets.
 - Add additional client-ready service examples.
 - Add more portfolio proof projects as ClearStack Studio builds new MVPs.
-- Add optional analytics only after a privacy-safe tracking plan is approved.
+- Continue improving privacy-safe analytics labels as new service paths and proof projects are added.
 - Add richer social preview imagery if final brand assets become available.

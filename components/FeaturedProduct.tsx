@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { TrackedLink } from "@/components/TrackedLink";
 import { cardScopeLiveUrl, clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const projects = [
@@ -6,6 +6,7 @@ const projects = [
     eyebrow: "Featured Product",
     badge: "Live MVP",
     title: "CardScope by ClearStack Studio",
+    slug: "cardscope",
     description:
       "A live MVP for card search, collection tracking, and Pro-style product validation, built for collectors who want faster pricing and cleaner organization.",
     tags: ["MVP software", "Collection tracker", "Pro preview"],
@@ -21,6 +22,7 @@ const projects = [
     eyebrow: "Storefront MVP",
     badge: "Inquiry-based",
     title: "ClearBloom Beauty storefront",
+    slug: "clearbloom-beauty",
     description:
       "A fictional premium perfume and cosmetics storefront proof with catalog pages, product detail pages, policies, inquiry checkout, and a future ecommerce upgrade path.",
     tags: ["Storefront MVP", "Product drops", "No live checkout"],
@@ -37,6 +39,7 @@ const projects = [
     eyebrow: "AI-powered tool",
     badge: "Prototype",
     title: "AI Fashion Model",
+    slug: "ai-fashion-model",
     description:
       "An AI-assisted creative and product visualization prototype for prompt-based fashion concepts, creator workflows, retail ideation, and visual product prototyping.",
     tags: ["AI-assisted", "Fashion concepts", "Visual prototype"],
@@ -52,6 +55,7 @@ const projects = [
     eyebrow: "Internal workflow dashboard",
     badge: "Live Demo",
     title: "MSW Application Review",
+    slug: "msw-application-review",
     description:
       "A live mock-data internal dashboard proof for application review workflows, review queues, reviewer assignments, reporting, admin previews, and privacy-safe operations tooling.",
     tags: ["Workflow dashboard", "Status tracking", "Mock data only"],
@@ -172,18 +176,28 @@ export function FeaturedProduct() {
                       </div>
                     </div>
                     <div className="mt-6 flex flex-wrap gap-3">
-                      <Link
+                      <TrackedLink
                         className={`focus-ring inline-flex w-fit items-center justify-center px-5 py-3 text-sm font-semibold transition ${styles.button}`}
+                        ctaLocation="featured_work_card"
+                        eventLabel={`featured_work_${project.slug}_primary`}
+                        eventName={project.href === project.caseStudyHref ? "case_study_click" : project.href.startsWith("http") ? "live_demo_click" : "case_study_click"}
                         href={project.href}
+                        projectSlug={project.slug}
+                        projectType={project.eyebrow}
                       >
                         {project.cta}
-                      </Link>
-                      <Link
+                      </TrackedLink>
+                      <TrackedLink
                         className={`focus-ring inline-flex w-fit items-center justify-center border px-5 py-3 text-sm font-semibold transition ${styles.secondary}`}
+                        ctaLocation="featured_work_card"
+                        eventLabel={`featured_work_${project.slug}_case_study`}
+                        eventName="case_study_click"
                         href={project.caseStudyHref}
+                        projectSlug={project.slug}
+                        projectType={project.eyebrow}
                       >
                         {project.caseStudyCta ?? "See case study"}
-                      </Link>
+                      </TrackedLink>
                     </div>
                   </div>
                 </div>

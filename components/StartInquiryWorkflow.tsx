@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { track } from "@vercel/analytics";
 
 type InquiryForm = {
   name: string;
@@ -83,6 +84,11 @@ export function StartInquiryWorkflow() {
   };
 
   const copySummary = async () => {
+    track("inquiry_summary_copy", {
+      cta_location: "start_inquiry_workflow",
+      label: "start_page_inquiry_copy_summary"
+    });
+
     if (!navigator.clipboard) {
       setCopyStatus("Select and copy below");
       return;
@@ -246,6 +252,12 @@ export function StartInquiryWorkflow() {
             <a
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-center text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
               href={mailtoHref}
+              onClick={() => {
+                track("inquiry_email_open", {
+                  cta_location: "start_inquiry_workflow",
+                  label: "start_page_inquiry_prefilled_email"
+                });
+              }}
             >
               Open prefilled email
             </a>

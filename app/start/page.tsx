@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { StartInquiryWorkflow } from "@/components/StartInquiryWorkflow";
+import { TrackedLink } from "@/components/TrackedLink";
 import { cardScopeLiveUrl, clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 const projectPaths = [
@@ -132,12 +133,14 @@ export default function StartPage() {
             Tell ClearStack Studio what you’re trying to launch, then turn the details into a prefilled email or copyable project summary. This page stays static: no backend submission occurs.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              eventLabel="start_page_hero_start_inquiry"
+              eventName="start_project_click"
               href="#inquiry-workflow"
             >
               Start your project inquiry
-            </Link>
+            </TrackedLink>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
               href="/projects"
@@ -201,25 +204,31 @@ export default function StartPage() {
                     </div>
                   </div>
                   <div className="mt-6 flex flex-wrap gap-3">
-                    <Link
+                    <TrackedLink
                       className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+                      eventLabel={`start_page_${path.title.toLowerCase().replaceAll(" ", "_").replaceAll("/", "_")}`}
+                      eventName="start_project_click"
                       href="#inquiry-workflow"
                     >
                       {path.cta}
-                    </Link>
-                    <Link
+                    </TrackedLink>
+                    <TrackedLink
                       className="focus-ring inline-flex items-center justify-center border border-white/15 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+                      eventLabel={`start_page_${path.proof.toLowerCase().replaceAll(" ", "_")}`}
+                      eventName="case_study_click"
                       href={path.proofHref}
                     >
                       See {path.proof}
-                    </Link>
+                    </TrackedLink>
                     {path.liveHref ? (
-                      <Link
+                      <TrackedLink
                         className="focus-ring inline-flex items-center justify-center border border-amber-100/40 px-4 py-3 text-sm font-semibold text-amber-100 transition hover:bg-amber-100 hover:text-slate-950"
+                        eventLabel={`start_page_${path.proof.toLowerCase().replaceAll(" ", "_")}_live`}
+                        eventName="live_demo_click"
                         href={path.liveHref}
                       >
                         {path.liveLabel}
-                      </Link>
+                      </TrackedLink>
                     ) : null}
                   </div>
                 </article>
@@ -281,12 +290,14 @@ export default function StartPage() {
             Start with the project path that matches your idea, then use proof projects to guide the scope.
           </h2>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link
+            <TrackedLink
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+              eventLabel="start_page_bottom_start_inquiry"
+              eventName="start_project_click"
               href="#inquiry-workflow"
             >
               Start your project inquiry
-            </Link>
+            </TrackedLink>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
               href="/projects"

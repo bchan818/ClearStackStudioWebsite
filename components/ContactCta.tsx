@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { TrackedLink } from "@/components/TrackedLink";
 
 export function ContactCta() {
   return (
@@ -12,12 +12,14 @@ export function ContactCta() {
             Bring the idea. ClearStack Studio will help shape the first version.
           </h2>
         </div>
-        <Link
+        <TrackedLink
           className="focus-ring mt-8 inline-flex items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift lg:mt-0"
+          eventLabel="global_contact_cta_start_project"
+          eventName="start_project_click"
           href="/start"
         >
           Start a Project
-        </Link>
+        </TrackedLink>
       </div>
     </section>
   );

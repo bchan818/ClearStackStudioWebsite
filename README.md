@@ -129,6 +129,12 @@ Recommended Vercel settings:
 
 After deployment, verify the main routes, proof-project CTAs, and standalone demo links.
 
+## Continuous integration
+
+GitHub Actions runs the `ClearStack CI` workflow automatically on pushes to `main` and pull requests targeting `main`.
+
+The workflow installs dependencies with `npm ci`, runs ESLint with `npm run lint`, and creates a production build with `npm run build` on Node.js 20. Vercel remains responsible for deployment; GitHub Actions is verification-only and does not deploy the site.
+
 ## SEO and social metadata
 
 The app includes site-level metadata, Open Graph metadata, Twitter card metadata, a sitemap, robots rules, a basic icon, and a not-found page.

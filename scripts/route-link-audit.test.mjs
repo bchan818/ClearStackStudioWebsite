@@ -11,6 +11,7 @@ const requiredInternalRoutes = [
   "/how-we-work",
   "/faq",
   "/pricing",
+  "/project-fit",
   "/services",
   "/work",
   "/projects",
@@ -50,6 +51,7 @@ const expectedSeoPages = [
   ["app/how-we-work/page.tsx", "How We Work | ClearStack Studio", "Learn how ClearStack Studio scopes, designs, builds, tests, launches, and hands off focused MVPs, storefronts, dashboards, AI prototypes, and website refreshes.", "/social/clearstack-default.png"],
   ["app/faq/page.tsx", "FAQ | ClearStack Studio", "Answers about ClearStack Studio services, pricing approach, timelines, revisions, ownership, hosting, privacy, launch, support, and project eligibility.", "/social/clearstack-default.png"],
   ["app/pricing/page.tsx", "Pricing Guidance | ClearStack Studio", "Learn how ClearStack Studio scopes and prices product MVPs, storefronts, AI-powered tools, internal dashboards, and website or app refreshes.", "/social/clearstack-default.png"],
+  ["app/project-fit/page.tsx", "Project Fit Assessment | ClearStack Studio", "Find out whether your idea is best suited for a product MVP, storefront, AI-powered tool, internal dashboard, or website and app refresh.", "/social/clearstack-default.png"],
   ["app/services/page.tsx", "Services | ClearStack Studio", "Explore ClearStack Studio services for product MVPs, storefront MVPs, AI-powered prototypes, internal dashboards, and website or app refreshes.", "/social/services.png"],
   ["app/projects/page.tsx", "Proof Projects | ClearStack Studio", "Explore ClearStack Studio proof projects across software MVPs, storefronts, AI-assisted tools, and internal workflow dashboards.", "/social/projects.png"],
   ["app/work/page.tsx", "Work and Case Studies | ClearStack Studio", "See how ClearStack Studio turns product ideas, storefront concepts, AI workflows, and operational processes into focused digital prototypes.", "/social/projects.png"],
@@ -163,7 +165,7 @@ test("Layout includes skip link and stable main-content target", () => {
 test("Footer navigation includes primary and utility routes", () => {
   const footer = readProjectFile("components/Footer.tsx");
 
-  for (const route of ["/about", "/how-we-work", "/faq", "/pricing", "/services", "/work", "/projects", "/start", "/studio-tools", "/contact"]) {
+  for (const route of ["/about", "/how-we-work", "/faq", "/pricing", "/project-fit", "/services", "/work", "/projects", "/start", "/studio-tools", "/contact"]) {
     assertContains(footer, `href="${route}"`, `Footer nav should include ${route}`);
   }
 });
@@ -397,6 +399,59 @@ test("Pricing page provides scope-based guidance, proof links, and safe CTA anal
   for (const eventName of ["pricing_start_project_click", "pricing_service_click", "pricing_project_click"]) {
     assertContains(pricing, eventName, `Pricing page should track safe CTA event ${eventName}`);
     assertContains(trackedLink, eventName, `TrackedLink should type ${eventName}`);
+  }
+});
+
+test("Project Fit assessment is static, resettable, and links every recommendation path", () => {
+  const projectFitPage = readProjectFile("app/project-fit/page.tsx");
+  const projectFitAssessment = readProjectFile("components/ProjectFitAssessment.tsx");
+  const services = readProjectFile("app/services/page.tsx");
+  const pricing = readProjectFile("app/pricing/page.tsx");
+  const start = readProjectFile("app/start/page.tsx");
+  const sitemap = readProjectFile("app/sitemap.ts");
+
+  assertContains(sitemap, '"/project-fit"', "Sitemap should include Project Fit");
+  assertContains(services, 'href="/project-fit"', "Services page should link to Project Fit");
+  assertContains(pricing, 'href="/project-fit"', "Pricing page should link to Project Fit");
+  assertContains(start, 'href="/project-fit"', "Start page should link to Project Fit");
+
+  for (const text of [
+    "Find the right starting point for your project.",
+    "Start assessment",
+    "Question 3 of 8",
+    "Previous",
+    "Next",
+    "See recommendation",
+    "Start over",
+    "This assessment provides general project guidance only.",
+    "It does not save answers to a server",
+    "scoreAnswers",
+    "assessment can be reset"
+  ]) {
+    assertContains(`${projectFitPage}\n${projectFitAssessment}`, text, `Project Fit should include ${text}`);
+  }
+
+  for (const serviceName of ["Product MVP", "Storefront MVP", "AI-Powered Tool", "Internal Workflow Dashboard", "Website/App Refresh"]) {
+    assertContains(projectFitAssessment, serviceName, `Project Fit should include ${serviceName} recommendation`);
+  }
+
+  for (const route of ["/work/cardscope", "/work/cardscope/case-study", "/work/clearbloom-beauty", "/work/clearbloom-beauty/case-study", "/work/ai-fashion-model", "/work/ai-fashion-model/case-study", "/work/msw-application-review", "/work/msw-application-review/case-study", "/about", "/how-we-work", "/start", "/services"]) {
+    assertContains(`${projectFitPage}\n${projectFitAssessment}`, route, `Project Fit should link to ${route}`);
+  }
+
+  for (const eventName of ["project_fit_started", "project_fit_completed", "project_fit_recommendation_viewed"]) {
+    assertContains(projectFitAssessment, eventName, `Project Fit should track safe event ${eventName}`);
+  }
+
+  for (const allowedKey of ["recommended_service_slug", "cta_location"]) {
+    assertContains(projectFitAssessment, allowedKey, `Project Fit analytics may use ${allowedKey}`);
+  }
+
+  for (const forbiddenTrackingKey of ["timeline_answer", "feature_selections", "individual_answers", "project_description", "email_address", "personal_information", "free_text_content"]) {
+    assert.ok(
+      !projectFitAssessment.includes(forbiddenTrackingKey),
+      `Project Fit analytics should not include ${forbiddenTrackingKey}`
+    );
   }
 });
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import type { ReactNode } from "react";
 import { TrackedLink } from "@/components/TrackedLink";
 import { createSeoMetadata, socialImages } from "@/lib/seo";
@@ -244,6 +245,12 @@ export default function PricingPage() {
             >
               View services
             </TrackedLink>
+            <Link
+              className="focus-ring inline-flex min-h-11 items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyanGlow hover:text-white"
+              href="/project-fit"
+            >
+              Take Project Fit Assessment
+            </Link>
           </div>
         </div>
       </section>

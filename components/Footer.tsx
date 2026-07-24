@@ -42,6 +42,12 @@ export function Footer() {
           </Link>
           <Link
             className="focus-ring inline-flex min-h-11 items-center transition hover:text-white"
+            href="/project-fit"
+          >
+            Project Fit
+          </Link>
+          <Link
+            className="focus-ring inline-flex min-h-11 items-center transition hover:text-white"
             href="/services"
           >
             Services

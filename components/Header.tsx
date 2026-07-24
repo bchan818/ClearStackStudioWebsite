@@ -6,6 +6,7 @@ import { useState } from "react";
 import { TrackedLink } from "@/components/TrackedLink";
 
 const navItems = [
+  { href: "/about", label: "About" },
   { href: "/services", label: "Services", shortLabel: "Svc" },
   { href: "/work", label: "Work" },
   { href: "/projects", label: "Projects", shortLabel: "Projects" },

@@ -178,6 +178,12 @@ export default function Home() {
               >
                 View proof projects
               </Link>
+              <Link
+                className="focus-ring inline-flex min-h-11 items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyanGlow hover:text-white"
+                href="/about"
+              >
+                About ClearStack
+              </Link>
             </div>
           </div>
 
@@ -300,6 +306,9 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">Why ClearStack</p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">A focused build process with honest boundaries.</h2>
             <p className="mt-5 text-sm leading-6 text-slate-300">ClearStack Studio helps shape the first version clearly instead of overbuilding before the core idea is proven.</p>
+            <Link className="focus-ring mt-6 inline-flex min-h-11 items-center justify-center border border-cyan-300/40 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyanGlow hover:text-slate-950" href="/about">
+              Learn how ClearStack works
+            </Link>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {whyClearStack.map((item) => (

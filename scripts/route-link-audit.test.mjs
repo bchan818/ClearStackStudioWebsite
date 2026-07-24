@@ -7,6 +7,7 @@ const rootDir = process.cwd();
 
 const requiredInternalRoutes = [
   "/",
+  "/about",
   "/services",
   "/work",
   "/projects",
@@ -42,6 +43,7 @@ const expectedBaseUrl = "https://clear-stack-studio-website.vercel.app";
 
 const expectedSeoPages = [
   ["app/page.tsx", "ClearStack Studio | From idea to app", "Focused MVPs, storefronts, AI-powered tools, internal dashboards, and website or app refreshes built for launch.", "/social/clearstack-default.png"],
+  ["app/about/page.tsx", "About ClearStack Studio | From idea to app", "Learn how ClearStack Studio builds focused MVPs, storefronts, AI-powered prototypes, internal dashboards, and website or app refreshes.", "/social/clearstack-default.png"],
   ["app/services/page.tsx", "Services | ClearStack Studio", "Explore ClearStack Studio services for product MVPs, storefront MVPs, AI-powered prototypes, internal dashboards, and website or app refreshes.", "/social/services.png"],
   ["app/projects/page.tsx", "Proof Projects | ClearStack Studio", "Explore ClearStack Studio proof projects across software MVPs, storefronts, AI-assisted tools, and internal workflow dashboards.", "/social/projects.png"],
   ["app/work/page.tsx", "Work and Case Studies | ClearStack Studio", "See how ClearStack Studio turns product ideas, storefront concepts, AI workflows, and operational processes into focused digital prototypes.", "/social/projects.png"],
@@ -135,7 +137,7 @@ test("important internal routes exist as App Router pages", () => {
 test("Header navigation includes the primary public routes", () => {
   const header = readProjectFile("components/Header.tsx");
 
-  for (const route of ["/services", "/work", "/projects", "/start", "/contact"]) {
+  for (const route of ["/about", "/services", "/work", "/projects", "/start", "/contact"]) {
     assertContains(header, `href: "${route}"`, `Header nav should include ${route}`);
   }
 
@@ -155,7 +157,7 @@ test("Layout includes skip link and stable main-content target", () => {
 test("Footer navigation includes primary and utility routes", () => {
   const footer = readProjectFile("components/Footer.tsx");
 
-  for (const route of ["/services", "/work", "/projects", "/start", "/studio-tools", "/contact"]) {
+  for (const route of ["/about", "/services", "/work", "/projects", "/start", "/studio-tools", "/contact"]) {
     assertContains(footer, `href="${route}"`, `Footer nav should include ${route}`);
   }
 });
@@ -231,6 +233,37 @@ test("project card source includes required proof project routes", () => {
 
   for (const route of requiredProjectLinks) {
     assertContains(projectSources, route, `Project cards and proof sections should include ${route}`);
+  }
+});
+
+test("About page explains studio scope, proof projects, boundaries, and safe CTA analytics", () => {
+  const about = readProjectFile("app/about/page.tsx");
+  const homepage = readProjectFile("app/page.tsx");
+  const sitemap = readProjectFile("app/sitemap.ts");
+
+  assertContains(sitemap, '"/about"', "Sitemap should include the public About page");
+  assertContains(homepage, 'href="/about"', "Homepage should link to the About page");
+
+  for (const text of [
+    "Focused digital products, built from idea to launch.",
+    "What ClearStack Studio does",
+    "Who ClearStack helps",
+    "What ClearStack builds",
+    "How ClearStack works",
+    "How ClearStack approaches a build",
+    "What clients receive",
+    "What ClearStack does not assume",
+    "Sensitive credentials should never be submitted through public forms."
+  ]) {
+    assertContains(about, text, `About page should include ${text}`);
+  }
+
+  for (const projectName of ["CardScope", "ClearBloom Beauty", "AI Fashion Model", "MSW Application Review"]) {
+    assertContains(about, projectName, `About page should feature ${projectName}`);
+  }
+
+  for (const eventName of ["about_start_project_click", "about_view_projects_click", "about_service_click"]) {
+    assertContains(about, eventName, `About page should track safe CTA event ${eventName}`);
   }
 });
 

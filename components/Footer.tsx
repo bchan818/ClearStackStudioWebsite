@@ -18,6 +18,12 @@ export function Footer() {
         <nav aria-label="Footer navigation" className="flex flex-wrap gap-3 sm:justify-end">
           <Link
             className="focus-ring inline-flex min-h-11 items-center transition hover:text-white"
+            href="/about"
+          >
+            About
+          </Link>
+          <Link
+            className="focus-ring inline-flex min-h-11 items-center transition hover:text-white"
             href="/services"
           >
             Services

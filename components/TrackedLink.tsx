@@ -4,12 +4,17 @@ import Link from "next/link";
 import type { ComponentProps } from "react";
 import { track } from "@vercel/analytics";
 
+type TrackingEventName =
+  | "start_project_click"
+  | "service_package_click"
+  | "live_demo_click"
+  | "case_study_click"
+  | "about_start_project_click"
+  | "about_view_projects_click"
+  | "about_service_click";
+
 type TrackedLinkProps = ComponentProps<typeof Link> & {
-  eventName:
-    | "start_project_click"
-    | "service_package_click"
-    | "live_demo_click"
-    | "case_study_click";
+  eventName: TrackingEventName;
   eventLabel: string;
   ctaLocation?: string;
   projectSlug?: string;

@@ -4,6 +4,7 @@ const baseUrl = "https://clear-stack-studio-website.vercel.app";
 
 const routes = [
   "/",
+  "/about",
   "/services",
   "/work",
   "/projects",

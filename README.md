@@ -109,6 +109,12 @@ Run lint:
 npm run lint
 ```
 
+Run the route and link audit:
+
+```bash
+npm run test
+```
+
 Create a production build:
 
 ```bash
@@ -133,7 +139,9 @@ After deployment, verify the main routes, proof-project CTAs, and standalone dem
 
 GitHub Actions runs the `ClearStack CI` workflow automatically on pushes to `main` and pull requests targeting `main`.
 
-The workflow installs dependencies with `npm ci`, runs ESLint with `npm run lint`, and creates a production build with `npm run build` on Node.js 20. Vercel remains responsible for deployment; GitHub Actions is verification-only and does not deploy the site.
+The workflow installs dependencies with `npm ci`, runs ESLint with `npm run lint`, runs the route/link audit with `npm run test`, and creates a production build with `npm run build` on Node.js 20. Vercel remains responsible for deployment; GitHub Actions is verification-only and does not deploy the site.
+
+The route/link audit checks that important internal App Router pages exist, header/footer navigation includes key routes, Start Project CTAs point to `/start`, proof-project cards include expected case-study routes, expected live-demo URLs match the shared site-link constants, and public-facing source does not contain `localhost`, Windows local paths, or `/Users/bchan8/...` local machine paths. The audit does not make external network requests, so live deployment availability is still verified separately after deployment.
 
 ## SEO and social metadata
 

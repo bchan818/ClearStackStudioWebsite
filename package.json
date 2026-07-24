@@ -6,7 +6,8 @@
     "dev": "WATCHPACK_POLLING=true next dev",
     "start": "next start",
     "build": "next build --webpack",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "node --test scripts/route-link-audit.test.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

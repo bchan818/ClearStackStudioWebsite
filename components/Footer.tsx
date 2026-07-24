@@ -39,63 +39,15 @@ export function Footer() {
           </Link>
           <Link
             className="focus-ring transition hover:text-white"
-            href="/proposal-builder"
+            href="/studio-tools"
           >
-            Proposal Builder
-          </Link>
-          <Link
-            className="focus-ring transition hover:text-white"
-            href="/sow-builder"
-          >
-            SOW Builder
-          </Link>
-          <Link
-            className="focus-ring transition hover:text-white"
-            href="/project-handoff"
-          >
-            Project Handoff
-          </Link>
-          <Link
-            className="focus-ring transition hover:text-white"
-            href="/project-tracker"
-          >
-            Project Tracker
-          </Link>
-          <Link
-            className="focus-ring transition hover:text-white"
-            href="/status-report-builder"
-          >
-            Status Report Builder
-          </Link>
-          <Link
-            className="focus-ring transition hover:text-white"
-            href="/client-feedback"
-          >
-            Client Feedback
-          </Link>
-          <Link
-            className="focus-ring transition hover:text-white"
-            href="/launch-acceptance"
-          >
-            Launch Acceptance
+            Studio Tools
           </Link>
           <Link
             className="focus-ring transition hover:text-white"
             href="/contact"
           >
             Contact
-          </Link>
-          <Link
-            className="focus-ring transition hover:text-white"
-            href="/qa-checklist"
-          >
-            QA Checklist
-          </Link>
-          <Link
-            className="focus-ring transition hover:text-white"
-            href="/launch-readiness"
-          >
-            Launch Readiness
           </Link>
           <Link
             className="focus-ring transition hover:text-white"

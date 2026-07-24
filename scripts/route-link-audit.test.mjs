@@ -10,6 +10,7 @@ const requiredInternalRoutes = [
   "/services",
   "/work",
   "/projects",
+  "/studio-tools",
   "/start",
   "/proposal-builder",
   "/sow-builder",
@@ -103,9 +104,19 @@ test("Header navigation includes the primary public routes", () => {
 test("Footer navigation includes primary and utility routes", () => {
   const footer = readProjectFile("components/Footer.tsx");
 
-  for (const route of ["/services", "/work", "/projects", "/start", "/proposal-builder", "/sow-builder", "/project-handoff", "/project-tracker", "/status-report-builder", "/client-feedback", "/launch-acceptance", "/contact", "/qa-checklist", "/launch-readiness"]) {
+  for (const route of ["/services", "/work", "/projects", "/start", "/studio-tools", "/contact"]) {
     assertContains(footer, `href="${route}"`, `Footer nav should include ${route}`);
   }
+});
+
+test("Studio Tools dashboard links only to existing workflow tools", () => {
+  const studioTools = readProjectFile("components/StudioToolsDashboard.tsx");
+
+  for (const route of ["/start", "/proposal-builder", "/sow-builder", "/project-tracker", "/status-report-builder", "/client-feedback", "/launch-acceptance", "/project-handoff", "/qa-checklist", "/launch-readiness", "/services"]) {
+    assertContains(studioTools, `"${route}"`, `Studio Tools should include ${route}`);
+  }
+
+  assertContains(studioTools, "studio_tool_open", "Studio Tools should track safe tool-open actions");
 });
 
 test("builder workflow routes connect planning through handoff", () => {

@@ -121,6 +121,31 @@ Create a production build:
 npm run build
 ```
 
+## Pre-push validation
+
+Every ClearStack Studio change should be checked before it is committed or pushed with:
+
+```bash
+npm run validate
+```
+
+This command runs:
+
+1. ESLint
+2. Route and link audit tests
+3. Next.js production build
+
+Recommended workflow:
+
+```bash
+git status
+npm run validate
+git add .
+git commit -m "Describe the improvement"
+git push
+git status
+```
+
 ## Deployment notes
 
 This project is configured for Vercel.

@@ -7,7 +7,8 @@
     "start": "next start",
     "build": "next build --webpack",
     "lint": "eslint .",
-    "test": "node --test scripts/route-link-audit.test.mjs"
+    "test": "node --test scripts/route-link-audit.test.mjs",
+    "validate": "npm run lint && npm run test && npm run build"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

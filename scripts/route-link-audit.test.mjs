@@ -9,6 +9,7 @@ const requiredInternalRoutes = [
   "/",
   "/about",
   "/how-we-work",
+  "/faq",
   "/services",
   "/work",
   "/projects",
@@ -46,6 +47,7 @@ const expectedSeoPages = [
   ["app/page.tsx", "ClearStack Studio | From idea to app", "Focused MVPs, storefronts, AI-powered tools, internal dashboards, and website or app refreshes built for launch.", "/social/clearstack-default.png"],
   ["app/about/page.tsx", "About ClearStack Studio | From idea to app", "Learn how ClearStack Studio builds focused MVPs, storefronts, AI-powered prototypes, internal dashboards, and website or app refreshes.", "/social/clearstack-default.png"],
   ["app/how-we-work/page.tsx", "How We Work | ClearStack Studio", "Learn how ClearStack Studio scopes, designs, builds, tests, launches, and hands off focused MVPs, storefronts, dashboards, AI prototypes, and website refreshes.", "/social/clearstack-default.png"],
+  ["app/faq/page.tsx", "FAQ | ClearStack Studio", "Answers about ClearStack Studio services, pricing approach, timelines, revisions, ownership, hosting, privacy, launch, support, and project eligibility.", "/social/clearstack-default.png"],
   ["app/services/page.tsx", "Services | ClearStack Studio", "Explore ClearStack Studio services for product MVPs, storefront MVPs, AI-powered prototypes, internal dashboards, and website or app refreshes.", "/social/services.png"],
   ["app/projects/page.tsx", "Proof Projects | ClearStack Studio", "Explore ClearStack Studio proof projects across software MVPs, storefronts, AI-assisted tools, and internal workflow dashboards.", "/social/projects.png"],
   ["app/work/page.tsx", "Work and Case Studies | ClearStack Studio", "See how ClearStack Studio turns product ideas, storefront concepts, AI workflows, and operational processes into focused digital prototypes.", "/social/projects.png"],
@@ -159,7 +161,7 @@ test("Layout includes skip link and stable main-content target", () => {
 test("Footer navigation includes primary and utility routes", () => {
   const footer = readProjectFile("components/Footer.tsx");
 
-  for (const route of ["/about", "/how-we-work", "/services", "/work", "/projects", "/start", "/studio-tools", "/contact"]) {
+  for (const route of ["/about", "/how-we-work", "/faq", "/services", "/work", "/projects", "/start", "/studio-tools", "/contact"]) {
     assertContains(footer, `href="${route}"`, `Footer nav should include ${route}`);
   }
 });
@@ -304,6 +306,50 @@ test("How We Work page explains project process, client expectations, and safe C
   for (const eventName of ["how_we_work_start_click", "how_we_work_services_click", "how_we_work_projects_click"]) {
     assertContains(howWeWork, eventName, `How We Work page should track safe CTA event ${eventName}`);
     assertContains(readProjectFile("components/TrackedLink.tsx"), eventName, `TrackedLink should type ${eventName}`);
+  }
+});
+
+test("FAQ page answers client questions, links public context, and uses safe CTA analytics", () => {
+  const faq = readProjectFile("app/faq/page.tsx");
+  const about = readProjectFile("app/about/page.tsx");
+  const services = readProjectFile("app/services/page.tsx");
+  const howWeWork = readProjectFile("app/how-we-work/page.tsx");
+  const sitemap = readProjectFile("app/sitemap.ts");
+  const trackedLink = readProjectFile("components/TrackedLink.tsx");
+
+  assertContains(sitemap, '"/faq"', "Sitemap should include the public FAQ page");
+  assertContains(about, 'href="/faq"', "About page should link to FAQ");
+  assertContains(services, 'href="/faq"', "Services page should link to FAQ");
+  assertContains(howWeWork, 'href="/faq"', "How We Work page should link to FAQ");
+
+  for (const text of [
+    "Clear answers before the build begins.",
+    "Getting Started",
+    "Services and Scope",
+    "Pricing and Payments",
+    "Timelines and Communication",
+    "Revisions and Change Requests",
+    "Ownership and Handoff",
+    "Hosting and Third-Party Services",
+    "Privacy and Sensitive Information",
+    "Launch and Post-Launch Support",
+    "Project Eligibility",
+    "The current Start Project page uses a mailto and copyable summary flow. It does not submit information to a ClearStack database.",
+    "Privacy-conscious analytics should not collect names, email addresses, project descriptions, budgets, or other inquiry contents.",
+    "ClearStack can build and improve digital products, but cannot guarantee revenue, adoption, search rankings, fundraising, or other business outcomes.",
+    "Still deciding what the first version should include?"
+  ]) {
+    assertContains(faq, text, `FAQ page should include ${text}`);
+  }
+
+  for (const route of ["/services", "/how-we-work", "/about", "/start", "/projects", "/contact"]) {
+    assertContains(faq, `href={link.href}`, "FAQ related links should render from the related links list");
+    assertContains(faq, `href: "${route}"`, `FAQ related links should include ${route}`);
+  }
+
+  for (const eventName of ["faq_start_project_click", "faq_contact_click", "faq_related_link_click"]) {
+    assertContains(faq, eventName, `FAQ page should track safe CTA event ${eventName}`);
+    assertContains(trackedLink, eventName, `TrackedLink should type ${eventName}`);
   }
 });
 

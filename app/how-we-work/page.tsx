@@ -22,9 +22,19 @@ const engagementInputs = [
   "Available budget"
 ];
 
+const clientMaterials = [
+  "Approved brand name, logo, color guidance, and visual references",
+  "Final or draft page copy, product/service descriptions, and policy language",
+  "Images, screenshots, product details, proof links, or approved placeholder direction",
+  "Domain, hosting, analytics, or third-party account ownership details when relevant",
+  "Content approvals from anyone who must review legal, brand, compliance, or stakeholder language",
+  "Clear notes about what should stay out of the first version"
+];
+
 const stages = [
   {
     title: "Clarify",
+    eyebrow: "Project discovery and scope confirmation",
     items: [
       "Define the problem or opportunity",
       "Identify the target users",
@@ -34,6 +44,7 @@ const stages = [
   },
   {
     title: "Scope",
+    eyebrow: "Project discovery and scope confirmation",
     items: [
       "Define the smallest useful first version",
       "Separate must-have features from future ideas",
@@ -43,15 +54,17 @@ const stages = [
   },
   {
     title: "Design",
+    eyebrow: "Design and development stages",
     items: [
       "Establish page structure and user flow",
-      "Create interface direction",
+      "Create interface direction using the ClearStack design system when appropriate",
       "Review mobile and desktop behavior",
       "Confirm the core experience before implementation expands"
     ]
   },
   {
     title: "Build",
+    eyebrow: "Design and development stages",
     items: [
       "Develop the approved pages and workflows",
       "Reuse maintainable components",
@@ -61,6 +74,7 @@ const stages = [
   },
   {
     title: "Review",
+    eyebrow: "Review rounds and revision boundaries",
     items: [
       "Share progress at agreed checkpoints",
       "Collect organized feedback",
@@ -70,6 +84,7 @@ const stages = [
   },
   {
     title: "Test",
+    eyebrow: "Testing and launch standards",
     items: [
       "Run lint and production build checks",
       "Verify key routes and links",
@@ -80,6 +95,7 @@ const stages = [
   },
   {
     title: "Launch",
+    eyebrow: "Testing and launch standards",
     items: [
       "Confirm deployment settings",
       "Verify the production URL",
@@ -90,6 +106,7 @@ const stages = [
   },
   {
     title: "Handoff",
+    eyebrow: "Final handoff and post-launch support",
     items: [
       "Provide source-code access",
       "Confirm deployment access",
@@ -139,6 +156,24 @@ const feedbackTypes = [
   }
 ];
 
+const launchStandards = [
+  "Lint checks complete",
+  "Production build completes",
+  "Core routes and CTAs reviewed",
+  "Responsive layout checked across common breakpoints",
+  "Keyboard focus states remain visible",
+  "Metadata and social preview basics are present",
+  "Prototype, mock-data, or deferred-feature boundaries are clear"
+];
+
+const handoffItems = [
+  "Source code and repository access, when included in scope",
+  "Deployment and hosting notes",
+  "Content or route notes for the approved first version",
+  "Known limitations and deferred roadmap items",
+  "Post-launch support window or next-step recommendation"
+];
+
 const faqItems = [
   {
     question: "When does development begin?",
@@ -147,6 +182,10 @@ const faqItems = [
   {
     question: "How is scope confirmed?",
     answer: "Scope is confirmed in writing through the project agreement, proposal, statement of work, or approved project brief."
+  },
+  {
+    question: "What content should be ready before build?",
+    answer: "The most helpful materials are approved page copy, brand assets, product or service details, reference links, policy language, and any required stakeholder approvals."
   },
   {
     question: "How should feedback be submitted?",
@@ -163,10 +202,6 @@ const faqItems = [
   {
     question: "What happens after launch?",
     answer: "Post-launch support depends on the engagement. Larger maintenance, monitoring, content updates, or new features may require a separate support arrangement."
-  },
-  {
-    question: "Can the project grow later?",
-    answer: "Yes. A focused first version can later expand into payments, accounts, databases, APIs, automations, mobile apps, or deeper workflows when those additions are scoped."
   },
   {
     question: "Is an inquiry a contract?",
@@ -198,9 +233,9 @@ export default function HowWeWorkPage() {
             A clear path from idea to launch.
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            ClearStack Studio uses a focused build process to define the right first version, keep scope understandable, test the core experience, and prepare the project for launch and handoff.
+            ClearStack Studio uses a focused client process to confirm scope, gather the right materials, design and develop the first useful version, test the core experience, and prepare a clean handoff after launch.
           </p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <TrackedLink
               className="focus-ring inline-flex min-h-11 items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
               ctaLocation="how_we_work_hero"
@@ -208,7 +243,16 @@ export default function HowWeWorkPage() {
               eventName="how_we_work_start_click"
               href="/start"
             >
-              Start a project
+              Start your project inquiry
+            </TrackedLink>
+            <TrackedLink
+              className="focus-ring inline-flex min-h-11 items-center justify-center border border-cyan-300/40 px-6 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyanGlow hover:text-slate-950"
+              ctaLocation="how_we_work_hero"
+              eventLabel="how_we_work_hero_compare_projects"
+              eventName="how_we_work_projects_click"
+              href="/projects"
+            >
+              Compare proof projects
             </TrackedLink>
             <TrackedLink
               className="focus-ring inline-flex min-h-11 items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyanGlow hover:text-white"
@@ -219,12 +263,6 @@ export default function HowWeWorkPage() {
             >
               View services
             </TrackedLink>
-            <Link
-              className="focus-ring inline-flex min-h-11 items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyanGlow hover:text-white"
-              href="/faq"
-            >
-              Read the FAQ
-            </Link>
           </div>
         </div>
       </section>
@@ -234,10 +272,10 @@ export default function HowWeWorkPage() {
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emeraldLift">Engagement overview</p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Every project starts by defining what matters most.
+              Project discovery and scope confirmation come first.
             </h2>
             <p className="mt-5 text-sm leading-6 text-slate-300">
-              The exact process and deliverables depend on the written project agreement.
+              The exact process and deliverables depend on the written project agreement. Early discovery keeps the first version realistic and prevents the build from expanding before the core workflow is clear.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -251,15 +289,41 @@ export default function HowWeWorkPage() {
       </section>
 
       <section className="bg-slateInk py-16 sm:py-20">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">
+              Content and materials clients provide
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Strong client materials make the build faster and clearer.
+            </h2>
+            <p className="mt-5 text-sm leading-6 text-slate-300">
+              ClearStack can help structure content, but the client remains the source of truth for brand direction, business details, product claims, legal language, and approvals.
+            </p>
+          </div>
+          <div className="grid gap-3">
+            {clientMaterials.map((item) => (
+              <div className="border border-white/10 bg-white/[0.04] p-4 text-sm leading-6 text-slate-200" key={item}>
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#081827] py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">Project stages</p>
           <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            The typical path from early idea to handoff.
+            Design and development stages move from proof to launch.
           </h2>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {stages.map((stage, index) => (
               <article className="border border-white/10 bg-white/[0.04] p-6 shadow-glow/20" key={stage.title}>
                 <p className="text-sm font-semibold text-cyanGlow">Stage {index + 1}</p>
+                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                  {stage.eyebrow}
+                </p>
                 <h3 className="mt-3 text-2xl font-semibold text-white">{stage.title}</h3>
                 <ul className="mt-5 space-y-3 text-sm leading-6 text-slate-300">
                   {stage.items.map((item) => (
@@ -275,7 +339,7 @@ export default function HowWeWorkPage() {
         </div>
       </section>
 
-      <section className="bg-[#081827] py-16 sm:py-20">
+      <section className="bg-slateInk py-16 sm:py-20">
         <div className="mx-auto grid max-w-6xl gap-6 px-6 lg:grid-cols-2 lg:px-8">
           <article className="border border-cyan-300/20 bg-cyan-300/[0.05] p-6 sm:p-8">
             <h2 className="text-3xl font-semibold tracking-tight text-white">Client responsibilities</h2>
@@ -302,20 +366,18 @@ export default function HowWeWorkPage() {
         </div>
       </section>
 
-      <section className="bg-slateInk py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">Communication expectations</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                Clear communication keeps the project moving.
-              </h2>
-            </div>
-            <div className="space-y-4 text-sm leading-7 text-slate-300 sm:text-base">
-              <p>The primary communication channel is agreed before work begins, and status updates occur at agreed milestones or intervals.</p>
-              <p>Decisions and approvals should be documented so the project does not depend on scattered messages or assumptions.</p>
-              <p>Urgent requests may affect timeline or scope, and delayed feedback may shift target dates.</p>
-            </div>
+      <section className="bg-[#081827] py-16 sm:py-20">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">Communication expectations</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Clear communication keeps review rounds practical.
+            </h2>
+          </div>
+          <div className="space-y-4 text-sm leading-7 text-slate-300 sm:text-base">
+            <p>The primary communication channel is agreed before work begins, and status updates occur at agreed milestones or intervals.</p>
+            <p>Decisions and approvals should be documented so the project does not depend on scattered messages or assumptions.</p>
+            <p>Urgent requests may affect timeline or scope, and delayed feedback may shift target dates.</p>
           </div>
         </div>
       </section>
@@ -324,7 +386,7 @@ export default function HowWeWorkPage() {
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emeraldLift">Feedback and revision boundaries</p>
           <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Not every request is the same kind of change.
+            Review rounds work best when feedback is organized and tied to scope.
           </h2>
           <p className="mt-5 max-w-3xl text-sm leading-6 text-slate-300">
             Revision rounds depend on the approved scope. New features may require a change request. Consolidated feedback reduces delays, and final approval is required before launch when applicable.
@@ -341,6 +403,29 @@ export default function HowWeWorkPage() {
       </section>
 
       <section className="bg-slateInk py-16 sm:py-20">
+        <div className="mx-auto grid max-w-6xl gap-8 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">
+              Testing and launch standards
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              The launch pass checks the experience people will actually use.
+            </h2>
+            <p className="mt-5 text-sm leading-6 text-slate-300">
+              Testing focuses on the approved first version: key routes, CTAs, responsive behavior, accessibility basics, metadata, and honest prototype boundaries.
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {launchStandards.map((item) => (
+              <div className="border border-white/10 bg-white/[0.04] p-4 text-sm leading-6 text-slate-200" key={item}>
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#081827] py-16 sm:py-20">
         <div className="mx-auto grid max-w-6xl gap-6 px-6 lg:grid-cols-3 lg:px-8">
           <article className="border border-white/10 bg-white/[0.04] p-6">
             <h2 className="text-2xl font-semibold text-white">Timeline expectations</h2>
@@ -361,7 +446,10 @@ export default function HowWeWorkPage() {
             </p>
           </article>
           <article className="border border-white/10 bg-white/[0.04] p-6">
-            <h2 className="text-2xl font-semibold text-white">Launch and post-launch support</h2>
+            <h2 className="text-2xl font-semibold text-white">Final handoff and post-launch support</h2>
+            <p className="mt-4 text-sm leading-6 text-slate-300">
+              Launch and post-launch support standards are confirmed during scope and handoff.
+            </p>
             <p className="mt-4 text-sm leading-6 text-slate-300">
               Launch follows agreed readiness checks, and known limitations should be documented before or during handoff.
             </p>
@@ -369,6 +457,26 @@ export default function HowWeWorkPage() {
               Post-launch support depends on the engagement. Ongoing maintenance, monitoring, feature development, and content updates may require a separate support arrangement.
             </p>
           </article>
+        </div>
+      </section>
+
+      <section className="bg-slateInk py-16 sm:py-20">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emeraldLift">
+              Handoff package
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              The final handoff explains what was built and what comes next.
+            </h2>
+          </div>
+          <div className="grid gap-3">
+            {handoffItems.map((item) => (
+              <div className="border border-white/10 bg-white/[0.04] p-4 text-sm leading-6 text-slate-200" key={item}>
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -392,7 +500,7 @@ export default function HowWeWorkPage() {
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">Frequently asked process questions</p>
           <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Common questions before a project begins.
+            Concise FAQ for starting a ClearStack project.
           </h2>
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {faqItems.map((item) => (
@@ -429,7 +537,7 @@ export default function HowWeWorkPage() {
           <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
             Ready to define the first useful version?
           </h2>
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
             <TrackedLink
               className="focus-ring inline-flex min-h-11 items-center justify-center bg-cyanGlow px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
               ctaLocation="how_we_work_final_cta"
@@ -437,7 +545,7 @@ export default function HowWeWorkPage() {
               eventName="how_we_work_start_click"
               href="/start"
             >
-              Start a project
+              Start your project inquiry
             </TrackedLink>
             <TrackedLink
               className="focus-ring inline-flex min-h-11 items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
@@ -446,8 +554,20 @@ export default function HowWeWorkPage() {
               eventName="how_we_work_projects_click"
               href="/projects"
             >
-              See what ClearStack builds
+              Compare proof projects
             </TrackedLink>
+            <Link
+              className="focus-ring inline-flex min-h-11 items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+              href="/faq"
+            >
+              Read the FAQ
+            </Link>
+            <Link
+              className="focus-ring inline-flex min-h-11 items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+              href="/services"
+            >
+              Review services
+            </Link>
           </div>
         </div>
       </section>

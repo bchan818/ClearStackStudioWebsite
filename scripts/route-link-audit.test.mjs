@@ -410,6 +410,11 @@ test("How We Work page explains project process, client expectations, and safe C
 
   for (const text of [
     "A clear path from idea to launch.",
+    "Project discovery and scope confirmation",
+    "Content and materials clients provide",
+    "Design and development stages",
+    "Testing and launch standards",
+    "Final handoff and post-launch support",
     "Engagement overview",
     "Project stages",
     "Client responsibilities",
@@ -421,6 +426,8 @@ test("How We Work page explains project process, client expectations, and safe C
     "Launch and post-launch support",
     "Privacy and sensitive information",
     "Frequently asked process questions",
+    "Start your project inquiry",
+    "Compare proof projects",
     "An inquiry starts a conversation and is not a contract"
   ]) {
     assertContains(howWeWork, text, `How We Work page should include ${text}`);

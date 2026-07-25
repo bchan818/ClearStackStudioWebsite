@@ -12,6 +12,7 @@ const requiredInternalRoutes = [
   "/faq",
   "/pricing",
   "/project-fit",
+  "/results",
   "/services",
   "/work",
   "/projects",
@@ -52,6 +53,7 @@ const expectedSeoPages = [
   ["app/faq/page.tsx", "FAQ | ClearStack Studio", "Answers about ClearStack Studio services, pricing approach, timelines, revisions, ownership, hosting, privacy, launch, support, and project eligibility.", "/social/clearstack-default.png"],
   ["app/pricing/page.tsx", "Pricing Guidance | ClearStack Studio", "Learn how ClearStack Studio scopes and prices product MVPs, storefronts, AI-powered tools, internal dashboards, and website or app refreshes.", "/social/clearstack-default.png"],
   ["app/project-fit/page.tsx", "Project Fit Assessment | ClearStack Studio", "Find out whether your idea is best suited for a product MVP, storefront, AI-powered tool, internal dashboard, or website and app refresh.", "/social/clearstack-default.png"],
+  ["app/results/page.tsx", "Results & Outcomes | ClearStack Studio", "See what ClearStack Studio proof projects demonstrate across product MVPs, storefronts, AI prototypes, internal dashboards, and website refreshes.", "/social/clearstack-default.png"],
   ["app/services/page.tsx", "Services | ClearStack Studio", "Explore ClearStack Studio services for product MVPs, storefront MVPs, AI-powered prototypes, internal dashboards, and website or app refreshes.", "/social/services.png"],
   ["app/projects/page.tsx", "Proof Projects | ClearStack Studio", "Explore ClearStack Studio proof projects across software MVPs, storefronts, AI-assisted tools, and internal workflow dashboards.", "/social/projects.png"],
   ["app/work/page.tsx", "Work and Case Studies | ClearStack Studio", "See how ClearStack Studio turns product ideas, storefront concepts, AI workflows, and operational processes into focused digital prototypes.", "/social/projects.png"],
@@ -165,7 +167,7 @@ test("Layout includes skip link and stable main-content target", () => {
 test("Footer navigation includes primary and utility routes", () => {
   const footer = readProjectFile("components/Footer.tsx");
 
-  for (const route of ["/about", "/how-we-work", "/faq", "/pricing", "/project-fit", "/services", "/work", "/projects", "/start", "/studio-tools", "/contact"]) {
+  for (const route of ["/about", "/how-we-work", "/faq", "/pricing", "/project-fit", "/results", "/services", "/work", "/projects", "/start", "/studio-tools", "/contact"]) {
     assertContains(footer, `href="${route}"`, `Footer nav should include ${route}`);
   }
 });
@@ -452,6 +454,58 @@ test("Project Fit assessment is static, resettable, and links every recommendati
       !projectFitAssessment.includes(forbiddenTrackingKey),
       `Project Fit analytics should not include ${forbiddenTrackingKey}`
     );
+  }
+});
+
+test("Results page explains proof-project outcomes, guardrails, and safe analytics", () => {
+  const results = readProjectFile("app/results/page.tsx");
+  const projects = readProjectFile("app/projects/page.tsx");
+  const work = readProjectFile("app/work/page.tsx");
+  const services = readProjectFile("app/services/page.tsx");
+  const about = readProjectFile("app/about/page.tsx");
+  const sitemap = readProjectFile("app/sitemap.ts");
+  const trackedLink = readProjectFile("components/TrackedLink.tsx");
+
+  assertContains(sitemap, '"/results"', "Sitemap should include Results");
+  for (const source of [projects, work, services, about]) {
+    assertContains(source, 'href="/results"', "Public pages should link to Results");
+  }
+
+  for (const text of [
+    "Proof projects that show what a focused first version can accomplish.",
+    "Results framework",
+    "Problem addressed",
+    "First-version goal",
+    "What was built",
+    "What it proves",
+    "Client value",
+    "Future expansion path",
+    "Outcome comparison",
+    "Common client outcomes",
+    "What results are not guaranteed",
+    "ClearStack does not guarantee revenue",
+    "ClearStack does not guarantee user adoption",
+    "ClearStack does not guarantee search rankings",
+    "ClearStack does not guarantee fundraising",
+    "ClearStack does not guarantee third-party platform approval",
+    "Which outcome are you trying to create?"
+  ]) {
+    assertContains(results, text, `Results page should include ${text}`);
+  }
+
+  for (const projectName of ["CardScope", "ClearBloom Beauty", "AI Fashion Model", "MSW Application Review", "ClearStack Studio"]) {
+    assertContains(results, projectName, `Results page should include ${projectName}`);
+  }
+
+  for (const route of ["/projects", "/start", "/project-fit", "/work/cardscope", "/work/cardscope/case-study", "/work/clearbloom-beauty", "/work/clearbloom-beauty/case-study", "/work/ai-fashion-model", "/work/ai-fashion-model/case-study", "/work/msw-application-review", "/work/msw-application-review/case-study", "/about", "/how-we-work"]) {
+    assertContains(results, route, `Results page should link to ${route}`);
+  }
+
+  assertContains(results, "The public demo uses fictional mock data only. No private applicant or student records are included.", "Results page should include MSW safety note");
+
+  for (const eventName of ["results_project_click", "results_start_project_click", "results_project_fit_click"]) {
+    assertContains(results, eventName, `Results page should track safe CTA event ${eventName}`);
+    assertContains(trackedLink, eventName, `TrackedLink should type ${eventName}`);
   }
 });
 

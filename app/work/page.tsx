@@ -145,6 +145,12 @@ export default function WorkPage() {
             after the MVP direction is clear. MSW Application Review now includes a public-safe live mock-data dashboard demo.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-cyan-300/40 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyanGlow hover:text-slate-950"
+              href="/results"
+            >
+              View results and outcomes
+            </Link>
             <TrackedLink
               className="focus-ring inline-flex items-center justify-center bg-cyanGlow px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
               eventLabel="work_cardscope_live"

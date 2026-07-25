@@ -215,6 +215,12 @@ export default function AboutPage() {
             >
               Read the FAQ
             </Link>
+            <Link
+              className="focus-ring inline-flex min-h-11 items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyanGlow hover:text-white"
+              href="/results"
+            >
+              View results and outcomes
+            </Link>
           </div>
         </div>
       </section>

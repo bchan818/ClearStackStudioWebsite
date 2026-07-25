@@ -54,6 +54,31 @@ const packages = [
     liveHref: clearBloomLiveUrl
   },
   {
+    name: "AI-Powered Tool Package",
+    shortDescription:
+      "Turn an AI use case into a focused prototype with clear inputs, outputs, review steps, and responsible-use boundaries before production AI scope.",
+    bestFit:
+      "Teams exploring content assistance, prompt-based creator tools, review support, research workflows, or internal copilots that need validation before a live model integration.",
+    includes: [
+      "Use-case and workflow definition",
+      "Input or prompt interface",
+      "Structured output preview",
+      "Responsible-use and human-review boundaries"
+    ],
+    deliverables: [
+      "AI tool service page pattern",
+      "Prototype-only workflow",
+      "Mock output and review states",
+      "AI Fashion Model proof reference",
+      "Future production integration roadmap"
+    ],
+    price: "Starting at AI-tool-scope estimate",
+    cta: "Start an AI tool inquiry",
+    href: "/start",
+    detailsCta: "Explore AI-Powered Tool service",
+    detailsHref: "/services/ai-powered-tool"
+  },
+  {
     name: "Website/App Refresh Package",
     shortDescription:
       "Modernize an existing site or app experience so it is cleaner, faster, easier to navigate, and more conversion-focused.",
@@ -109,7 +134,7 @@ export function ServicePackages({ variant = "full" }: ServicePackagesProps) {
           ) : null}
         </div>
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 lg:grid-cols-4">
           {packages.map((servicePackage) => (
             <article
               className="flex h-full flex-col border border-white/10 bg-white/[0.04] p-6 shadow-glow/20 transition hover:border-cyan-300/40"

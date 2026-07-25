@@ -14,6 +14,7 @@ const requiredInternalRoutes = [
   "/project-fit",
   "/results",
   "/services",
+  "/services/ai-powered-tool",
   "/work",
   "/projects",
   "/studio-tools",
@@ -55,6 +56,7 @@ const expectedSeoPages = [
   ["app/project-fit/page.tsx", "Project Fit Assessment | ClearStack Studio", "Find out whether your idea is best suited for a product MVP, storefront, AI-powered tool, internal dashboard, or website and app refresh.", "/social/clearstack-default.png"],
   ["app/results/page.tsx", "Results & Outcomes | ClearStack Studio", "See what ClearStack Studio proof projects demonstrate across product MVPs, storefronts, AI prototypes, internal dashboards, and website refreshes.", "/social/clearstack-default.png"],
   ["app/services/page.tsx", "Services | ClearStack Studio", "Explore ClearStack Studio services for product MVPs, storefront MVPs, AI-powered prototypes, internal dashboards, and website or app refreshes.", "/social/services.png"],
+  ["app/services/ai-powered-tool/page.tsx", "AI-Powered Tool Development | ClearStack Studio", "Plan and prototype an AI-powered workflow with clear inputs, outputs, human review, responsible-use boundaries, and a future production roadmap.", "/social/services.png"],
   ["app/projects/page.tsx", "Proof Projects | ClearStack Studio", "Explore ClearStack Studio proof projects across software MVPs, storefronts, AI-assisted tools, and internal workflow dashboards.", "/social/projects.png"],
   ["app/work/page.tsx", "Work and Case Studies | ClearStack Studio", "See how ClearStack Studio turns product ideas, storefront concepts, AI workflows, and operational processes into focused digital prototypes.", "/social/projects.png"],
   ["app/start/page.tsx", "Start a Project | ClearStack Studio", "Tell ClearStack Studio what you want to launch and outline the first useful version of your product, storefront, dashboard, or website.", "/social/clearstack-default.png"],
@@ -300,6 +302,69 @@ test("AI Fashion Model proof routes explain workflow, CTAs, and responsible AI b
   for (const forbiddenClaim of ["Live AI image generation available", "commercially cleared", "rights are guaranteed"]) {
     assert.ok(!combined.includes(forbiddenClaim), `AI Fashion Model routes should not claim ${forbiddenClaim}`);
   }
+});
+
+test("AI-Powered Tool service page explains prototype scope, proof links, responsible AI, and safe analytics", () => {
+  const servicePage = readProjectFile("app/services/ai-powered-tool/page.tsx");
+  const servicesPage = readProjectFile("app/services/page.tsx");
+  const projectFitPage = readProjectFile("app/project-fit/page.tsx");
+  const homepage = readProjectFile("components/ServicePackages.tsx");
+  const footer = readProjectFile("components/Footer.tsx");
+  const aiFashionPage = readProjectFile("app/work/ai-fashion-model/page.tsx");
+  const aiFashionCaseStudy = readProjectFile("app/work/ai-fashion-model/case-study/page.tsx");
+  const sitemap = readProjectFile("app/sitemap.ts");
+  const trackedLink = readProjectFile("components/TrackedLink.tsx");
+  const linkedSources = `${servicesPage}\n${projectFitPage}\n${homepage}\n${footer}\n${aiFashionPage}\n${aiFashionCaseStudy}\n${sitemap}`;
+
+  for (const text of [
+    "AI-Powered Tool",
+    "Turn an AI idea into a focused, testable workflow.",
+    "ClearStack Studio helps teams define the user input, AI-assisted process, review experience, responsible-use boundaries, and future production architecture before investing in a full AI integration.",
+    "An AI prototype can validate the workflow and user experience without immediately connecting a production AI model.",
+    "Structured content assistance",
+    "Creative brief generation",
+    "Document summarization workflows",
+    "Define the use case",
+    "Map the workflow",
+    "Set responsible boundaries",
+    "Build the prototype",
+    "Test the experience",
+    "Plan production integration",
+    "Prototype-only",
+    "Live AI API integration",
+    "AI Fashion Model",
+    "AI-assisted creative workflow prototype",
+    "AI-assisted outputs should be reviewed by a qualified person before they are published, relied upon, or used to make consequential decisions.",
+    "Good fit",
+    "Poor fit",
+    "Take the Project Fit Assessment",
+    "Start with the workflow, not the model."
+  ]) {
+    assertContains(servicePage, text, `AI-Powered Tool service page should include ${text}`);
+  }
+
+  for (const route of ["/start", "/work/ai-fashion-model", "/work/ai-fashion-model/case-study", "/project-fit", "/services"]) {
+    assertContains(servicePage, `href="${route}"`, `AI-Powered Tool service page should link to ${route}`);
+  }
+
+  for (const eventName of ["ai_service_start_click", "ai_service_project_click", "ai_service_project_fit_click"]) {
+    assertContains(servicePage, eventName, `AI-Powered Tool service page should track safe CTA event ${eventName}`);
+    assertContains(trackedLink, eventName, `TrackedLink should type safe CTA event ${eventName}`);
+  }
+
+  for (const trackingKey of ["cta_location", "destination_route"]) {
+    assertContains(trackedLink, trackingKey, `TrackedLink should support allowed AI service analytics key ${trackingKey}`);
+  }
+
+  for (const forbiddenTrackingKey of ["prompt_contents", "project_description", "personal_information", "assessment_answers"]) {
+    assert.ok(!servicePage.includes(forbiddenTrackingKey), `AI service page should not track ${forbiddenTrackingKey}`);
+  }
+
+  for (const forbiddenClaim of ["live AI model is connected", "AI accuracy is guaranteed", "compliance guarantee", "commercial rights are guaranteed"]) {
+    assert.ok(!servicePage.includes(forbiddenClaim), `AI service page should not claim ${forbiddenClaim}`);
+  }
+
+  assertContains(linkedSources, "/services/ai-powered-tool", "Relevant public pages should link to /services/ai-powered-tool");
 });
 
 test("About page explains studio scope, proof projects, boundaries, and safe CTA analytics", () => {

@@ -43,6 +43,12 @@ export default function ProjectFitPage() {
             >
               View services
             </Link>
+            <Link
+              className="focus-ring inline-flex min-h-11 items-center justify-center border border-fuchsia-200/40 px-6 py-3 text-sm font-semibold text-fuchsia-100 transition hover:border-fuchsia-200 hover:text-white"
+              href="/services/ai-powered-tool"
+            >
+              Explore AI-Powered Tool service
+            </Link>
           </div>
           <p className="mt-6 max-w-3xl text-sm leading-6 text-amber-50">
             This assessment provides general project guidance only. Final service fit, scope, pricing, timeline, and technical approach are confirmed after project review.

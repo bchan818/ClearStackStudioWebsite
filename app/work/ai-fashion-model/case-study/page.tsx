@@ -264,6 +264,9 @@ export default function AiFashionModelCaseStudyPage() {
             >
               View services
             </TrackedLink>
+            <Link className="focus-ring inline-flex items-center justify-center border border-fuchsia-200/40 px-5 py-3 text-sm font-semibold text-fuchsia-100 transition hover:border-fuchsia-200 hover:text-white" href="/services/ai-powered-tool">
+              Explore AI-Powered Tool service
+            </Link>
             <Link className="focus-ring inline-flex items-center justify-center border border-white/15 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-200/60 hover:text-white" href="/projects">
               View projects
             </Link>

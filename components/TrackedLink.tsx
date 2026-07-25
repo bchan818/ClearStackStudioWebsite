@@ -26,7 +26,10 @@ type TrackingEventName =
   | "results_project_fit_click"
   | "ai_fashion_case_study_click"
   | "ai_fashion_start_project_click"
-  | "ai_fashion_view_services_click";
+  | "ai_fashion_view_services_click"
+  | "ai_service_start_click"
+  | "ai_service_project_click"
+  | "ai_service_project_fit_click";
 
 type TrackedLinkProps = ComponentProps<typeof Link> & {
   eventName: TrackingEventName;
@@ -48,12 +51,16 @@ export function TrackedLink({
   onClick,
   ...props
 }: TrackedLinkProps) {
+  const destinationRoute = typeof href === "string" ? href : href.toString();
+  const isAiServiceEvent = eventName.startsWith("ai_service_");
+
   return (
     <Link
       href={href}
       onClick={(event) => {
         track(eventName, {
-          label: eventLabel,
+          ...(isAiServiceEvent ? {} : { label: eventLabel }),
+          destination_route: destinationRoute,
           ...(ctaLocation ? { cta_location: ctaLocation } : {}),
           ...(projectSlug ? { project_slug: projectSlug } : {}),
           ...(projectType ? { project_type: projectType } : {}),

@@ -58,6 +58,12 @@ export function Footer() {
           >
             Services
           </Link>
+          <Link
+            className="focus-ring inline-flex min-h-11 items-center transition hover:text-white"
+            href="/services/ai-powered-tool"
+          >
+            AI-Powered Tool
+          </Link>
           <Link className="focus-ring inline-flex min-h-11 items-center transition hover:text-white" href="/work">
             Work
           </Link>

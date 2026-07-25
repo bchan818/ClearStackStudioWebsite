@@ -11,6 +11,7 @@ const routes = [
   "/project-fit",
   "/results",
   "/services",
+  "/services/ai-powered-tool",
   "/work",
   "/projects",
   "/studio-tools",

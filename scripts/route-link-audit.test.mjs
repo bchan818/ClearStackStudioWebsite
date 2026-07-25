@@ -63,8 +63,8 @@ const expectedSeoPages = [
   ["app/work/cardscope/case-study/page.tsx", "CardScope Case Study | ClearStack Studio", "See how ClearStack Studio shaped CardScope from product idea to live MVP, including scope, launch result, guardrails, and client-ready proof points.", "/social/cardscope.png"],
   ["app/work/clearbloom-beauty/page.tsx", "ClearBloom Beauty Storefront MVP | ClearStack Studio", "A premium beauty storefront prototype featuring product discovery, product pages, branding, and an inquiry-based checkout flow.", "/social/clearbloom-beauty.png"],
   ["app/work/clearbloom-beauty/case-study/page.tsx", "ClearBloom Beauty Case Study | ClearStack Studio", "See how ClearStack Studio shaped ClearBloom Beauty from perfume and cosmetics idea into a storefront MVP with products, bundles, order inquiry paths, and commerce guardrails.", "/social/clearbloom-beauty.png"],
-  ["app/work/ai-fashion-model/page.tsx", "AI Fashion Model Prototype | ClearStack Studio", "An AI-assisted fashion concept and visualization prototype exploring creative workflows for creators, retail, and product ideation.", "/social/ai-fashion-model.png"],
-  ["app/work/ai-fashion-model/case-study/page.tsx", "AI Fashion Model Case Study | ClearStack Studio", "See how ClearStack Studio positions AI Fashion Model as an AI-assisted creative and product visualization prototype with honest MVP guardrails.", "/social/ai-fashion-model.png"],
+  ["app/work/ai-fashion-model/page.tsx", "AI Fashion Model Prototype | ClearStack Studio", "Explore an AI-assisted fashion concept workflow for structured briefs, prompt planning, sample concepts, and responsible asset review.", "/social/ai-fashion-model.png"],
+  ["app/work/ai-fashion-model/case-study/page.tsx", "AI Fashion Model Case Study | ClearStack Studio", "See how ClearStack Studio shaped AI Fashion Model into a structured creative workflow prototype for fashion concepts, prompt planning, and responsible asset review.", "/social/ai-fashion-model.png"],
   ["app/work/msw-application-review/page.tsx", "MSW Application Review Demo | ClearStack Studio", "A public-safe mock application review dashboard demonstrating applicant tracking, reviewer workflows, assignments, and reporting.", "/social/msw-application-review.png"],
   ["app/work/msw-application-review/case-study/page.tsx", "MSW Application Review Case Study | ClearStack Studio", "Case study for MSW Application Review, a live mock-data internal workflow dashboard demo with privacy-safe boundaries.", "/social/msw-application-review.png"]
 ];
@@ -243,6 +243,62 @@ test("project card source includes required proof project routes", () => {
 
   for (const route of requiredProjectLinks) {
     assertContains(projectSources, route, `Project cards and proof sections should include ${route}`);
+  }
+});
+
+test("AI Fashion Model proof routes explain workflow, CTAs, and responsible AI boundaries", () => {
+  const proofPage = readProjectFile("app/work/ai-fashion-model/page.tsx");
+  const caseStudy = readProjectFile("app/work/ai-fashion-model/case-study/page.tsx");
+  const trackedLink = readProjectFile("components/TrackedLink.tsx");
+  const combined = `${proofPage}\n${caseStudy}`;
+
+  for (const text of [
+    "Plan AI-assisted fashion concepts before connecting a production workflow.",
+    "fashion brands, creators, beauty teams, and marketing teams",
+    "Select campaign type",
+    "Define visual direction",
+    "Choose styling and setting",
+    "Build a structured prompt",
+    "Review a sample concept",
+    "Prepare assets for human approval",
+    "Prompt-builder preview",
+    "This proof project generates a structured creative brief only. No live AI image-generation service is connected.",
+    "Luxury studio portrait",
+    "Resort campaign",
+    "Streetwear editorial",
+    "Minimal beauty story",
+    "Futuristic runway",
+    "Prototype concepts should not be treated as cleared commercial assets. Rights, platform terms, disclosures, likeness permissions, and brand approvals must be reviewed before publication."
+  ]) {
+    assertContains(proofPage, text, `AI Fashion Model page should include ${text}`);
+  }
+
+  for (const text of [
+    "Problem",
+    "Audience",
+    "Prototype goal",
+    "Workflow",
+    "Key screens",
+    "Responsible AI boundaries",
+    "What the prototype proves",
+    "Future production roadmap",
+    "Lessons learned",
+    "Start a similar project"
+  ]) {
+    assertContains(caseStudy, text, `AI Fashion Model case study should include ${text}`);
+  }
+
+  for (const route of ["/services", "/projects", "/work", "/start", "/work/ai-fashion-model/case-study"]) {
+    assertContains(combined, `href="${route}"`, `AI Fashion Model routes should link to ${route}`);
+  }
+
+  for (const eventName of ["ai_fashion_case_study_click", "ai_fashion_start_project_click", "ai_fashion_view_services_click"]) {
+    assertContains(combined, eventName, `AI Fashion Model routes should use safe CTA analytics event ${eventName}`);
+    assertContains(trackedLink, eventName, `TrackedLink should type safe CTA event ${eventName}`);
+  }
+
+  for (const forbiddenClaim of ["Live AI image generation available", "commercially cleared", "rights are guaranteed"]) {
+    assert.ok(!combined.includes(forbiddenClaim), `AI Fashion Model routes should not claim ${forbiddenClaim}`);
   }
 });
 

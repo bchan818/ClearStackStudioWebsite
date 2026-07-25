@@ -76,32 +76,32 @@ const projectPaths = [
 
 const nextSteps = [
   {
-    title: "Clarify the idea",
-    text: "Start with the goal, audience, current materials, and the problem the first version needs to solve."
+    title: "Confirm fit",
+    text: "ClearStack reviews the project type, service needs, timeline, and constraints to see whether the first version is a practical fit."
   },
   {
-    title: "Define the first version",
-    text: "Cut the idea down to the smallest useful scope that can be built, shown, and improved."
+    title: "Clarify scope",
+    text: "The next conversation narrows the goal, audience, required materials, and the smallest useful version before a proposal or scope document."
   },
   {
-    title: "Build the core experience",
-    text: "Create the page, prototype, storefront, tool, dashboard, or workflow surface with honest MVP boundaries."
+    title: "Plan the build path",
+    text: "If the project is a fit, ClearStack outlines the likely pages, workflows, dependencies, review points, and launch standards."
   },
   {
-    title: "Launch and improve",
-    text: "Deploy the static or MVP experience, verify the key routes, then use feedback to decide the next upgrade."
+    title: "Decide the next step",
+    text: "An inquiry is not a contract. Work begins only after scope, pricing, timeline, deliverables, and responsibilities are confirmed."
   }
 ];
 
 const inquiryDetails = [
-  "Name and email",
+  "Contact name, email, company, and optional phone",
   "Project type",
+  "Services needed",
   "Goal",
-  "Audience/users",
-  "Must-have features",
-  "Timeline",
-  "Budget range",
-  "Existing links or references",
+  "Requirements and challenges",
+  "Desired timeline or launch date",
+  "Estimated budget range",
+  "Existing website and reference links",
   "Confirmation that you will email or copy the summary manually"
 ];
 
@@ -133,10 +133,13 @@ export default function StartPage() {
             Start a Project
           </p>
           <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Start with the right first version.
+            Start Your Project
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Tell ClearStack Studio what you’re trying to launch, then turn the details into a prefilled email or copyable project summary. This page stays static: no backend submission occurs.
+            ClearStack Studio helps founders, creators, small businesses, product brands, and teams turn focused digital ideas into launch-ready first versions.
+          </p>
+          <p className="mt-4 max-w-3xl text-base leading-7 text-slate-400">
+            Use this intake funnel to outline the project, choose the closest service path, and generate a prefilled email or copyable summary. This page stays static: no backend submission occurs.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <TrackedLink
@@ -149,9 +152,27 @@ export default function StartPage() {
             </TrackedLink>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+              href="/how-we-work"
+            >
+              See how we work
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+              href="/services"
+            >
+              View services
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
               href="/projects"
             >
               Compare proof projects
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+              href="/faq"
+            >
+              Read the FAQ
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
@@ -170,7 +191,10 @@ export default function StartPage() {
 
         <div className="border border-white/10 bg-white/[0.04] p-6 shadow-glow sm:p-8">
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-emeraldLift">
-            What ClearStack can build
+            Find the closest service path
+          </p>
+          <p className="mt-4 text-sm leading-6 text-slate-300">
+            Start with the category that best matches your idea. The inquiry workflow below can still capture mixed or uncertain projects.
           </p>
           <div className="mt-6 grid gap-3">
             {projectPaths.map((path) => (
@@ -260,11 +284,14 @@ export default function StartPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:px-8">
         <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">
-          What happens next
+          What happens after you send the inquiry
         </p>
         <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          A simple process from rough idea to useful first version.
+          A practical follow-up path from first message to scoped next step.
         </h2>
+        <p className="mt-5 max-w-3xl text-sm leading-6 text-slate-300 sm:text-base">
+          ClearStack does not receive anything automatically from the page. Once you send the email yourself, the first reply focuses on fit, missing information, and whether the project should move into discovery and scope confirmation.
+        </p>
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {nextSteps.map((step, index) => (
             <article className="border border-white/10 bg-white/[0.04] p-5" key={step.title}>
@@ -286,7 +313,7 @@ export default function StartPage() {
               Send enough context for a useful first reply.
             </h2>
             <p className="mt-5 text-sm leading-6 text-slate-300 sm:text-base">
-              No connected form, database, account, payment system, API, or environment variable is used. Use the static workflow above to open a prefilled email or copy the summary manually.
+              No connected form, database, account, payment system, API, or environment variable is used. Use the static workflow above to open a prefilled email or copy the summary manually. Do not include passwords, API keys, payment details, or private records.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -318,9 +345,21 @@ export default function StartPage() {
             </TrackedLink>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+              href="/how-we-work"
+            >
+              See how we work
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
               href="/projects"
             >
               Compare proof projects
+            </Link>
+            <Link
+              className="focus-ring inline-flex items-center justify-center border border-white/15 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
+              href="/faq"
+            >
+              Read the FAQ
             </Link>
             <Link
               className="focus-ring inline-flex items-center justify-center border border-emerald-300/40 px-6 py-3 text-sm font-semibold text-emerald-100 transition hover:bg-emeraldLift hover:text-slate-950"

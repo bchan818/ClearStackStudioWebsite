@@ -638,18 +638,46 @@ test("Results page explains proof-project outcomes, guardrails, and safe analyti
 });
 
 test("Start inquiry workflow keeps form controls labeled and copy status announced", () => {
+  const startPage = readProjectFile("app/start/page.tsx");
   const startWorkflow = readProjectFile("components/StartInquiryWorkflow.tsx");
 
-  for (const fieldName of ["name", "email", "projectType", "timeline", "projectGoal", "audience", "mustHaveFeatures", "budgetRange", "existingLink"]) {
+  for (const text of [
+    "Start Your Project",
+    "ClearStack Studio helps founders, creators, small businesses, product brands, and teams turn focused digital ideas into launch-ready first versions.",
+    "What happens after you send the inquiry",
+    "No backend submission occurs",
+    "The email is not sent until you review and send it from your own email app.",
+    "Most inquiries receive a first reply within 1-2 business days when enough project context is included."
+  ]) {
+    assertContains(`${startPage}\n${startWorkflow}`, text, `/start should include ${text}`);
+  }
+
+  for (const route of ["/how-we-work", "/services", "/projects", "/faq"]) {
+    assertContains(startPage, `href="${route}"`, `/start should link to ${route}`);
+  }
+
+  for (const fieldName of ["contactName", "email", "company", "phone", "projectType", "servicesNeeded", "budgetRange", "timeline", "launchDate", "projectGoals", "requirements", "challenges", "existingWebsite", "referenceLink"]) {
     assertContains(startWorkflow, `name=\"${fieldName}\"`, `Start inquiry field ${fieldName} should exist`);
   }
 
-  for (const label of ["Name", "Email", "Project type", "Timeline", "Project goal", "Audience", "Must-have features", "Budget range", "Optional existing link"]) {
+  for (const label of ["Contact name", "Email", "Company", "Optional phone", "Project type", "Services needed", "Estimated budget range", "Desired timeline", "Desired launch date", "Project goals", "Requirements", "Challenges", "Existing website", "Optional reference link"]) {
     assertContains(startWorkflow, label, `Start inquiry should include visible label text: ${label}`);
+  }
+
+  for (const accessibilityToken of ["aria-invalid", "aria-errormessage", "aria-describedby", "required", "role=\"alert\"", "role=\"status\""]) {
+    assertContains(startWorkflow, accessibilityToken, `Start inquiry workflow should include ${accessibilityToken}`);
+  }
+
+  for (const stateText of ["Preparing email", "Ready to review", "Fix the highlighted fields", "Email draft opened", "Could not open your email app", "Copied", "Copy failed"]) {
+    assertContains(startWorkflow, stateText, `Start inquiry workflow should include state ${stateText}`);
   }
 
   assertContains(startWorkflow, "inquiry-form-help", "Start inquiry form should expose helper/safety text");
   assertContains(startWorkflow, "role=\"status\"", "Copy confirmation should be announced through a live status region");
+
+  for (const forbidden of ["fetch(", "axios", "/api/", "Formspree", "formspree", "process.env", "payment_intent", "createClient("]) {
+    assert.ok(!startWorkflow.includes(forbidden), `Start inquiry workflow should not introduce ${forbidden}`);
+  }
 });
 
 test("SEO metadata uses canonical ClearStack branding and social preview images", () => {

@@ -1,18 +1,23 @@
 import { TrackedLink } from "@/components/TrackedLink";
-import { cardScopeLiveUrl, clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
+import { requireProductBySlug } from "@/lib/products";
+import { mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
+
+const cardScopeProduct = requireProductBySlug("cardscope");
+const clearBloomProduct = requireProductBySlug("clearbloom-beauty");
+const roamTheCitiesProduct = requireProductBySlug("roamthecities");
+const sportsPredictorProduct = requireProductBySlug("sports-predictor");
 
 const projects = [
   {
     eyebrow: "Featured Product",
     badge: "Live MVP",
     title: "CardScope by ClearStack Studio",
-    slug: "cardscope",
-    description:
-      "A live MVP for card search, collection tracking, and Pro-style product validation, built for collectors who want faster pricing and cleaner organization.",
+    slug: cardScopeProduct.slug,
+    description: cardScopeProduct.description,
     tags: ["MVP software", "Collection tracker", "Pro preview"],
-    href: cardScopeLiveUrl,
+    href: cardScopeProduct.liveUrl,
     cta: "View CardScope",
-    caseStudyHref: "/work/cardscope/case-study",
+    caseStudyHref: cardScopeProduct.caseStudyPath,
     accent: "cyan",
     previewLabel: "Estimated value",
     previewTitle: "$42.80",
@@ -22,18 +27,49 @@ const projects = [
     eyebrow: "Storefront MVP",
     badge: "Inquiry-based",
     title: "ClearBloom Beauty storefront",
-    slug: "clearbloom-beauty",
-    description:
-      "A fictional premium perfume and cosmetics storefront proof with catalog pages, product detail pages, policies, inquiry checkout, and a future ecommerce upgrade path.",
+    slug: clearBloomProduct.slug,
+    description: clearBloomProduct.description,
     tags: ["Storefront MVP", "Product drops", "No live checkout"],
-    href: clearBloomLiveUrl,
+    href: clearBloomProduct.liveUrl,
     cta: "View live storefront demo",
-    caseStudyHref: "/work/clearbloom-beauty/case-study",
+    caseStudyHref: clearBloomProduct.caseStudyPath,
     caseStudyCta: "Read case study",
     accent: "rose",
     previewLabel: "Signature Drop",
     previewTitle: "Velvet Bloom",
     previewText: "Premium catalog, bundles, policies, and inquiry checkout."
+  },
+  {
+    eyebrow: "Travel Platform",
+    badge: "ClearStack-operated",
+    title: roamTheCitiesProduct.name,
+    slug: roamTheCitiesProduct.slug,
+    description: roamTheCitiesProduct.description,
+    tags: ["Travel Platform", "Trip planning", "Discovery"],
+    href: roamTheCitiesProduct.liveUrl,
+    cta: "Visit RoamTheCities",
+    caseStudyHref: roamTheCitiesProduct.caseStudyPath,
+    caseStudyCta: "View case study",
+    accent: "sky",
+    previewLabel: "Travel planning",
+    previewTitle: "Trips, discovery, and recommendations",
+    previewText: "Web and mobile product foundations for destination planning."
+  },
+  {
+    eyebrow: "Forecasting product",
+    badge: "Prospective MVP",
+    title: sportsPredictorProduct.name,
+    slug: sportsPredictorProduct.slug,
+    description: sportsPredictorProduct.description,
+    tags: ["Leakage-safe modeling", "Immutable forecasts", "Next.js"],
+    href: sportsPredictorProduct.liveUrl,
+    cta: "Open live predictor",
+    caseStudyHref: sportsPredictorProduct.caseStudyPath,
+    caseStudyCta: "View product case study",
+    accent: "cyan",
+    previewLabel: "Week 1 forecast",
+    previewTitle: "16 immutable predictions",
+    previewText: "Champion probabilities, projected scores, and checksum-verified artifacts."
   },
   {
     eyebrow: "AI-powered tool",
@@ -105,6 +141,15 @@ const accentStyles = {
     preview: "border-emerald-300/20 bg-gradient-to-br from-emerald-300/20 via-slate-950 to-cyan-300/20",
     button: "bg-cyanGlow text-slate-950 hover:bg-emeraldLift",
     secondary: "border-emerald-300/40 text-emerald-100 hover:border-emerald-300 hover:text-white"
+  },
+  sky: {
+    article: "border-sky-200/20 bg-sky-200/[0.04] shadow-[0_0_80px_rgba(56,189,248,0.1)]",
+    text: "text-sky-200",
+    badge: "border-sky-200/40 bg-sky-200/[0.1] text-sky-100",
+    tag: "border-sky-200/30 bg-sky-200/[0.08] text-sky-100",
+    preview: "border-sky-200/20 bg-gradient-to-br from-sky-300/20 via-slate-950 to-emerald-300/20",
+    button: "bg-cyanGlow text-slate-950 hover:bg-emeraldLift",
+    secondary: "border-sky-200/40 text-sky-100 hover:border-sky-200 hover:text-white"
   }
 };
 
@@ -176,17 +221,23 @@ export function FeaturedProduct() {
                       </div>
                     </div>
                     <div className="mt-6 flex flex-wrap gap-3">
-                      <TrackedLink
-                        className={`focus-ring inline-flex w-fit items-center justify-center px-5 py-3 text-sm font-semibold transition ${styles.button}`}
-                        ctaLocation="featured_work_card"
-                        eventLabel={`featured_work_${project.slug}_primary`}
-                        eventName={project.href === project.caseStudyHref ? "case_study_click" : project.href.startsWith("http") ? "live_demo_click" : "case_study_click"}
-                        href={project.href}
-                        projectSlug={project.slug}
-                        projectType={project.eyebrow}
-                      >
-                        {project.cta}
-                      </TrackedLink>
+                      {project.href ? (
+                        <TrackedLink
+                          className={`focus-ring inline-flex w-fit items-center justify-center px-5 py-3 text-sm font-semibold transition ${styles.button}`}
+                          ctaLocation="featured_work_card"
+                          eventLabel={`featured_work_${project.slug}_primary`}
+                          eventName={project.href === project.caseStudyHref ? "case_study_click" : project.href.startsWith("http") ? "live_demo_click" : "case_study_click"}
+                          href={project.href}
+                          projectSlug={project.slug}
+                          projectType={project.eyebrow}
+                        >
+                          {project.cta}
+                        </TrackedLink>
+                      ) : (
+                        <span className="inline-flex w-fit items-center justify-center border border-white/15 px-5 py-3 text-sm font-semibold text-slate-300">
+                          Website coming soon
+                        </span>
+                      )}
                       <TrackedLink
                         className={`focus-ring inline-flex w-fit items-center justify-center border px-5 py-3 text-sm font-semibold transition ${styles.secondary}`}
                         ctaLocation="featured_work_card"

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TrackedLink } from "@/components/TrackedLink";
+import { requireProductBySlug } from "@/lib/products";
 import { createSeoMetadata, socialImages } from "@/lib/seo";
-import { cardScopeLiveUrl, clearBloomLiveUrl, mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
+import { mswApplicationReviewDemoUrl } from "@/lib/siteLinks";
 
 export const metadata: Metadata = createSeoMetadata({
   title: "ClearStack Studio | From idea to app",
@@ -64,28 +65,43 @@ const services = [
   }
 ];
 
+const cardScopeProduct = requireProductBySlug("cardscope");
+const clearBloomProduct = requireProductBySlug("clearbloom-beauty");
+const roamTheCitiesProduct = requireProductBySlug("roamthecities");
+
 const proofProjects = [
   {
-    name: "CardScope",
-    category: "Product MVP",
+    name: cardScopeProduct.name,
+    category: cardScopeProduct.category,
     status: "Live MVP",
-    description: "A card search and collection tracking MVP built to validate core product workflows and future Pro concepts.",
+    description: cardScopeProduct.description,
     proves: "Focused MVP scoping, usable product screens, mock pricing workflows, and a practical growth roadmap.",
     relatedService: "Product MVP",
-    liveHref: cardScopeLiveUrl,
-    caseStudyHref: "/work/cardscope/case-study",
-    slug: "cardscope"
+    liveHref: cardScopeProduct.liveUrl,
+    caseStudyHref: cardScopeProduct.caseStudyPath,
+    slug: cardScopeProduct.slug
   },
   {
-    name: "ClearBloom Beauty",
-    category: "Storefront MVP",
+    name: clearBloomProduct.name,
+    category: clearBloomProduct.category,
     status: "Live storefront demo",
-    description: "A premium perfume and cosmetics storefront proof with catalog pages, product detail pages, policy pages, and inquiry checkout.",
+    description: clearBloomProduct.description,
     proves: "Storefront positioning, product storytelling, responsive catalog design, and honest no-payment MVP boundaries.",
     relatedService: "Storefront MVP",
-    liveHref: clearBloomLiveUrl,
-    caseStudyHref: "/work/clearbloom-beauty/case-study",
-    slug: "clearbloom-beauty"
+    liveHref: clearBloomProduct.liveUrl,
+    caseStudyHref: clearBloomProduct.caseStudyPath,
+    slug: clearBloomProduct.slug
+  },
+  {
+    name: roamTheCitiesProduct.name,
+    category: roamTheCitiesProduct.category,
+    status: "ClearStack-operated product",
+    description: roamTheCitiesProduct.description,
+    proves: "Mobile/web product architecture, trip planning, discovery workflows, affiliate attribution, analytics, feature flags, and operational monitoring foundations.",
+    relatedService: "Product MVP",
+    liveHref: roamTheCitiesProduct.liveUrl,
+    caseStudyHref: roamTheCitiesProduct.caseStudyPath,
+    slug: roamTheCitiesProduct.slug
   },
   {
     name: "AI Fashion Model",
@@ -271,17 +287,23 @@ export default function Home() {
                 <p className="mt-2 text-sm leading-6 text-slate-300">{project.proves}</p>
                 <p className="mt-5 text-sm text-emerald-100">Related service: {project.relatedService}</p>
                 <div className="mt-auto flex flex-wrap gap-3 pt-6">
-                  <TrackedLink
-                    className="focus-ring inline-flex min-h-11 items-center justify-center bg-cyanGlow px-5 py-3 text-center text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
-                    ctaLocation="homepage_proof_project"
-                    eventLabel={`homepage_${project.slug}_live_demo`}
-                    eventName={project.liveHref.startsWith("http") ? "live_demo_click" : "case_study_click"}
-                    href={project.liveHref}
-                    projectSlug={project.slug}
-                    projectType={project.category}
-                  >
-                    View {project.name} demo
-                  </TrackedLink>
+                  {project.liveHref ? (
+                    <TrackedLink
+                      className="focus-ring inline-flex min-h-11 items-center justify-center bg-cyanGlow px-5 py-3 text-center text-sm font-semibold text-slate-950 transition hover:bg-emeraldLift"
+                      ctaLocation="homepage_proof_project"
+                      eventLabel={`homepage_${project.slug}_live_demo`}
+                      eventName={project.liveHref.startsWith("http") ? "live_demo_click" : "case_study_click"}
+                      href={project.liveHref}
+                      projectSlug={project.slug}
+                      projectType={project.category}
+                    >
+                      View {project.name} demo
+                    </TrackedLink>
+                  ) : (
+                    <span className="inline-flex min-h-11 items-center justify-center border border-white/15 px-5 py-3 text-center text-sm font-semibold text-slate-300">
+                      Website coming soon
+                    </span>
+                  )}
                   <TrackedLink
                     className="focus-ring inline-flex min-h-11 items-center justify-center border border-white/15 px-5 py-3 text-center text-sm font-semibold text-slate-100 transition hover:border-cyan-300/50 hover:text-white"
                     ctaLocation="homepage_proof_project"
@@ -297,6 +319,26 @@ export default function Home() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-slateInk py-16 sm:py-20">
+        <div className="mx-auto grid max-w-6xl gap-6 px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyanGlow">Products</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Explore ClearStack Studio products
+            </h2>
+            <p className="mt-4 text-sm leading-6 text-slate-300 sm:text-base">
+              Products are digital products built and operated by ClearStack Studio. Projects remain the broader portfolio of proof work, internal builds, and case studies.
+            </p>
+          </div>
+          <Link
+            className="focus-ring inline-flex min-h-11 items-center justify-center border border-cyan-300/40 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyanGlow hover:text-slate-950"
+            href="/products"
+          >
+            View products
+          </Link>
         </div>
       </section>
 
